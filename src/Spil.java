@@ -14,7 +14,7 @@ public class Spil {
 	GUI_Field[] f = new GUI_Field[1];
 	f[0] = g;
 	new GUI(f);
-	gui.showMessage("test");
+	gui.showMessage("test"); 
 	
 	}
 
