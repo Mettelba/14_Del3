@@ -70,7 +70,7 @@ public class TerningTest {
 		int expected = 8;
 		int actual = terning.hentSider();
 		assertEquals("sætSider virker ikke", expected, actual);
-	} 
+	}  
 
 	@Test
 	public void testSætøjne() {

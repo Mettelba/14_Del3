@@ -36,7 +36,7 @@ public class Terning {
 	public void sætØjne(int øjne) {
 		this.øjne = øjne;
 	}
-	
+	 
 	public String toString() {
 		String returstreng;
 		int øjne;
