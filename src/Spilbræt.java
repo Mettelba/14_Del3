@@ -5,7 +5,9 @@ import gui_main.GUI;
 import Felter.*;
 
 public class Spilbræt {
-
+	
+	private GUI gui = new GUI();
+	private GUI_Field[] f = new GUI_Field[24];
 	private Felt[] felter = new Felt[24];	
 	
 	public Spilbræt() {
@@ -13,8 +15,7 @@ public class Spilbræt {
 	}
 
 	private void initializeFields() {	
-		GUI gui = new GUI();
-		GUI_Field[] f = new GUI_Field[24];
+
 				
 		felter[0] = new StartFelt(0, 1, 1, 8, "Spiller0", "Turkis", "START!", 2);
 		GUI_Field a= new GUI_Street();
@@ -37,19 +38,19 @@ public class Spilbræt {
 		felter[3] = new TogFelt(3, 1, 1, 2, "Spiller0", "yellow", "Du får en ekstra tur");
 		GUI_Field d= new GUI_Street();
 		d.setTitle(felter[3].hentFeltTekst());
-		d.setBackGroundColor(Color.blue);
+		d.setBackGroundColor(Color.pink);
 		f[3] = d;
 		
 		felter[4] = new NormalFelt(4, 2, 1, 1, "Spiller0", "yellow", "Dukkeforestillingen", 5);
 		GUI_Field e= new GUI_Street();
 		e.setTitle(felter[4].hentFeltTekst());
-		e.setBackGroundColor(Color.blue);
+		e.setBackGroundColor(Color.gray);
 		f[4] = e;
 		
 		felter[5] = new NormalFelt(5, 2, 1, 1, "Spiller0", "yellow", "Trylleshowet", 6);
 		GUI_Field g= new GUI_Street();
 		g.setTitle(felter[5].hentFeltTekst());
-		g.setBackGroundColor(Color.blue);
+		g.setBackGroundColor(Color.gray);
 		f[5] = g;
 		
 		felter[6] = new FyrværkeriEllerDelfinerFelt(6, 1, 1, 7, "Spiller0", "yellow", "Fyrværkeri", 2);
@@ -82,7 +83,7 @@ public class Spilbræt {
 		l.setBackGroundColor(Color.blue);
 		f[10] = l;
 		
-		felter[11] = new NormalFelt(11 1, 1, 1, "Spiller0", "yellow", "Spillehallen", 10);
+		felter[11] = new NormalFelt(11, 1, 1, 1, "Spiller0", "yellow", "Spillehallen", 10);
 		GUI_Field m= new GUI_Street();
 		m.setTitle(felter[11].hentFeltTekst());
 		m.setBackGroundColor(Color.blue);
@@ -100,7 +101,7 @@ public class Spilbræt {
 		o.setBackGroundColor(Color.blue);
 		f[13] = o;
 		
-		felter[14] = new NormalFelt(14 1, 1, 1, "Spiller0", "yellow", "Zoologisk have", 13);
+		felter[14] = new NormalFelt(14, 1, 1, 1, "Spiller0", "yellow", "Zoologisk have", 13);
 		GUI_Field p= new GUI_Street();
 		p.setTitle(felter[14].hentFeltTekst());
 		p.setBackGroundColor(Color.blue);
@@ -160,6 +161,8 @@ public class Spilbræt {
 		y.setBackGroundColor(Color.blue);
 		f[23] = y;
 		
+		new GUI(f);
+		gui.showMessage("test"); 
 	}
 	
 	public void opretSpilleBrætIGUI() {
@@ -167,16 +170,12 @@ public class Spilbræt {
 		
 	}
 	
-	public GUI hentSpilleBræt() {
+	public void hentSpilleBræt() {
+
 
 		
-
-		
-		GUI_Field[] f = new GUI_Field[1];
-		f[0] = g;
-		new GUI(f);
-		gui.showMessage("test");
-		return gui;
+//		gui.showMessage("test");
+//		return gui;
 	}
 
 	public int hentType (int position) {
