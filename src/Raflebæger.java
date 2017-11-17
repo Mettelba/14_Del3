@@ -13,7 +13,7 @@ public class Raflebæger {
 		terning1 = new Terning(this.antalsider);	
 	}
 
-
+ 
 	public int hentAntalsider() {
 		return antalsider;
 	}

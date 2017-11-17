@@ -18,7 +18,7 @@ public class Terning {
 	}
 	
 	
-	public int hentøjne() {
+	public int hentøjne() { 
 		return øjne;
 	}
 
