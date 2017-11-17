@@ -22,7 +22,7 @@ public class Spiller {
 		if (konto.checkMinus(værdi)==true) {
 			bankerot = true;
 		} else {
-			String spiltekst = konto.indsæt(værdi);
+			konto.indsæt(værdi);
 		}
 	}
 
@@ -30,7 +30,7 @@ public class Spiller {
 		return this.bankerot;
 	}
 
-	public int indestæendeSpillerKonto() {
+	public int indeståendeSpillerKonto() {
 		return konto.hentVærdi();
 	}
 
@@ -38,9 +38,11 @@ public class Spiller {
 		konto.sætVærdi(værdi);
 	}
 
-	public void hævKontoVærdi(int værdi) {
-		konto.hæv(værdi);
+	public boolean hævKontoVærdi(int værdi) {
+		return konto.hæv(værdi);
 	}
+	
+	
 	public String toString() {
 		String returstreng;
 		String navn = " ";

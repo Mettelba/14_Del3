@@ -6,7 +6,7 @@ import Felter.*;
 
 public class Spilbræt {
 	
-	private GUI gui = new GUI();
+	
 	private GUI_Field[] f = new GUI_Field[24];
 	private Felt[] felter = new Felt[24];	
 	
@@ -56,113 +56,113 @@ public class Spilbræt {
 		felter[6] = new FyrværkeriEllerDelfinerFelt(6, 1, 1, 7, "Spiller0", "yellow", "Fyrværkeri", 2);
 		GUI_Field h= new GUI_Street();
 		h.setTitle(felter[6].hentFeltTekst());
-		h.setBackGroundColor(Color.blue);
+		h.setBackGroundColor(Color.pink);
 		f[6] = h;
 		
 		felter[7] = new NormalFelt(7, 1, 1, 1, "Spiller0", "yellow", "Teater", 8);
 		GUI_Field i= new GUI_Street();
 		i.setTitle(felter[7].hentFeltTekst());
-		i.setBackGroundColor(Color.blue);
+		i.setBackGroundColor(Color.red);
 		f[7] = i;
 		
 		felter[8] = new NormalFelt(8, 1, 1, 1, "Spiller0", "yellow", "Legetøjsbutikken", 7);
 		GUI_Field j= new GUI_Street();
 		j.setTitle(felter[8].hentFeltTekst());
-		j.setBackGroundColor(Color.blue);
+		j.setBackGroundColor(Color.red);
 		f[8] = j;
 		
 		felter[9] = new CafeFelt(9, 1, 1, 5, "Spiller0", "yellow", "Du går på cafe", 3);
 		GUI_Field k= new GUI_Street();
 		k.setTitle(felter[9].hentFeltTekst());
-		k.setBackGroundColor(Color.blue);
+		k.setBackGroundColor(Color.pink);
 		f[9] = k;
 		
 		felter[10] = new NormalFelt(10, 1, 1, 1, "Spiller0", "yellow", "Biografen", 11);
 		GUI_Field l= new GUI_Street();
 		l.setTitle(felter[10].hentFeltTekst());
-		l.setBackGroundColor(Color.blue);
+		l.setBackGroundColor(Color.white);
 		f[10] = l;
 		
 		felter[11] = new NormalFelt(11, 1, 1, 1, "Spiller0", "yellow", "Spillehallen", 10);
 		GUI_Field m= new GUI_Street();
 		m.setTitle(felter[11].hentFeltTekst());
-		m.setBackGroundColor(Color.blue);
+		m.setBackGroundColor(Color.white);
 		f[11] = m;
 		
 		felter[12] = new OnkelMangePengeFelt(12, 1, 1, 1, "Spiller0", "yellow", "Onkel Mangepenge", 2);
 		GUI_Field n= new GUI_Street();
 		n.setTitle(felter[12].hentFeltTekst());
-		n.setBackGroundColor(Color.blue);
+		n.setBackGroundColor(Color.pink);
 		f[12] = n;
 		
 		felter[13] = new NormalFelt(13, 1, 1, 1, "Spiller0", "yellow", "Bowlinghallen", 14);
 		GUI_Field o= new GUI_Street();
 		o.setTitle(felter[13].hentFeltTekst());
-		o.setBackGroundColor(Color.blue);
+		o.setBackGroundColor(Color.yellow);
 		f[13] = o;
 		
 		felter[14] = new NormalFelt(14, 1, 1, 1, "Spiller0", "yellow", "Zoologisk have", 13);
 		GUI_Field p= new GUI_Street();
 		p.setTitle(felter[14].hentFeltTekst());
-		p.setBackGroundColor(Color.blue);
+		p.setBackGroundColor(Color.yellow);
 		f[14] = p;
 		
 		felter[15] = new TogFelt(15, 1, 1, 2, "Spiller0", "yellow", "Du får en ekstra tur");
 		GUI_Field q= new GUI_Street();
 		q.setTitle(felter[15].hentFeltTekst());
-		q.setBackGroundColor(Color.blue);
+		q.setBackGroundColor(Color.pink);
 		f[15] = q;
 		
 		felter[16] = new NormalFelt(16, 1, 1, 1, "Spiller0", "yellow", "Vandlandet", 17);
 		GUI_Field r= new GUI_Street();
 		r.setTitle(felter[16].hentFeltTekst());
-		r.setBackGroundColor(Color.blue);
+		r.setBackGroundColor(Color.orange);
 		f[16] = r;
 		
 		felter[17] = new NormalFelt(17, 1, 1, 1, "Spiller0", "yellow", "Strandpromenaden", 16);
 		GUI_Field s= new GUI_Street();
 		s.setTitle(felter[17].hentFeltTekst());
-		s.setBackGroundColor(Color.blue);
+		s.setBackGroundColor(Color.orange);
 		f[17] = s;
 		
 		felter[18] = new FyrværkeriEllerDelfinerFelt(18, 1, 1, 7, "Spiller0", "yellow", "Delfiner", 2);
 		GUI_Field t= new GUI_Street();
 		t.setTitle(felter[18].hentFeltTekst());
-		t.setBackGroundColor(Color.blue);
+		t.setBackGroundColor(Color.pink);
 		f[18] = t;
 		
 		felter[19] = new NormalFelt(19, 1, 1, 1, "Spiller0", "yellow", "Pizzaria", 20);
 		GUI_Field u= new GUI_Street();
 		u.setTitle(felter[19].hentFeltTekst());
-		u.setBackGroundColor(Color.blue);
+		u.setBackGroundColor(Color.cyan);
 		f[19] = u;
 		
 		felter[20] = new NormalFelt(20, 1, 1, 1, "Spiller0", "yellow", "Burgerbaren", 19);
 		GUI_Field v= new GUI_Street();
 		v.setTitle(felter[20].hentFeltTekst());
-		v.setBackGroundColor(Color.blue);
+		v.setBackGroundColor(Color.cyan);
 		f[20] = v;
 		
 		felter[21] = new GåTilCafeFelt(21, 1, 1, 7, "Spiller0", "yellow", "Delfiner", 10);
 		GUI_Field w= new GUI_Street();
 		w.setTitle(felter[21].hentFeltTekst());
-		w.setBackGroundColor(Color.blue);
+		w.setBackGroundColor(Color.pink);
 		f[21] = w;
 		
 		felter[22] = new NormalFelt(22, 1, 1, 1, "Spiller0", "yellow", "Slikbutikken", 23);
 		GUI_Field x= new GUI_Street();
 		x.setTitle(felter[22].hentFeltTekst());
-		x.setBackGroundColor(Color.blue);
+		x.setBackGroundColor(Color.magenta);
 		f[22] = x;
 		
 		felter[23] = new NormalFelt(23, 1, 1, 1, "Spiller0", "yellow", "Isboden", 22);
 		GUI_Field y= new GUI_Street();
 		y.setTitle(felter[23].hentFeltTekst());
-		y.setBackGroundColor(Color.blue);
+		y.setBackGroundColor(Color.magenta);
 		f[23] = y;
 		
 		
-		new GUI(f);
+		GUI gui = new GUI(f);
 		gui.showMessage("test"); 
 	}
 	

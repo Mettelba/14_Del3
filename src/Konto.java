@@ -3,9 +3,9 @@ public class Konto {
 
 	private int værdi;
 
-	public Konto() {					// Det man skriver i konstrukt�ren sker engang.
+	public Konto(int værdi) {					// Det man skriver i konstrukt�ren sker engang.
 
-		this.værdi = 1000;				//Her s�tter jeg spillerens konto til 1000. *krav*
+		this.værdi = værdi;				//Her s�tter jeg spillerens konto til 1000. *krav*
 										//S�tter checkforminus til false, da der er 1000 p� konten.
 	}
 
@@ -38,6 +38,13 @@ public class Konto {
 
 		}
 
+	}
+	public boolean hæv(int hævetbeløb) {
+		if (this.værdi - hævetbeløb < 0) {
+			return false;
+		}
+		this.værdi = this.værdi - hævetbeløb;
+		return true;
 	}
 
 
