@@ -18,7 +18,7 @@ public class Terning {
 	}
 	
 	
-	public int hentøjne() { 
+	public int hentØjne() { 
 		return øjne;
 	}
 
@@ -33,7 +33,7 @@ public class Terning {
 	}
 	
 	
-	public void sætøjne(int øjne) {
+	public void sætØjne(int øjne) {
 		this.øjne = øjne;
 	}
 	
@@ -50,7 +50,7 @@ public class Terning {
 		
 		return returstreng;
 		}
-	
+	 
 	
 }
 
