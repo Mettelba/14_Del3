@@ -1,7 +1,7 @@
 package Felter;
 
 	public class FyrværkeriEllerDelfinerFelt extends Felt {
-		int pris;
+		private int pris;
 		
 		public FyrværkeriEllerDelfinerFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int par) {
 			super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
