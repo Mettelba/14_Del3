@@ -24,7 +24,7 @@ public class Raflebæger {
 		
 		terning1.kast();		
 		
-		this.terning1værdi = this.terning1.hentøjne();	
+		this.terning1værdi = this.terning1.hentØjne();	
 	}  
 	
 	
