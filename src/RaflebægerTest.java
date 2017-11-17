@@ -60,7 +60,7 @@ public class RaflebægerTest {
 		int actual = raflebæger.hentAntalsider();
 		assertEquals(expected, actual);
 		
-	} 
+	}  
  
 	@Test
 	public void testHentTerning1værdi() {
