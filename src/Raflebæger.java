@@ -4,7 +4,7 @@ public class Raflebæger {
 	private int sum;
 	private int antalsider;
 	private Terning terning1;
-	private Terning terning2;
+
 	
 
 	public void raflebæger (int antalsider) {	
