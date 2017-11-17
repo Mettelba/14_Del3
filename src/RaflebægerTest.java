@@ -38,20 +38,19 @@ public class RaflebægerTest {
 	@Test
 	public void testRaflebæger() {
 		raflebæger.sætAntalsider(7);
-		
-			int expected = 7;
-			int actual = raflebæger.hentAntalsider();
-			assertEquals(expected, actual);
+		int expected = 7;
+		int actual = raflebæger.hentAntalsider();
+		assertEquals(expected, actual);
 			
 		}
 		
-		
 	
-
 	@Test
 	public void testHentAntalsider() {
-	// Denne metode bliver testet i S�tAntalsider da vi kalder metoden. 
-		
+		raflebæger.sætAntalsider(12);
+		int expected = 12;
+		int actual = raflebæger.hentAntalsider();
+		assertEquals("HentAntalSider-metoden virker ikke", expected, actual);
 	}
 
 	@Test
@@ -64,21 +63,25 @@ public class RaflebægerTest {
 	}
 
 	@Test
-	public void testHentSum() {
-	
-		// denne metode bliver tester i s�tSum da vi kalder metoden hentSum.
+	public void testHentTerning1værdi() {
+		raflebæger.sætTerning1værdi(8);;
+		int expected = 8;
+		int actual = raflebæger.hentTerning1værdi();
+		assertEquals("metoden hentTerning virker ikke", expected, actual);
 	}
 
-	@Test
-	public void testSætSum() {
-		raflebæger.hentTerning1værdi();
-		int expected = 1500;
-		int actual = raflebæger.hentTerning1værdi();
-		assertEquals(expected, actual);
-	}
 
 	@Test
 	public void testRyst() {
+		int[] statistik = new int[7];
+		for(int n=1; n<600000; n=n+1) {
+			raflebæger.ryst();
+			int sum = raflebæger.hentTerning1værdi();
+			statistik[sum] = statistik[sum]+1;
+		}
+		for(int x=1; x<=6; x=x+1) {
+			System.out.println("terning1 " + x+"ere = " + statistik[x]);
+		}
 		
 
 	
