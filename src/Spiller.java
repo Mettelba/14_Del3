@@ -4,6 +4,7 @@ public class Spiller {
 	private Konto konto = new Konto(31);
 	private boolean bankerot = false;
 	private int position = 1;
+	private boolean ekstraTur = false;
 	
 
 	public Spiller() {
@@ -64,6 +65,14 @@ public class Spiller {
 
 	public void sætPosition(int position) {
 		this.position = position;
+	}
+
+	public boolean hentEkstraTur() {
+		return ekstraTur;
+	}
+
+	public void sætEkstraTur(boolean ekstraTur) {
+		this.ekstraTur = ekstraTur;
 	}
 	
 }
