@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.*;
 
 import java.util.Random;
@@ -10,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test; 
 
 public class RaflebægerTest {
+	
+	
 	
 	Raflebæger raflebæger = new Raflebæger();
 
@@ -70,9 +71,9 @@ public class RaflebægerTest {
 
 	@Test
 	public void testSætSum() {
-		raflebæger.sætSum(1500);
+		raflebæger.hentTerning1værdi();
 		int expected = 1500;
-		int actual = raflebæger.hentSum();
+		int actual = raflebæger.hentTerning1værdi();
 		assertEquals(expected, actual);
 	}
 
