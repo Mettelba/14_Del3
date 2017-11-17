@@ -7,7 +7,8 @@ import gui_main.GUI;
 public class Spil {
 
 	public static void main(String[] args) {
-		//	GUI gui = new GUI();
+		Spilbræt();
+		
 		//	
 		//	GUI_Field g= new GUI_Street();
 		//	g.setTitle("Test");
