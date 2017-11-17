@@ -8,9 +8,11 @@ public class Spil {
 	
 	public static void main(String[] args) {
 	GUI gui = new GUI();
+	
 	GUI_Field g= new GUI_Street();
 	g.setTitle("Test");
 	g.setBackGroundColor(Color.WHITE);
+	
 	GUI_Field[] f = new GUI_Field[1];
 	f[0] = g;
 	new GUI(f);
