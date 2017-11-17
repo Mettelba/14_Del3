@@ -1,7 +1,7 @@
 package Felter;
 
 public class NormalFelt extends Felt {
-	int par;
+	private int par;
 	
 	public NormalFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int par) {
 		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
