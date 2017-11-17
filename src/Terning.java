@@ -7,38 +7,50 @@ public class Terning {
 	private int sider = 6;
 
 
-
-
-	public int hentøjne() {
-		return øjne;
+	public Terning(int sider) {
+		this.sider = sider;
 	}
 
 
-	public void sætøjne(int øjne) {
-		this.øjne = øjne;
+	public void kast() {
+		Random tal = new Random();
+		this.øjne = tal.nextInt(this.sider)+1;	
+	}
+	
+	
+	public int hentøjne() {
+		return øjne;
 	}
 
 
 	public int hentSider() {
 		return sider;
 	}
-
-
+	
+	
 	public void sætSider(int sider) {
 		this.sider = sider;
 	}
-
-	public Terning(int sider) {
-
-		
-	}
-
-	public void kast() {
 	
-	Random tal = new Random();
-	this.øjne = tal.nextInt(this.sider)+1;
 	
-		
-		
+	public void sætøjne(int øjne) {
+		this.øjne = øjne;
 	}
+	
+	public String toString() {
+		String returstreng;
+		int øjne;
+		int sider;
+		
+		øjne=this.øjne;
+		sider = this.sider;
+		
+		returstreng= "øjne = "+øjne;
+		returstreng= returstreng + "\n  sider = "+sider;
+		
+		return returstreng;
+		}
+	
+	
 }
+
