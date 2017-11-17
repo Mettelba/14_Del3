@@ -7,7 +7,7 @@ public class OnkelMangePengeFelt extends Felt {
 		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
 		this.onkelspenge = onkelspenge;
 	}
-	
+	 
 	public int hentOnkelsPenge() {
 		return this.onkelspenge;
 	}

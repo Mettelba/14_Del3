@@ -6,7 +6,7 @@ public class CafeFelt extends Felt {
 	public CafeFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int prisforkaffe) {
 		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
 		this.prisforkaffe = prisforkaffe;
-	}
+	} 
 	
 	public int hentPrisForKaffe() {
 		return this.prisforkaffe;

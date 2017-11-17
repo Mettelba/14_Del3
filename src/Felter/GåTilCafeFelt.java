@@ -1,7 +1,7 @@
 package Felter;
 
 public class GåTilCafeFelt extends Felt{
-	private int felt;
+	private int felt; 
 
 	public GåTilCafeFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int felt) {
 		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);

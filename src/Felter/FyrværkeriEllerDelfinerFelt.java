@@ -5,7 +5,7 @@ package Felter;
 		
 		public FyrværkeriEllerDelfinerFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int par) {
 			super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
-			this.pris = pris;
+			this.pris = pris; 
 		}
 		
 		
