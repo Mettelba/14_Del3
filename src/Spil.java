@@ -19,6 +19,7 @@ public class Spil {
 //	gui.showMessage("test"); 
 	
 	
+		
 	Spilbræt spil = new Spilbræt();
 	spil.opretSpilleBrætIGUI();
 	}

@@ -161,6 +161,7 @@ public class Spilbræt {
 		y.setBackGroundColor(Color.blue);
 		f[23] = y;
 		
+		
 		new GUI(f);
 		gui.showMessage("test"); 
 	}
