@@ -1,4 +1,5 @@
 import Felter.*;
+import gui_main.GUI;
 
 public class SpilController {
 	private boolean ekstratur = false;
@@ -9,42 +10,35 @@ public class SpilController {
 	private int antalspillere;
 
 	private Raflebæger raflebæger = new Raflebæger(6);
-	
-	private String[] spillernavne = new String[4];
+
 	private Spiller[] spiller;
 	private Spilbræt spillebræt = new Spilbræt();
+	private GUI spilgui = spillebræt.hentSpilGui();
+	private Felt[] felter = spillebræt.hentSpilFelter();
 		
-	public SpilController(int antalspillere, String[] spillernavne) {
+	public SpilController(Spiller[] spiller) {
 
-		this.spillernavne = spillernavne;
-		this.antalspillere = antalspillere;
-		this.spiller = new Spiller[this.antalspillere+1];
+		this.spiller = spiller;
+
 		
-		for (int i = 0; i<=this.antalspillere; i++) {
-			this.spiller[i] = new Spiller();
-		}
-			
-		
-		// sætter spillernavne i spillerobjekterne
-		for (int x=1 ; x<= this.antalspillere;x++) {
-			spiller[x].sætNavn(spillernavne[x-1]);
-		}
-		
-		
-		raflebæger.ryst();
-		System.out.println("terningsum = " + raflebæger.hentTerning1værdi() + "spillerposition = "+spiller[1].hentPosition());
-		spiller[0].sætPosition(spiller[1].hentPosition() + raflebæger.hentTerning1værdi());
-		//kald GUI sæt position med spillernavn
-		int position = spiller[1].hentPosition() + raflebæger.hentTerning1værdi();
-		System.out.println(position);
-		int felttype = spillebræt.hentType(position);
-		kaldRegel(felttype);
-		
-	
-		
+
+
+//		int felttype = spillebræt.hentType(position);
+//		kaldRegel(felttype, spiller);
 	}
 	
-	private void kaldRegel(int felttype) {
+	private Spiller spilsekvens(Spiller[] spiller) {
+		raflebæger.ryst();
+		spiller.sætPosition(spiller.hentPosition() + raflebæger.hentTerning1værdi());
+		int position = spiller[1].hentPosition() + raflebæger.hentTerning1værdi();
+		
+		
+		return spiller;
+	}
+		
+	
+	
+	private void kaldRegel(int felttype, Spiller[] spiller, Felt[] felter) {
 
 		
 		//Håndter særregler for felter
@@ -53,6 +47,7 @@ public class SpilController {
 			System.out.println("Normal felt"+ felttype);
 			break;
 		case 2://Et tog
+			this.ekstratur = felter[]
 			System.out.println("Et tog"+ felttype);
 			break;
 		case 3://Fyrværkeri eller delfiner
