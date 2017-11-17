@@ -7,7 +7,7 @@ public class Raflebæger {
 
 	
 
-	public void raflebæger (int antalsider) {	
+	public Raflebæger (int antalsider) {	
 		
 		this.antalsider = antalsider;
 		terning1 = new Terning(this.antalsider);	
@@ -28,8 +28,7 @@ public class Raflebæger {
 	}
 	
 	
-	public int hentTerning1værdi(){
-		terning1værdi = terning1.hentøjne();
+	public int hentTerning1værdi(){ 
 		return terning1værdi;
  	}
 	

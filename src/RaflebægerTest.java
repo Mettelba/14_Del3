@@ -12,7 +12,7 @@ public class RaflebægerTest {
 	
 	
 	
-	Raflebæger raflebæger = new Raflebæger();
+	Raflebæger raflebæger = new Raflebæger(6);
 
 	
 
@@ -61,10 +61,10 @@ public class RaflebægerTest {
 		assertEquals(expected, actual);
 		
 	}
-
+ 
 	@Test
 	public void testHentTerning1værdi() {
-		raflebæger.sætTerning1værdi(8);;
+		raflebæger.sætTerning1værdi(8);
 		int expected = 8;
 		int actual = raflebæger.hentTerning1værdi();
 		assertEquals("metoden hentTerning virker ikke", expected, actual);
@@ -81,10 +81,6 @@ public class RaflebægerTest {
 		}
 		for(int x=1; x<=6; x=x+1) {
 			System.out.println("terning1 " + x+"ere = " + statistik[x]);
-		}
-		
-
-	
+		}	
 	}
-
 }
