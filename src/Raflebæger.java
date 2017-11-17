@@ -18,7 +18,7 @@ public class Raflebæger {
 		return antalsider;
 	}
 
-
+ 
 	public void ryst() {
 		this.terning1værdi = 0;
 		

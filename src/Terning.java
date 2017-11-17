@@ -12,7 +12,7 @@ public class Terning {
 	}
 
 
-	public void kast() {
+	public void kast() { 
 		Random tal = new Random();
 		this.øjne = tal.nextInt(this.sider)+1;	
 	}
