@@ -25,7 +25,7 @@ public class Raflebæger {
 		terning1.kast();		
 		
 		this.terning1værdi = this.terning1.hentøjne();	
-	}
+	} 
 	
 	
 	public int hentTerning1værdi(){ 
