@@ -31,11 +31,11 @@ public class SpilController {
 		}
 		
 		
-		raflebæger.Ryst();
-		System.out.println("terningsum = " + raflebæger.hentSum() + "spillerposition = "+spiller[1].hentPosition());
-		spiller[0].sætPosition(spiller[1].hentPosition() + raflebæger.hentSum());
+		raflebæger.ryst();
+		System.out.println("terningsum = " + raflebæger.hentTerning1værdi() + "spillerposition = "+spiller[1].hentPosition());
+		spiller[0].sætPosition(spiller[1].hentPosition() + raflebæger.hentTerning1værdi());
 		//kald GUI sæt position med spillernavn
-		int position = spiller[1].hentPosition() + raflebæger.hentSum();
+		int position = spiller[1].hentPosition() + raflebæger.hentTerning1værdi();
 		System.out.println(position);
 		int felttype = spillebræt.hentType(position);
 		kaldRegel(felttype);
@@ -75,7 +75,6 @@ public class SpilController {
 
 		}
 		//Håndter generelle regler
-		felt.hentEkstraTur();
 	}
 }
 
