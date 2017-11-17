@@ -41,6 +41,7 @@ public class SpilController {
 		kaldRegel(felttype);
 		
 	
+		
 	}
 	
 	private void kaldRegel(int felttype) {
