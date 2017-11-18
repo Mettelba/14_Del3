@@ -2,37 +2,44 @@ import Felter.*;
 import gui_main.GUI;
 
 public class SpilController {
-	private boolean ekstratur = false;
-	private boolean indkasseroverstart = true;
-	private boolean vententur = false;
-	private int type;
+
+	private int felttype;
 	private int feltnr;
 	private int antalspillere;
-
-	private Raflebæger raflebæger = new Raflebæger(6);
+	private int aktivspiller;
 
 	private Spiller[] spiller;
+	private Raflebæger raflebæger = new Raflebæger(6);
 	private Spilbræt spillebræt = new Spilbræt();
 	private GUI spilgui = spillebræt.hentSpilGui();
 	private Felt[] felter = spillebræt.hentSpilFelter();
-	private int aktivspiller;
-		
-	public SpilController() {
+
+
+	public SpilController(Spiller[] spiller) {
 
 //		int felttype = spillebræt.hentType(position);
 //		kaldRegel(felttype, spiller);
 	}
 	
-	private Spiller spilsekvens(Spiller[] spiller, int aktivspiller) {
+	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller) {
 		this.aktivspiller = aktivspiller;
 		this.spiller = spiller;	
 		raflebæger.ryst();
 		
-		spiller.sætPosition(spiller.hentPosition() + raflebæger.hentTerning1værdi());
-		int position = spiller[1].hentPosition() + raflebæger.hentTerning1værdi();
+		//Opdater GUI for terninger
+		
+		//sæt position for den aktive spiller i spillerarray
+		this.spiller[this.aktivspiller].sætPosition(this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi());
+		int position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
+		
+		//Kald regler for position med felter og spiller
 		
 		
-		return spiller;
+		//Opdater GUI for position
+		
+		
+			
+		return this.spiller;
 	}
 		
 	
@@ -46,7 +53,7 @@ public class SpilController {
 			System.out.println("Normal felt"+ felttype);
 			break;
 		case 2://Et tog
-			this.ekstratur = felter[]
+
 			System.out.println("Et tog"+ felttype);
 			break;
 		case 3://Fyrværkeri eller delfiner
