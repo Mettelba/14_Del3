@@ -7,15 +7,18 @@ import Felter.*;
 public class Spilbræt {
 
 
+	//	gui.showMessage("test"); 
+	
 	private GUI_Field[] guifelter = new GUI_Field[24];
 	private Felt[] felter = new Felt[24];	
 	private GUI spilgui;
 
 	public Spilbræt() {
-		spilgui = initialiserFelter();
+		initialiserSpilBræt();
 	}
 
 	public GUI hentSpilGui() {
+		GUI spilgui = new GUI(guifelter);
 		return spilgui;
 	}
 	
@@ -23,8 +26,7 @@ public class Spilbræt {
 		return felter;
 	}
 	
-	private GUI initialiserFelter() {	
-
+	private void initialiserSpilBræt() {	
 
 		felter[0] = new StartFelt(0, 1, 1, 8, "Spiller0", "Turkis", "START!", 2);
 		GUI_Field a= new GUI_Street();
@@ -169,10 +171,6 @@ public class Spilbræt {
 		y.setTitle(felter[23].hentFeltTekst());
 		y.setBackGroundColor(Color.magenta);
 		guifelter[23] = y;
-
-
-		GUI gui = new GUI(guifelter);
-		return gui;
 	}
 
 	public int hentType (int position) {

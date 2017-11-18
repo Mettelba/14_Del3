@@ -15,20 +15,19 @@ public class SpilController {
 	private Spilbræt spillebræt = new Spilbræt();
 	private GUI spilgui = spillebræt.hentSpilGui();
 	private Felt[] felter = spillebræt.hentSpilFelter();
+	private int aktivspiller;
 		
-	public SpilController(Spiller[] spiller) {
-
-		this.spiller = spiller;
-
-		
-
+	public SpilController() {
 
 //		int felttype = spillebræt.hentType(position);
 //		kaldRegel(felttype, spiller);
 	}
 	
-	private Spiller spilsekvens(Spiller[] spiller) {
+	private Spiller spilsekvens(Spiller[] spiller, int aktivspiller) {
+		this.aktivspiller = aktivspiller;
+		this.spiller = spiller;	
 		raflebæger.ryst();
+		
 		spiller.sætPosition(spiller.hentPosition() + raflebæger.hentTerning1værdi());
 		int position = spiller[1].hentPosition() + raflebæger.hentTerning1værdi();
 		

@@ -11,45 +11,39 @@ public class Spil {
 	private String[] spillernavne = new String[4];
 	private Spiller[] spiller;
 	private SpilController spilkontrol = new SpilController();
+
 	
 	public static void main(String[] args) {
-
 		Spil monopolyspil = new Spil();
-		
-		
-		
-		
-		//	
-		//	GUI_Field g= new GUI_Street();
-		//	g.setTitle("Test");
-		//	g.setBackGroundColor(Color.WHITE);
-		//	
-		//	GUI_Field[] f = new GUI_Field[1];
-		//	f[0] = g;
-		//	new GUI(f);
-		//	gui.showMessage("test"); 
 
-		Spilbræt spil = new Spilbræt();
 	}
-	
-	public void spilSekvens() {
+	public void initialiserSpil() {
+		
+		Spilbræt spilbræt = new Spilbræt();
+		Felt[] felter = spilbræt.hentSpilFelter();
+		GUI gui = spilbræt.hentSpilGui();
+		
+		
 		//opret antalspillere + 1. Spiller0 er spillet.
-		this.spiller = new Spiller[this.antalspillere+1];
+		spiller = new Spiller[antalspillere+1];
 		
 		//overfør spillernavne til spillerobjekter
-		for (int i = 0; i<=this.antalspillere; i++) {
-			this.spiller[i] = new Spiller();
+		for (int i = 0; i<=antalspillere; i++) {
+			spiller[i] = new Spiller();
 		}
 
 		// sætter spillernavne i spillerobjekterne
-		for (int x=1 ; x<= this.antalspillere;x++) {
+		for (int x=1 ; x<= antalspillere;x++) {
 			spiller[x].sætNavn(spillernavne[x-1]);
 		}
-		
+	}
+	
+	
+	public void spilSekvens() {
 		
 		int x=1;
 		while(spiller[x].erDuBankerot() == false || spiller[x].hentEkstraTur() == true) {
-			SpilController(this.spiller[x]);
+			spilkontrol(this.spiller, x);
 			
 			
 			x = x + 1;
