@@ -3,7 +3,6 @@ import gui_main.GUI;
 
 public class SpilController {
 
-	private int felttype;
 	private int feltnr;
 	private int antalspillere;
 	private int aktivspiller;
@@ -31,6 +30,7 @@ public class SpilController {
 		this.aktivspiller = aktivspiller;
 		this.spiller = spiller;	
 		int position;
+		int felttype;
 		
 		
 		

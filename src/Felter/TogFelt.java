@@ -56,6 +56,12 @@ public class TogFelt extends Felt {
 		return 0;
 	}
 	
+	@Override
+	public int hentGåTilFeltNr() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
 	
 
 }
