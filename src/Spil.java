@@ -10,7 +10,7 @@ public class Spil {
 
 	private int antalspillere;
 	private int antalbankerotspillere = 0;
-	private int aktivspiller = 1;
+	private int aktivspiller = 1; //Vi starter med spiller 1
 
 	private Spiller[] spiller;
 	private SpilController spilkontrol = new SpilController();
@@ -21,7 +21,7 @@ public class Spil {
 	public static void main(String[] args) {
 
 		Spil monopolyspil = new Spil();
-		
+
 	}
 	public void initialiserSpil() {
 		String indtastetnavn;
@@ -56,20 +56,12 @@ public class Spil {
 
 		while (true) {
 
-			//Check for antal spillere der er bankerot, hvis der kun er 1 tilbage så er spillet vundet.
-			for (int y=1;y <= antalspillere ; y++) {
-				if (spiller[y].erDuBankerot() == true ) {
-					antalbankerotspillere++;
-				}
-				if (antalbankerotspillere == antalspillere-1) { // her er condition for while sætning.
-					break;
-				}
+			// Kør spilsekvens hvis aktivspiller ikke er bankerot.
+			while(true) {
+				spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller, spilkontrol); //returner reference til spillerarray objekt efter spilsekvens
+				if (spiller[aktivspiller].erDuBankerot()==true) {
+					//Håndter slutspil optælling af penge for de andre spillere etc.
 
-
-				// Kør spilsekvens hvis aktivspiller ikke er bankerot.
-				while(spiller[aktivspiller].erDuBankerot() == false) {
-					spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller, spilkontrol); //returner reference til spillerarray objekt efter spilsekvens
-					
 
 				}
 
