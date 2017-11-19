@@ -8,6 +8,7 @@ public class OnkelMangePengeFelt extends Felt {
 		this.onkelspenge = onkelspenge;
 	}
 	 
+	@Override
 	public int hentOnkelsPenge() {
 		return this.onkelspenge;
 	}
@@ -16,27 +17,10 @@ public class OnkelMangePengeFelt extends Felt {
 		this.onkelspenge = onkelspenge;
 	}
 
-	public String toString() {
-		String returstreng;
-		returstreng = "Super_feltnr = " + this.feltnr;
-		returstreng = returstreng + "\n Super_pris = " + this.pris;
-		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
-		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejerspillernavn;
-		returstreng = returstreng + "\n Super_farve = " + this.farve;
-		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
-		return returstreng;
-	}
-
 	@Override
 	public boolean hentEkstraTur() {
 		// TODO Auto-generated method stub
 		return false;
-	}
-
-	@Override
-	public void sætFeltEjer() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -74,4 +58,22 @@ public class OnkelMangePengeFelt extends Felt {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public String toString() {
+		String returstreng;
+		returstreng = "Super_feltnr = " + this.feltnr;
+		returstreng = returstreng + "\n Super_pris = " + this.pris;
+		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
+		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejerspillernavn;
+		returstreng = returstreng + "\n Super_farve = " + this.farve;
+		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
+		return returstreng;
+	}
+
+	@Override
+	public void sætOnkelsPenge() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

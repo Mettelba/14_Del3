@@ -33,12 +33,6 @@ public class GåTilCafeFelt extends Felt{
 	}
 
 	@Override
-	public void sætFeltEjer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public int hentPrisForKaffe() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -66,5 +60,11 @@ public class GåTilCafeFelt extends Felt{
 	public int hentOnkelsPenge() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void sætOnkelsPenge() {
+		// TODO Auto-generated method stub
+		
 	}
 }

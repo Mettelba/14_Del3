@@ -56,7 +56,6 @@ public abstract class Felt {
 	}
 	
 	public abstract boolean hentEkstraTur();
-	public abstract void sætFeltEjer();
 	public abstract int hentPrisForKaffe();
 	public abstract int hentPasserStart();
 	public abstract int hentPar();

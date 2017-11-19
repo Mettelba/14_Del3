@@ -14,11 +14,6 @@ public class TogFelt extends Felt {
 		return this.ekstratur;
 	}
 
-	@Override
-	public void sætFeltEjer() {
-		// TODO Auto-generated method stub 
-		
-	}
 
 	@Override
 	public int hentPrisForKaffe() {
@@ -60,6 +55,12 @@ public class TogFelt extends Felt {
 	public int hentGåTilFeltNr() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void sætOnkelsPenge() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

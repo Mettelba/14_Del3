@@ -35,13 +35,6 @@ package Felter;
 
 
 		@Override
-		public void sætFeltEjer() {
-			// TODO Auto-generated method stub
-			
-		}
-
-
-		@Override
 		public int hentPrisForKaffe() {
 			// TODO Auto-generated method stub
 			return 0;
@@ -79,6 +72,13 @@ package Felter;
 		public int hentGåTilFeltNr() {
 			// TODO Auto-generated method stub
 			return 0;
+		}
+
+
+		@Override
+		public void sætOnkelsPenge() {
+			// TODO Auto-generated method stub
+			
 		}
 		
 }
