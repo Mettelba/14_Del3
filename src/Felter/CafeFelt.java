@@ -75,7 +75,19 @@ public class CafeFelt extends Felt {
 	}
 
 	@Override
-	public void sætOnkelsPenge(int penge) {
+	public boolean hentBod() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void sætOnkelsPenge(int onkelspenge) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sætBod(boolean bod) {
 		// TODO Auto-generated method stub
 		
 	}

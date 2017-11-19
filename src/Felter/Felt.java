@@ -56,19 +56,14 @@ public abstract class Felt {
 	}
 	
 	public abstract boolean hentEkstraTur();
-
-	public abstract void sætOnkelsPenge(int penge);
+	public abstract void sætOnkelsPenge(int onkelspenge);
 	public abstract int hentPrisForKaffe();
 	public abstract int hentPasserStart();
 	public abstract int hentPar();
 	public abstract int hentGåTilFeltNr();
 	public abstract int hentEntre();
 	public abstract int hentOnkelsPenge();
-
-	
-	}
-
-
-
-
+	public abstract boolean hentBod();
+	public abstract void sætBod(boolean bod);
+}
 

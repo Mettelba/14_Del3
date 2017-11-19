@@ -15,6 +15,17 @@ public class NormalFelt extends Felt {
 	public int hentPar() {
 		return this.par;
 	}
+	
+	@Override
+	public boolean hentBod() {
+		return this.bod;
+	}
+	
+	@Override
+	public void sætBod(boolean bod) {
+		this.bod = bod;
+	}
+	
 	public String toString() {
 		String returstreng;
 		returstreng = "Super_feltnr = " + this.feltnr;
@@ -85,8 +96,9 @@ public class NormalFelt extends Felt {
 	}
 
 
+
 	@Override
-	public void sætOnkelsPenge(int penge) {
+	public void sætOnkelsPenge(int onkelspenge) {
 		// TODO Auto-generated method stub
 		
 	}

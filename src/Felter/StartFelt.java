@@ -71,4 +71,16 @@ public class StartFelt extends Felt{
 		
 	}
 
+	@Override
+	public boolean hentBod() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void sætBod(boolean bod) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

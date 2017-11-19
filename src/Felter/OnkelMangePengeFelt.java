@@ -7,11 +7,13 @@ public class OnkelMangePengeFelt extends Felt {
 		super (feltnr, pris, husleje, type, ejer, farve, felttekst);
 		this.onkelspenge = onkelspenge;
 	}
-	 
+	
+	@Override
 	public int hentOnkelsPenge() {
 		return this.onkelspenge;
 	}
 	
+	@Override
 	public void sætOnkelsPenge(int onkelspenge) {
 		this.onkelspenge = onkelspenge;
 	}
@@ -76,5 +78,17 @@ public class OnkelMangePengeFelt extends Felt {
 	public int hentGåTilFeltNr() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean hentBod() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void sætBod(boolean bod) {
+		// TODO Auto-generated method stub
+		
 	}
 }
