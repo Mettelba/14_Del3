@@ -33,7 +33,7 @@ public class Spilbræt {
 
 
 		//Opretter datastruktur og GUI struktur for spillebrættet.
-		felter[0] = new StartFelt(0, 1, 1, 8, "Spiller0", "Turkis", "START!", 2);
+		felter[0] = new StartFelt(0, 1, 1, 7, "Spiller0", "Turkis", "START!", 2);
 		GUI_Field a= new GUI_Street();
 		a.setTitle(felter[0].hentFeltTekst());
 		a.setBackGroundColor(Color.pink);
@@ -69,7 +69,7 @@ public class Spilbræt {
 		g.setBackGroundColor(Color.gray);
 		guifelter[5] = g;
 
-		felter[6] = new FyrværkeriEllerDelfinerFelt(6, 1, 1, 7, "Spiller0", "yellow", "Fyrværkeri", 2);
+		felter[6] = new FyrværkeriEllerDelfinerFelt(6, 1, 1, 3, "Spiller0", "yellow", "Fyrværkeri", 2);
 		GUI_Field h= new GUI_Street();
 		h.setTitle(felter[6].hentFeltTekst());
 		h.setBackGroundColor(Color.pink);
@@ -105,7 +105,7 @@ public class Spilbræt {
 		m.setBackGroundColor(Color.white);
 		guifelter[11] = m;
 
-		felter[12] = new OnkelMangePengeFelt(12, 1, 1, 1, "Spiller0", "yellow", "Onkel Mangepenge", 2);
+		felter[12] = new OnkelMangePengeFelt(12, 1, 1, 4, "Spiller0", "yellow", "Onkel Mangepenge", 2);
 		GUI_Field n= new GUI_Street();
 		n.setTitle(felter[12].hentFeltTekst());
 		n.setBackGroundColor(Color.pink);
@@ -141,7 +141,7 @@ public class Spilbræt {
 		s.setBackGroundColor(Color.orange);
 		guifelter[17] = s;
 
-		felter[18] = new FyrværkeriEllerDelfinerFelt(18, 1, 1, 7, "Spiller0", "yellow", "Delfiner", 2);
+		felter[18] = new FyrværkeriEllerDelfinerFelt(18, 1, 1, 3, "Spiller0", "yellow", "Du er taget til Delfinshow", 2);
 		GUI_Field t= new GUI_Street();
 		t.setTitle(felter[18].hentFeltTekst());
 		t.setBackGroundColor(Color.pink);
@@ -159,7 +159,7 @@ public class Spilbræt {
 		v.setBackGroundColor(Color.cyan);
 		guifelter[20] = v;
 
-		felter[21] = new GåTilCafeFelt(21, 1, 1, 7, "Spiller0", "yellow", "Delfiner", 10);
+		felter[21] = new GåTilCafeFelt(21, 1, 1, 6, "Spiller0", "yellow", "Delfiner", 9);
 		GUI_Field w= new GUI_Street();
 		w.setTitle(felter[21].hentFeltTekst());
 		w.setBackGroundColor(Color.pink);
