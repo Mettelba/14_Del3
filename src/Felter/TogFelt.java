@@ -15,7 +15,7 @@ public class TogFelt extends Felt {
 	}
 
 	@Override
-	public void sætFeltEjer(String spillernavn) {
+	public void sætFeltEjer() {
 		// TODO Auto-generated method stub 
 		
 	}
@@ -39,7 +39,7 @@ public class TogFelt extends Felt {
 	}
 
 	@Override
-	public int hentFelt() {
+	public int hentFeltNr() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

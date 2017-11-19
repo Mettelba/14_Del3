@@ -1,33 +1,38 @@
 import java.awt.Color;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
-import gui_main.GUI;
+import gui_fields.GUI_Car;
+import gui_fields.GUI_Player;
+import gui_main.*;
 import Felter.*;
 
 public class Spilbræt {
 
 
 	//	gui.showMessage("test"); 
-	
+
 	private GUI_Field[] guifelter = new GUI_Field[24];
 	private Felt[] felter = new Felt[24];	
 	private GUI spilgui;
 
-	public Spilbræt() {
-		initialiserSpilBræt();
+	public Spilbræt(Spiller[] spiller) {
+
+		initialiserSpilBræt(spiller);
 	}
 
 	public GUI hentSpilGui() {
 		GUI spilgui = new GUI(guifelter);
 		return spilgui;
 	}
-	
+
 	public Felt[] hentSpilFelter() {
 		return felter;
 	}
-	
-	private void initialiserSpilBræt() {	
 
+	private void initialiserSpilBræt(Spiller[] spiller) {	
+
+
+		//Opretter datastruktur og GUI struktur for spillebrættet.
 		felter[0] = new StartFelt(0, 1, 1, 8, "Spiller0", "Turkis", "START!", 2);
 		GUI_Field a= new GUI_Street();
 		a.setTitle(felter[0].hentFeltTekst());
@@ -171,11 +176,59 @@ public class Spilbræt {
 		y.setTitle(felter[23].hentFeltTekst());
 		y.setBackGroundColor(Color.magenta);
 		guifelter[23] = y;
+
+
+
+		//Laver biler
+
+
+		//Opretter spillerne på brættet.
+		//FULDSTÆNDIG TÅBELIG MÅDE AT HÅNDTERE DET PÅ I GUI!!!!
+		//DEN TIDLIGERE VERSION VAR LAMGT BEDRE!!!!!
+		int antalspillere = spiller.length;
+
+		switch (antalspillere) {
+		case 1:
+			GUI_Player spiller1 = new GUI_Player(spiller[1].hentNavn(),spiller[1].indeståendeSpillerKonto());
+			spilgui.addPlayer(spiller1);
+			break;
+
+		case 2:
+			GUI_Player spiller2 = new GUI_Player(spiller[1].hentNavn(),spiller[1].indeståendeSpillerKonto());
+			GUI_Player spiller3 = new GUI_Player(spiller[2].hentNavn(),spiller[2].indeståendeSpillerKonto());
+			spilgui.addPlayer(spiller2);
+			spilgui.addPlayer(spiller3);
+
+			break;
+
+		case 3:
+			GUI_Player spiller4 = new GUI_Player(spiller[1].hentNavn(),spiller[1].indeståendeSpillerKonto());
+			GUI_Player spiller5 = new GUI_Player(spiller[2].hentNavn(),spiller[2].indeståendeSpillerKonto());
+			GUI_Player spiller6 = new GUI_Player(spiller[3].hentNavn(),spiller[3].indeståendeSpillerKonto());
+			spilgui.addPlayer(spiller4);
+			spilgui.addPlayer(spiller5);
+			spilgui.addPlayer(spiller6);
+			break;
+
+		case 4:
+			GUI_Player spiller7 = new GUI_Player(spiller[1].hentNavn(),spiller[1].indeståendeSpillerKonto());
+			GUI_Player spiller8 = new GUI_Player(spiller[2].hentNavn(),spiller[2].indeståendeSpillerKonto());
+			GUI_Player spiller9 = new GUI_Player(spiller[3].hentNavn(),spiller[3].indeståendeSpillerKonto());
+			GUI_Player spiller10 = new GUI_Player(spiller[4].hentNavn(),spiller[4].indeståendeSpillerKonto());
+			spilgui.addPlayer(spiller7);
+			spilgui.addPlayer(spiller8);
+			spilgui.addPlayer(spiller9);
+			spilgui.addPlayer(spiller10);
+			break;
+		}
 	}
+
+
+
 
 	public int hentType (int position) {
 		int felttype;
-		felttype = felter[position].hentType();
+		felttype = felter[position].hentFeltType();
 		return felttype;
 	}
 

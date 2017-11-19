@@ -1,16 +1,16 @@
 package Felter;
 
 public class GåTilCafeFelt extends Felt{
-	private int felt; 
+	private int gåtilfeltnr; 
 
-	public GåTilCafeFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int felt) {
+	public GåTilCafeFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int gåtilfeltnr) {
 		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
-		this.felt = felt;
+		this.gåtilfeltnr = gåtilfeltnr;
 	}
 
 	@Override
-	public int hentFelt() {
-		return this.felt;
+	public int hentGåTilFeltNr() {
+		return this.gåtilfeltnr;
 	}
 	
 	public String toString() {
@@ -22,7 +22,7 @@ public class GåTilCafeFelt extends Felt{
 		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejerspillernavn;
 		returstreng = returstreng + "\n Super_farve = " + this.farve;
 		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
-		returstreng = returstreng + "\n felt = " + this.felt;
+		returstreng = returstreng + "\n felt = " + this.gåtilfeltnr;
 		return returstreng;
 	}
 
@@ -33,7 +33,7 @@ public class GåTilCafeFelt extends Felt{
 	}
 
 	@Override
-	public void sætFeltEjer(String spillernavn) {
+	public void sætFeltEjer() {
 		// TODO Auto-generated method stub
 		
 	}

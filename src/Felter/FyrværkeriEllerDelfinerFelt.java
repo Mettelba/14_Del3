@@ -35,7 +35,7 @@ package Felter;
 
 
 		@Override
-		public void sætFeltEjer(String spillernavn) {
+		public void sætFeltEjer() {
 			// TODO Auto-generated method stub
 			
 		}
@@ -63,7 +63,7 @@ package Felter;
 
 
 		@Override
-		public int hentFelt() {
+		public int hentFeltType() {
 			// TODO Auto-generated method stub
 			return 0;
 		}
@@ -74,4 +74,11 @@ package Felter;
 			// TODO Auto-generated method stub
 			return 0;
 		}
+		
+		@Override
+		public int hentGåTilFeltNr() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
 }

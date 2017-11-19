@@ -68,7 +68,7 @@ public class Spil {
 
 				// Kør spilsekvens hvis aktivspiller ikke er bankerot.
 				while(spiller[aktivspiller].erDuBankerot() == false) {
-					spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller); //returner reference til spillerarray objekt efter spilsekvens
+					spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller, spilkontrol); //returner reference til spillerarray objekt efter spilsekvens
 					
 
 				}

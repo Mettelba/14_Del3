@@ -30,7 +30,7 @@ public class CafeFelt extends Felt {
 	}
 
 	@Override
-	public void sætFeltEjer(String spillernavn) {
+	public void sætFeltEjer() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -48,7 +48,7 @@ public class CafeFelt extends Felt {
 	}
 
 	@Override
-	public int hentFelt() {
+	public int hentFeltNr() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -64,14 +64,11 @@ public class CafeFelt extends Felt {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-//	@Override
-//	public boolean hentEkstraTur() {
-//		return false;
-//	}
-//
-//	@Override
-//	public boolean sætFeltEjer() {
-//		return false;
+	
+	@Override
+	public int hentGåTilFeltNr() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+}
 

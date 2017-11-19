@@ -10,29 +10,44 @@ public class SpilController {
 
 	private Spiller[] spiller;
 	private Raflebæger raflebæger = new Raflebæger(6);
-	private Spilbræt spillebræt = new Spilbræt();
-	private GUI spilgui = spillebræt.hentSpilGui();
-	private Felt[] felter = spillebræt.hentSpilFelter();
+	private Spilbræt spillebræt;
+	private GUI spilgui; 
+	private Felt[] felter; 
+	private SpilController spilkontrol;
 
 
 	public SpilController(Spiller[] spiller) {
-
+		
+		spillebræt = new Spilbræt(spiller);
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		
+		
 //		int felttype = spillebræt.hentType(position);
 //		kaldRegel(felttype, spiller);
 	}
 	
-	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller) {
+	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller, SpilController spilkontrol) {
 		this.aktivspiller = aktivspiller;
 		this.spiller = spiller;	
-		raflebæger.ryst();
+		int position;
 		
+		
+		
+		//GUI "Tryk på knappen for at slå terningerne.
+		raflebæger.ryst();
 		//Opdater GUI for terninger
 		
 		//sæt position for den aktive spiller i spillerarray
 		this.spiller[this.aktivspiller].sætPosition(this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi());
-		int position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
+		position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
+		felttype = felter[position].hentFeltType();
 		
-		//Kald regler for position med felter og spiller
+		
+		//Kald regler for felttype med felter og spiller
+		kaldRegel(felttype, spiller, felter, aktivspiller, spilkontrol);
+			
+		
 		
 		
 		//Opdater GUI for position
@@ -44,7 +59,7 @@ public class SpilController {
 		
 	
 	
-	private void kaldRegel(int felttype, Spiller[] spiller, Felt[] felter) {
+	private void kaldRegel(int felttype, Spiller[] spiller, Felt[] felter, int aktivspiller, SpilController spilkontrol) {
 
 		
 		//Håndter særregler for felter
@@ -53,7 +68,8 @@ public class SpilController {
 			System.out.println("Normal felt"+ felttype);
 			break;
 		case 2://Et tog
-
+			//GUI BESKED "Du er landet på toget, og får derfor en ekstra tur. Tryk Ok.
+			
 			System.out.println("Et tog"+ felttype);
 			break;
 		case 3://Fyrværkeri eller delfiner

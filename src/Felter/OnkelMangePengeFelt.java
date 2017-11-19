@@ -34,7 +34,7 @@ public class OnkelMangePengeFelt extends Felt {
 	}
 
 	@Override
-	public void sætFeltEjer(String spillernavn) {
+	public void sætFeltEjer() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -52,7 +52,7 @@ public class OnkelMangePengeFelt extends Felt {
 	}
 
 	@Override
-	public int hentFelt() {
+	public int hentFeltNr() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -65,6 +65,12 @@ public class OnkelMangePengeFelt extends Felt {
 
 	@Override
 	public int hentPrisForKaffe() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	@Override
+	public int hentGåTilFeltNr() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

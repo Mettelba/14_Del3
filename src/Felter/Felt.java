@@ -35,7 +35,7 @@ public abstract class Felt {
 		this.husleje = husleje;
 	}
 	
-	public int hentType() {
+	public int hentFeltType() {
 		return this.type;
 	}
 	
@@ -56,11 +56,11 @@ public abstract class Felt {
 	}
 	
 	public abstract boolean hentEkstraTur();
-	public abstract void sætFeltEjer(String spillernavn);
+	public abstract void sætFeltEjer();
 	public abstract int hentPrisForKaffe();
 	public abstract int hentPasserStart();
 	public abstract int hentPar();
-	public abstract int hentFelt();
+	public abstract int hentGåTilFeltNr();
 	public abstract int hentEntre();
 	public abstract int hentOnkelsPenge();
 	
