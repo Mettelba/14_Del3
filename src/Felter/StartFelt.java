@@ -4,9 +4,18 @@ public class StartFelt extends Felt{
 	
 	private int passerstart;
 	
-	public StartFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int passerstart) {
-		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
+	public StartFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst, int passerstart) {
+		super (feltnr, pris, husleje, type, ejer, farve, felttekst);
 		this.passerstart = passerstart;
+	}
+	
+	@Override
+	public int hentEjer() {
+		return 0;
+	}
+	
+	@Override
+	public void sætEjer(int ejer) {
 	}
 	
 	@Override
@@ -57,7 +66,7 @@ public class StartFelt extends Felt{
 	}
 
 	@Override
-	public void sætOnkelsPenge() {
+	public void sætOnkelsPenge(int penge) {
 		// TODO Auto-generated method stub
 		
 	}

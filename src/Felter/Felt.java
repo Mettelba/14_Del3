@@ -5,16 +5,16 @@ public abstract class Felt {
 	protected int pris;
 	protected int husleje;
 	protected int type;
-	protected String ejerspillernavn;
+	protected int ejer = 0; //Spillet ejer alle felter fra starten.
 	protected String farve;
 	protected String felttekst;
 
-	public Felt(int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst) {
+	public Felt(int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst) {
 		this.feltnr=feltnr;
 		this.pris = pris;
 		this.husleje = husleje;
 		this.type = type;
-		this.ejerspillernavn = ejerspillernavn;
+		this.ejer = ejer;
 		this.farve = farve;
 		this.felttekst = felttekst;
 	}
@@ -39,12 +39,12 @@ public abstract class Felt {
 		return this.type;
 	}
 	
-	public String hentEjerSpillerNavn() {
-		return this.ejerspillernavn;
+	public int hentEjer() {
+		return this.ejer;
 	}
 	
-	public void sætEjerSpillerNavn(String ejerspillernavn) {
-		this.ejerspillernavn = ejerspillernavn;
+	public void sætEjer(int ejer) {
+		this.ejer = ejer;
 	}
 	
 	public String hentFarve() {
@@ -56,13 +56,15 @@ public abstract class Felt {
 	}
 	
 	public abstract boolean hentEkstraTur();
+
+	public abstract void sætOnkelsPenge(int penge);
 	public abstract int hentPrisForKaffe();
 	public abstract int hentPasserStart();
 	public abstract int hentPar();
 	public abstract int hentGåTilFeltNr();
 	public abstract int hentEntre();
 	public abstract int hentOnkelsPenge();
-	public abstract void sætOnkelsPenge();
+
 	
 	}
 

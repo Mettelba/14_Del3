@@ -2,10 +2,12 @@ package Felter;
 
 public class NormalFelt extends Felt {
 	private int par;
+	private boolean bod;//Der er ingen boder på nogen felter fra starten.
 	
-	public NormalFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int par) {
-		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
+	public NormalFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst, int par, boolean bod) {
+		super (feltnr, pris, husleje, type, ejer, farve, felttekst);
 		this.par = par;
+		this.bod = bod;
 	}
 	
 	
@@ -19,14 +21,22 @@ public class NormalFelt extends Felt {
 		returstreng = returstreng + "\n Super_pris = " + this.pris;
 		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
 		returstreng = returstreng + "\n Super_type = " + this.type;
-		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejerspillernavn;
+		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejer;
 		returstreng = returstreng + "\n Super_farve = " + this.farve;
 		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
 		returstreng = returstreng + "\n par = " + this.par;
 		return returstreng;
 	}
 
-
+	@Override
+	public int hentEjer() {
+		return 0;
+	}
+	
+	@Override
+	public void sætEjer(int ejer) {
+	}
+	
 	@Override
 	public boolean hentEkstraTur() {
 		// TODO Auto-generated method stub
@@ -76,7 +86,7 @@ public class NormalFelt extends Felt {
 
 
 	@Override
-	public void sætOnkelsPenge() {
+	public void sætOnkelsPenge(int penge) {
 		// TODO Auto-generated method stub
 		
 	}

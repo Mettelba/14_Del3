@@ -3,8 +3,8 @@ package Felter;
 	public class FyrværkeriEllerDelfinerFelt extends Felt {
 		private int pris;
 		
-		public FyrværkeriEllerDelfinerFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int par) {
-			super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
+		public FyrværkeriEllerDelfinerFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst, int par) {
+			super (feltnr, pris, husleje, type, ejer, farve, felttekst);
 			this.pris = pris; 
 		}
 		
@@ -19,20 +19,27 @@ package Felter;
 			returstreng = returstreng + "\n Super_pris = " + this.pris;
 			returstreng = returstreng + "\n Super_husleje = " + this.husleje;
 			returstreng = returstreng + "\n Super_type = " + this.type;
-			returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejerspillernavn;
+			returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejer;
 			returstreng = returstreng + "\n Super_farve = " + this.farve;
 			returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
 			returstreng = returstreng + "\n par = " + this.pris;
 			return returstreng;
 		}
 
-
+		@Override
+		public int hentEjer() {
+			return 0;
+		}
+		
+		@Override
+		public void sætEjer(int ejer) {
+		}
+		
 		@Override
 		public boolean hentEkstraTur() {
 			// TODO Auto-generated method stub
 			return false;
 		}
-
 
 		@Override
 		public int hentPrisForKaffe() {
@@ -76,7 +83,7 @@ package Felter;
 
 
 		@Override
-		public void sætOnkelsPenge() {
+		public void sætOnkelsPenge(int penge) {
 			// TODO Auto-generated method stub
 			
 		}

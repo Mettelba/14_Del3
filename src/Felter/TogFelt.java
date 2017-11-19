@@ -4,16 +4,24 @@ public class TogFelt extends Felt {
 	
 	private boolean ekstratur = true;
 	
-	public TogFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst) {
-		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
+	public TogFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst) {
+		super (feltnr, pris, husleje, type, ejer, farve, felttekst);
 
+	}
+	
+	@Override
+	public int hentEjer() {
+		return 0;
+	}
+	
+	@Override
+	public void sætEjer(int ejer) {
 	}
 	
 	@Override
 	public boolean hentEkstraTur() {
 		return this.ekstratur;
 	}
-
 
 	@Override
 	public int hentPrisForKaffe() {
@@ -58,11 +66,9 @@ public class TogFelt extends Felt {
 	}
 
 	@Override
-	public void sætOnkelsPenge() {
+	public void sætOnkelsPenge(int penge) {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 
 }

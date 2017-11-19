@@ -3,8 +3,8 @@ package Felter;
 public class CafeFelt extends Felt {
 	private int prisforkaffe;
 
-	public CafeFelt (int feltnr, int pris, int husleje, int type, String ejerspillernavn, String farve, String felttekst, int prisforkaffe) {
-		super (feltnr, pris, husleje, type, ejerspillernavn, farve, felttekst);
+	public CafeFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst, int prisforkaffe) {
+		super (feltnr, pris, husleje, type, ejer, farve, felttekst);
 		this.prisforkaffe = prisforkaffe;
 	} 
 	
@@ -17,18 +17,26 @@ public class CafeFelt extends Felt {
 		returstreng = "Super_feltnr = " + this.feltnr;
 		returstreng = returstreng + "\n Super_pris = " + this.pris;
 		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
-		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejerspillernavn;
+		returstreng = returstreng + "\n Super_ejer = " + this.ejer;
 		returstreng = returstreng + "\n Super_farve = " + this.farve;
 		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
 		return returstreng;
 	}
 
 	@Override
+	public int hentEjer() {
+		return 0;
+	}
+	
+	@Override
+	public void sætEjer(int ejer) {
+	}
+	
+	@Override
 	public boolean hentEkstraTur() {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 
 	@Override
 	public int hentPasserStart() {
@@ -67,7 +75,7 @@ public class CafeFelt extends Felt {
 	}
 
 	@Override
-	public void sætOnkelsPenge() {
+	public void sætOnkelsPenge(int penge) {
 		// TODO Auto-generated method stub
 		
 	}
