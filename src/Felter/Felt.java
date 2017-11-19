@@ -63,6 +63,7 @@ public abstract class Felt {
 	public abstract int hentGåTilFeltNr();
 	public abstract int hentEntre();
 	public abstract int hentOnkelsPenge();
+	public abstract void sætOnkelsPenge();
 	
 	}
 
