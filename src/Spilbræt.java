@@ -225,13 +225,13 @@ public class Spilbræt {
 	}
 
 
-
-
 	public int hentType (int position) {
 		int felttype;
 		felttype = felter[position].hentFeltType();
 		return felttype;
 	}
+	
+	
 
 
 }
