@@ -3,8 +3,8 @@ package Felter;
 public class OnkelMangePengeFelt extends Felt {
 	private int onkelspenge;
 
-	public OnkelMangePengeFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst, int onkelspenge) {
-		super (feltnr, pris, husleje, type, ejer, beskedtekst, felttekst);
+	public OnkelMangePengeFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int onkelspenge) {
+		super (feltnr, pris, type, ejer, beskedtekst, felttekst);
 		this.onkelspenge = onkelspenge;
 	}
 	
@@ -22,7 +22,6 @@ public class OnkelMangePengeFelt extends Felt {
 		String returstreng;
 		returstreng = "Super_feltnr = " + this.feltnr;
 		returstreng = returstreng + "\n Super_pris = " + this.pris;
-		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
 		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejer;
 		returstreng = returstreng + "\n Super_farve = " + this.beskedtekst;
 		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;

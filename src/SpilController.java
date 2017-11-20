@@ -13,6 +13,7 @@ public class SpilController {
 	private GUI spilgui; 
 	private Felt[] felter; 
 	private SpilController spilkontrol;
+	private Regler regler = new Regler(spiller, felter, aktivspiller);
 
 
 	public SpilController(Spiller[] spiller) {
@@ -50,10 +51,7 @@ public class SpilController {
 		
 		
 		
-		//Opdater GUI for position
-		
-		
-			
+		//Opdater GUI for positioN	
 		return this.spiller;
 	}
 		
@@ -65,34 +63,25 @@ public class SpilController {
 		//Håndter særregler for felter
 		switch (felttype) {
 		case 1://Normal felt
-			System.out.println("Normal felt"+ felttype);
+			regler.normalFelt(aktivspiller);
 			break;
 		case 2://Et tog
 			//GUI BESKED "Du er landet på toget, og får derfor en ekstra tur. Tryk Ok.
-			
-			System.out.println("Et tog"+ felttype);
+			regler.togFelt(aktivspiller);
 			break;
-		case 3://Fyrværkeri eller delfiner
-			System.out.println("Fyrværkeri eller delfiner"+felttype);
+		case 3://Fyrværkeri eller delfiner eller Café
+			regler.fyrværkeriDelfinCafeFelt(aktivspiller);
 			break;
 		case 4://Onkel Mangepenges byttepenge'
-			System.out.println("Onkel Mangepenges byttepenge"+felttype);
+			regler.onkelMangePengeFelt(aktivspiller);
 			break;
-		case 5://Cafe felt
-			System.out.println("Cafe felt"+felttype);
+		case 5://Gå på Cafe felt
+			regler.gåPåCafeFelt(aktivspiller);	
 			break;
-		case 6://Gå på Cafe felt
-			System.out.println("Gå på Cafe felt"+felttype);			
+		case 6://START   SKAL DET IKKE HÅNDTERES SOM PROGRAM LOGIK ?
+			regler.startFelt(aktivspiller);
 			break;
-		case 7://Gå til
-			System.out.println("Gå til"+felttype);
-			break;
-		case 8://START
-			System.out.println("START"+felttype);
-			break;
-
 		}
-		//Håndter generelle regler
 	}
 }
 

@@ -4,8 +4,8 @@ public class TogFelt extends Felt {
 	
 	private boolean ekstratur = true;
 	
-	public TogFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst) {
-		super (feltnr, pris, husleje, type, ejer, beskedtekst, felttekst);
+	public TogFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst) {
+		super (feltnr, pris, type, ejer, beskedtekst, felttekst);
 
 	}
 	

@@ -4,8 +4,8 @@ public class NormalFelt extends Felt {
 	private int par;
 	private boolean bod;//Der er ingen boder på nogen felter fra starten.
 	
-	public NormalFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst, int par, boolean bod) {
-		super (feltnr, pris, husleje, type, ejer, beskedtekst, felttekst);
+	public NormalFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int par, boolean bod) {
+		super (feltnr, pris, type, ejer, beskedtekst, felttekst);
 		this.par = par;
 		this.bod = bod;
 	}
@@ -30,7 +30,6 @@ public class NormalFelt extends Felt {
 		String returstreng;
 		returstreng = "Super_feltnr = " + this.feltnr;
 		returstreng = returstreng + "\n Super_pris = " + this.pris;
-		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
 		returstreng = returstreng + "\n Super_type = " + this.type;
 		returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejer;
 		returstreng = returstreng + "\n Super_beskedtekst = " + this.beskedtekst;

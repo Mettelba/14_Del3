@@ -2,15 +2,15 @@ import Felter.Felt;
 
 
 public class Regler {
-	Spiller[] spiller;
-	Felt[] felter;
-	int aktivspiller;
-	int position;
-	int felttype;
-	int indestående;
-	int feltejer;
-	int prisfordobler;
-	boolean svar;
+	private Spiller[] spiller;
+	private Felt[] felter;
+	private int aktivspiller;
+	private int position;
+	private int felttype;
+	private int indestående;
+	private int feltejer;
+	private int prisfordobler;
+	private boolean svar;
 
 
 	public Regler(Spiller[] spiller, Felt[] felter, int aktivspiller ) {
@@ -28,8 +28,7 @@ public class Regler {
 	
 
 
-	public void normalFelt() {
-
+	public void normalFelt(int aktivspiller) {
 
 		//Felt er ejet af spillet spiller 0
 		if (feltejer == 0 && spiller[aktivspiller].indeståendeSpillerKonto() > felter[position].hentPris()) {//har aktivspiller råd til at købe det.
@@ -47,9 +46,7 @@ public class Regler {
 			int feltnrpåpar = felter[position].hentPar();
 			if (feltejer == felter[feltnrpåpar].hentEjer()) {//Hvis ejeren af feltet også ejer den tilhørende feltpartner.
 				prisfordobler = 2;
-				if(felter[position].hentBod()==true) {//Hvis der er bod på
-					prisfordobler = 4;
-				}
+
 			}
 			//Overfør penge 
 			int tilbetaling = felter[position].hentHusleje()*prisfordobler;
@@ -62,37 +59,36 @@ public class Regler {
 				spiller[felter[position].hentEjer()].modtagGevinst(tilbetaling);
 				spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 			}
-
 		}
 	}
 
-	public void togFelt() {
+	public void togFelt(int aktivspiller) {
 		//GUI BESKED "Du er landet på toget, og får derfor en ekstra tur. Tryk Ok.
 		spiller[aktivspiller].sætEkstraTur(true);
 	}
 
-	public void fyrværkeriDelfinCafeFelt() {
+	public void fyrværkeriDelfinCafeFelt(int aktivspiller) {
 
 		//GUI BESKED "Du er landet på" + felter[position].hentFeltTekst() +"  Du skal betale felter[position].hentEntre()+" kr. til onkel Mangepenge. Tryk på OK."
 
 		//Hvis spilleren ikke har penge nok, overføres det der står på kontoen til onkelmangepenge og spilleren går bankerot
-		if (indestående < felter[position].hentEntre()) {
+		if (indestående < felter[position].hentPrisForEntre()) {
 			felter[12].sætOnkelsPenge(felter[12].hentOnkelsPenge() + indestående);
 			//GUI BESKED "Du er gået bankerot og har desværre tabt spillet."
 		} else {
-			spiller[aktivspiller].modtagGevinst(felter[position].hentEntre());
-			felter[12].sætOnkelsPenge(felter[12].hentOnkelsPenge() + felter[position].hentEntre());
+			spiller[aktivspiller].modtagGevinst(felter[position].hentPrisForEntre());
+			felter[12].sætOnkelsPenge(felter[12].hentOnkelsPenge() + felter[position].hentPrisForEntre());
 		}
 	}
 
-	public void onkelMangePengeFelt() {
+	public void onkelMangePengeFelt(int aktivspiller) {
 		//GUI BESKED "Du er er på besøg hos Onkel Mangepenge, og flink som han er har han givet dig hvad han havde i lommerne. Du har fået " + felter[12].hentOnkelsPenge();
 		spiller[aktivspiller].modtagGevinst(felter[12].hentOnkelsPenge());
 		felter[12].sætOnkelsPenge(2); //Onkel finder en daler på gulvet da du er gået.
 
 	}
 
-	public void gåPåCafeFelt() {
+	public void gåPåCafeFelt(int aktivspiller) {
 
 		//GUI BESKED "Din ven har ringet og vil have dig med på Café. Du syns det er en skide go idé. Tryk på OK"
 		//GUI ok knap
@@ -101,7 +97,7 @@ public class Regler {
 
 
 
-	public void startFelt() {
+	public void startFelt(int aktivspiller) {
 		spiller[aktivspiller].modtagGevinst(felter[1].hentPasserStart());
 	}
 }

@@ -3,17 +3,15 @@ package Felter;
 public abstract class Felt {
 	protected int feltnr;
 	protected int pris;
-	protected int husleje;
 	protected int type;
 	protected int ejer = 0; //Spillet ejer alle felter fra starten.
 	protected String beskedtekst;
 	protected String felttekst;
 
 	
-	public Felt(int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst) {
+	public Felt(int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst) {
 		this.feltnr=feltnr;
 		this.pris = pris;
-		this.husleje = husleje;
 		this.type = type;
 		this.ejer = ejer;
 		this.beskedtekst = beskedtekst;
@@ -26,14 +24,6 @@ public abstract class Felt {
 	
 	public int hentPris() {
 		return this.pris;
-	}
-	
-	public int hentHusleje() {
-		return this.husleje;
-	}
-	
-	public void sætHusLeje(int husleje) {
-		this.husleje = husleje;
 	}
 	
 	public int hentFeltType() {
