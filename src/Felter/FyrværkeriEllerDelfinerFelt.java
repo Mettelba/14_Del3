@@ -10,7 +10,7 @@ package Felter;
 		
 		
 		@Override
-		public int hentEntre() {
+		public int hentPrisForEntre() {
 			return this.pris;
 		}
 		public String toString() {

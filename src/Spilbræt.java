@@ -87,7 +87,7 @@ public class Spilbræt {
 		j.setBackGroundColor(Color.red);
 		guifelter[8] = j;
 
-		felter[9] = new CafeFelt(9, 0, 1, 5, 0, "Du går på café og det koster ", "Du går på cafe", 3);
+		felter[9] = new EntreFelt(9, 0, 1, 5, 0, "Du går på café og det koster ", "Du går på cafe", 3);
 		GUI_Field k= new GUI_Street();
 		k.setTitle(felter[9].hentFeltTekst());
 		k.setBackGroundColor(Color.pink);

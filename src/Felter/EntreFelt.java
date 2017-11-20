@@ -1,14 +1,14 @@
 package Felter;
 
-public class CafeFelt extends Felt {
+public class EntreFelt extends Felt {
 	private int prisforkaffe;
 
-	public CafeFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst, int prisforkaffe) {
+	public EntreFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst, int prisforkaffe) {
 		super (feltnr, pris, husleje, type, ejer, beskedtekst, felttekst);
 		this.prisforkaffe = prisforkaffe;
 	} 
 	
-	public int hentPrisForKaffe() {
+	public int hentPrisForEntre() {
 		return this.prisforkaffe;
 	}
 
@@ -52,12 +52,6 @@ public class CafeFelt extends Felt {
 
 	@Override
 	public int hentFeltNr() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentEntre() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
