@@ -176,6 +176,7 @@ public class Spilbræt {
 		y.setTitle(felter[23].hentFeltTekst());
 		y.setBackGroundColor(Color.magenta);
 		guifelter[23] = y;
+		
 
 
 
