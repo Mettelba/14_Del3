@@ -15,7 +15,7 @@ public class Konto {
 
 	public void sætVærdi(int værdi) {	
 
-		this.værdi = værdi;  	// hvis ikke, l�gger den v�rdien plus den nye v�rdi over i v�rdi.
+		this.værdi = værdi;  	// hvis ikke, lægger den værdien plus den nye v�rdi over i v�rdi.
 
 	}
 

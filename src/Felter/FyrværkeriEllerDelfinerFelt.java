@@ -3,8 +3,8 @@ package Felter;
 	public class FyrværkeriEllerDelfinerFelt extends Felt {
 		private int pris;
 		
-		public FyrværkeriEllerDelfinerFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst, int par) {
-			super (feltnr, pris, husleje, type, ejer, farve, felttekst);
+		public FyrværkeriEllerDelfinerFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst, int par) {
+			super (feltnr, pris, husleje, type, ejer, beskedtekst, felttekst);
 			this.pris = pris; 
 		}
 		
@@ -20,7 +20,7 @@ package Felter;
 			returstreng = returstreng + "\n Super_husleje = " + this.husleje;
 			returstreng = returstreng + "\n Super_type = " + this.type;
 			returstreng = returstreng + "\n Super_ejerspillernavn = " + this.ejer;
-			returstreng = returstreng + "\n Super_farve = " + this.farve;
+			returstreng = returstreng + "\n Super_beskedtekst = " + this.beskedtekst;
 			returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
 			returstreng = returstreng + "\n par = " + this.pris;
 			return returstreng;

@@ -3,8 +3,8 @@ package Felter;
 public class CafeFelt extends Felt {
 	private int prisforkaffe;
 
-	public CafeFelt (int feltnr, int pris, int husleje, int type, int ejer, String farve, String felttekst, int prisforkaffe) {
-		super (feltnr, pris, husleje, type, ejer, farve, felttekst);
+	public CafeFelt (int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst, int prisforkaffe) {
+		super (feltnr, pris, husleje, type, ejer, beskedtekst, felttekst);
 		this.prisforkaffe = prisforkaffe;
 	} 
 	
@@ -18,7 +18,7 @@ public class CafeFelt extends Felt {
 		returstreng = returstreng + "\n Super_pris = " + this.pris;
 		returstreng = returstreng + "\n Super_husleje = " + this.husleje;
 		returstreng = returstreng + "\n Super_ejer = " + this.ejer;
-		returstreng = returstreng + "\n Super_farve = " + this.farve;
+		returstreng = returstreng + "\n Super_tekst = " + this.beskedtekst;
 		returstreng = returstreng + "\n Super_felttekst = " + this.felttekst;
 		return returstreng;
 	}
