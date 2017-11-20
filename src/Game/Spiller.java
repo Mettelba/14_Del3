@@ -1,3 +1,4 @@
+package Game;
 public class Spiller {
 
 	private String navn = "Player0";
