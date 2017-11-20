@@ -41,13 +41,6 @@ public class GåTilCafeFelt extends Felt{
 		return false;
 	}
 
-
-	@Override
-	public int hentPrisForKaffe() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	@Override
 	public int hentPasserStart() {
 		// TODO Auto-generated method stub
@@ -56,12 +49,6 @@ public class GåTilCafeFelt extends Felt{
 
 	@Override
 	public int hentPar() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentEntre() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -88,5 +75,11 @@ public class GåTilCafeFelt extends Felt{
 	public void sætBod(boolean bod) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int hentPrisForEntre() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
