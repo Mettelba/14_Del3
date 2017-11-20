@@ -22,7 +22,7 @@ public class Raflebæger {
 	}
 
  
-	public void ryst() {
+	public void ryst() { 
 		this.sum = 0;
 		terning1.kast();
 		terning2.kast();
