@@ -129,5 +129,5 @@ public class RaflebægerTest {
 			System.out.println("Sum af terning1 og terning2 " + x+"ere = " + statistik2[x]);
 		}
 	}
-
+ 
 }
