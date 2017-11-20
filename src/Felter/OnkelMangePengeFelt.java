@@ -61,18 +61,6 @@ public class OnkelMangePengeFelt extends Felt {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public int hentEntre() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentPrisForKaffe() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 	
 	@Override
 	public int hentGåTilFeltNr() {
@@ -90,5 +78,11 @@ public class OnkelMangePengeFelt extends Felt {
 	public void sætBod(boolean bod) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int hentPrisForEntre() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

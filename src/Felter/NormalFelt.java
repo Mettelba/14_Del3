@@ -54,14 +54,6 @@ public class NormalFelt extends Felt {
 		return false;
 	}
 
-
-	@Override
-	public int hentPrisForKaffe() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
 	@Override
 	public int hentPasserStart() {
 		// TODO Auto-generated method stub
@@ -74,14 +66,6 @@ public class NormalFelt extends Felt {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-
-	@Override
-	public int hentEntre() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 
 	@Override
 	public int hentOnkelsPenge() {
@@ -101,6 +85,13 @@ public class NormalFelt extends Felt {
 	public void sætOnkelsPenge(int onkelspenge) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public int hentPrisForEntre() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
 

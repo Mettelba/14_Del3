@@ -24,12 +24,6 @@ public class TogFelt extends Felt {
 	}
 
 	@Override
-	public int hentPrisForKaffe() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int hentPasserStart() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -43,12 +37,6 @@ public class TogFelt extends Felt {
 
 	@Override
 	public int hentFeltNr() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentEntre() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -81,6 +69,12 @@ public class TogFelt extends Felt {
 	public void sætBod(boolean bod) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int hentPrisForEntre() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
