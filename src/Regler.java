@@ -49,7 +49,7 @@ public class Regler {
 
 			}
 			//Overfør penge 
-			int tilbetaling = felter[position].hentHusleje()*prisfordobler;
+			int tilbetaling = felter[position].hentPris()*prisfordobler;
 
 			//hvis aktivspiller ikke har penge nok til at betale så betaler man det man har og går bankerot.
 			if (indestående < tilbetaling) {
