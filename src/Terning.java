@@ -4,7 +4,7 @@ public class Terning {
 
 
 	private int øjne;
-	private int sider = 6;
+	private int sider = 3;
 
 
 	public Terning(int sider) {
