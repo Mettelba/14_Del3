@@ -12,7 +12,6 @@ public class Regler {
 	private int prisfordobler;
 	private boolean svar;
 
-
 	public Regler(Spiller[] spiller, Felt[] felter, int aktivspiller ) {
 		this.spiller = spiller;
 		this.felter = felter;
@@ -22,12 +21,8 @@ public class Regler {
 		indestående = spiller[aktivspiller].indeståendeSpillerKonto();
 		feltejer = felter[position].hentEjer();
 		prisfordobler = 1;
-
 	}
-
 	
-
-
 	public void normalFelt(int aktivspiller) {
 
 		//Felt er ejet af spillet spiller 0
