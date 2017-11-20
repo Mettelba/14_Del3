@@ -13,7 +13,7 @@ public class Spil {
 	private int aktivspiller = 1; //Vi starter med spiller 1
 
 	private Spiller[] spiller;
-	private SpilController spilkontrol = new SpilController();
+	private SpilController spilkontrol;
 	private Scanner sc = new Scanner(System.in);
 
 
@@ -21,6 +21,7 @@ public class Spil {
 	public static void main(String[] args) {
 
 		Spil monopolyspil = new Spil();
+		monopolyspil.initialiserSpil();
 
 	}
 	public void initialiserSpil() {
@@ -28,7 +29,7 @@ public class Spil {
 
 		//Indtast antal spillere og deres navne
 		System.out.print("Indtast antal spillere fra 1 til 4: ");
-		antalspillere = sc.nextInt();
+		antalspillere = Integer.parseInt(sc.nextLine());
 		System.out.println();
 
 		if (antalspillere < 1 || antalspillere > 4) {
@@ -50,20 +51,19 @@ public class Spil {
 			System.out.println();
 			spiller[x].sætNavn(indtastetnavn);
 		}
+		spilkontrol = new SpilController(spiller);
 	}
 
 	public void skiftSpiller() {
 
-		while (true) {
-
-			// Kør spilsekvens hvis aktivspiller ikke er bankerot.
-			while(true) {
-				spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller, spilkontrol); //returner reference til spillerarray objekt efter spilsekvens
-				if (spiller[aktivspiller].erDuBankerot()==true) {
-					//Håndter slutspil optælling af penge for de andre spillere etc.
 
 
-				}
+		// Kør spilsekvens hvis aktivspiller ikke er bankerot.
+		while(true) {
+			spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller, spilkontrol); //returner reference til spillerarray objekt efter spilsekvens
+			if (spiller[aktivspiller].erDuBankerot()==true) {
+				//Håndter slutspil optælling af penge for de andre spillere etc.
+
 
 			}
 			aktivspiller++;
@@ -75,4 +75,5 @@ public class Spil {
 			}
 		}
 	}
+
 }

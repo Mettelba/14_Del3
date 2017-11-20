@@ -13,7 +13,7 @@ public class SpilController {
 	private GUI spilgui; 
 	private Felt[] felter; 
 	private SpilController spilkontrol;
-	private Regler regler = new Regler(spiller, felter, aktivspiller);
+	private Regler regler; 
 
 
 	public SpilController(Spiller[] spiller) {
@@ -21,6 +21,7 @@ public class SpilController {
 		spillebræt = new Spilbræt(spiller);
 		spilgui = spillebræt.hentSpilGui();
 		felter = spillebræt.hentSpilFelter();
+		regler = new Regler(spiller, felter, aktivspiller);
 		
 		
 //		int felttype = spillebræt.hentType(position);
