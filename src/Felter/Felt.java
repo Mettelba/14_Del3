@@ -9,6 +9,7 @@ public abstract class Felt {
 	protected String beskedtekst;
 	protected String felttekst;
 
+	
 	public Felt(int feltnr, int pris, int husleje, int type, int ejer, String beskedtekst, String felttekst) {
 		this.feltnr=feltnr;
 		this.pris = pris;

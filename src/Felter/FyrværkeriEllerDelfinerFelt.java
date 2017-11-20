@@ -9,6 +9,7 @@ package Felter;
 		}
 		
 		
+		
 		@Override
 		public int hentPrisForEntre() {
 			return this.pris;
@@ -26,6 +27,7 @@ package Felter;
 			return returstreng;
 		}
 
+	
 		@Override
 		public int hentEjer() {
 			return 0;

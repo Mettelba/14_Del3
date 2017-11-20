@@ -8,6 +8,7 @@ public class EntreFelt extends Felt {
 		this.prisforkaffe = prisforkaffe;
 	} 
 	
+	
 	public int hentPrisForEntre() {
 		return this.prisforkaffe;
 	}
