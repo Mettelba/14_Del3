@@ -184,7 +184,7 @@ public class Spilbræt {
 			spilgui.addPlayer(new GUI_Player(spiller[tæller].hentNavn(), 31));
 		}
 
-		spilgui.showMessage("velkommen til BørneMonopoly");
+		spilgui.showMessage("velkommen til BørneMonopoly.");
 		
 	}
 

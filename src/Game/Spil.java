@@ -65,11 +65,8 @@ public class Spil {
 			spiller = this.spilkontrol.spilsekvens(spiller, aktivspiller); //returner reference til spillerarray objekt efter spilsekvens
 			if (spiller[aktivspiller].erDuBankerot()==true) {
 				//Håndter slutspil optælling af penge for de andre spillere etc.
-
-
 			}
 			aktivspiller++;
-
 			//Hvis vi er nået til sidste spiller
 			if (aktivspiller==antalspillere+1) {
 				aktivspiller=1;
