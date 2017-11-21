@@ -44,43 +44,110 @@ public class RegelControllerTest {
 		spiller[0] = new Spiller();
 		spiller[1] = new Spiller();
 		Spilbræt spilbræt = new Spilbræt(spiller);
-		Felt felter;
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);
 		
-		//felter = spilbræt.hentSpilFelter();
-		//RegelController regelcontroller = new RegelController(spiller, felter);
-		//	regelcontroller.normalFeltKøbGrund(1, 1);
-	;
+		//Her køber jeg min grund med kontrolleren.
+		regelcontroller.normalFeltKøbGrund(1, 1);
+		felter[1].hentEjer();
+		
+		
+		int expected = 1;
+		int actual = felter[1].hentEjer();
+		System.out.println(actual);
+		System.out.println(felter[1].hentEjer());
+		assertEquals(expected, actual);
+		
 		
 	}
 
 	@Test
 	public void testNormalFeltEjetAfAnden() {
-		fail("Not yet implemented");
+		Spiller[] spiller = new Spiller[2];
+		spiller[0] = new Spiller();
+		spiller[1] = new Spiller();
+		Spilbræt spilbræt = new Spilbræt(spiller);
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);
+		
+		regelcontroller.normalFeltEjetAfAnden(0, 1);
+		int expected = 0;
+		int actual = felter[1].hentEjer();
+		assertEquals(expected, actual);
+		
 	}
 
 	@Test
 	public void testTogFelt() {
-		fail("Not yet implemented");
+		Spiller[] spiller = new Spiller[2];
+		spiller[0] = new Spiller();
+		spiller[1] = new Spiller();
+		Spilbræt spilbræt = new Spilbræt(spiller);
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);
+		
+		regelcontroller.togFelt(1);
+		felter[3].hentEkstraTur();
+		boolean expected = true;
+		boolean actual = felter[3].hentEkstraTur();
+		assertEquals(expected, actual);
+		
 	}
 
 	@Test
 	public void testFyrværkeriDelfinCafeFelt() {
-		fail("Not yet implemented");
+		Spiller[] spiller = new Spiller[2];
+		spiller[0] = new Spiller();
+		spiller[1] = new Spiller();
+		Spilbræt spilbræt = new Spilbræt(spiller);
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);
+		
+		regelcontroller.fyrværkeriDelfinCafeFelt(1, 3);
+		felter[3].hentPrisForEntre();
+		int expected = 2;
+		int actual = felter[3].hentPrisForEntre();
+		assertEquals(expected, actual);
+		
+		
+		
 	}
 
 	@Test
 	public void testOnkelMangePengeFelt() {
-		fail("Not yet implemented");
+		Spiller[] spiller = new Spiller[2];
+		spiller[0] = new Spiller();
+		spiller[1] = new Spiller();
+		Spilbræt spilbræt = new Spilbræt(spiller);
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);
 	}
 
 	@Test
 	public void testGåPåCafeFelt() {
-		fail("Not yet implemented");
+		Spiller[] spiller = new Spiller[2];
+		spiller[0] = new Spiller();
+		spiller[1] = new Spiller();
+		Spilbræt spilbræt = new Spilbræt(spiller);
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);
 	}
 
 	@Test
 	public void testStartFelt() {
-		fail("Not yet implemented");
+		Spiller[] spiller = new Spiller[2];
+		spiller[0] = new Spiller();
+		spiller[1] = new Spiller();
+		Spilbræt spilbræt = new Spilbræt(spiller);
+		Felt[] felter;
+		felter = spilbræt.hentSpilFelter();
+		RegelController regelcontroller = new RegelController(spiller, felter);fail("Not yet implemented");
 	}
 
 }
