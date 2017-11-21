@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import Felter.Felt;
+import Game.Spilbræt;
+import Game.Spiller;
 
 
 public class SpilbrætTest {
