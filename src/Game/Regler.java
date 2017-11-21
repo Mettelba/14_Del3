@@ -17,49 +17,46 @@ public class Regler {
 		this.spiller = spiller;
 		this.felter = felter;
 		this.aktivspiller = aktivspiller;
-		position = spiller[aktivspiller].hentPosition();
+
 		felttype = felter[position].hentFeltType();
 		indestående = spiller[aktivspiller].indeståendeSpillerKonto();
-		feltejer = felter[position].hentEjer();
 		prisfordobler = 1;
 	}
-	
-	public void normalFelt(int aktivspiller) {
 
-		//Felt er ejet af spillet spiller 0
-		if (feltejer == 0 && spiller[aktivspiller].indeståendeSpillerKonto() > felter[position].hentPris()) {//har aktivspiller råd til at købe det.
-			//Her kan du så få lov at købe grunden hvis du vil.
-			//GUI besked vil du købe grunden ja/nej.
-
-			if (svar == true) {
-				felter[position].sætEjer(aktivspiller);
-				spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
-			}
-		}
-
-		//Felt er ejet af en anden spiller og det ikke er spiller 0
-		if (feltejer != aktivspiller && feltejer != 0) {
-			int feltnrpåpar = felter[position].hentPar();
-			if (feltejer == felter[feltnrpåpar].hentEjer()) {//Hvis ejeren af feltet også ejer den tilhørende feltpartner.
-				prisfordobler = 2;
-
-			}
-			//Overfør penge 
-			int tilbetaling = felter[position].hentPris()*prisfordobler;
-
-			//hvis aktivspiller ikke har penge nok til at betale så betaler man det man har og går bankerot.
-			if (indestående < tilbetaling) {
-				spiller[felter[position].hentEjer()].modtagGevinst(indestående);
-				//GUI BESKED "Du er gået bankerot og har desværre tabt spillet."
-			}else {
-				spiller[felter[position].hentEjer()].modtagGevinst(tilbetaling);
-				spiller[aktivspiller].hævKontoVærdi(tilbetaling);
-			}
-		}
+	public void normalFeltKøbGrund(int aktivspiller, int position) {
+		felter[position].sætEjer(aktivspiller);
+		spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
 	}
 
+	public int normalFeltEjetAfAnden(int aktivspiller, int position) {
+
+		int feltnrpåpar = felter[position].hentPar();
+		int betalt;
+
+		//Bestem pris
+		if (feltejer == felter[feltnrpåpar].hentEjer()) {//Hvis ejeren af feltet også ejer den tilhørende feltpartner.
+			prisfordobler = 2;
+		}
+
+		//Overfør penge 
+		int tilbetaling = felter[position].hentPris()*prisfordobler;
+
+		//hvis aktivspiller ikke har penge nok til at betale så betaler man det man har og går bankerot.
+		if (indestående < tilbetaling) {
+			spiller[felter[position].hentEjer()].modtagGevinst(indestående);
+			betalt = indestående;
+			//GUI BESKED "Du er gået bankerot og har desværre tabt spillet."
+		}else {
+			spiller[felter[position].hentEjer()].modtagGevinst(tilbetaling);
+			spiller[aktivspiller].hævKontoVærdi(tilbetaling);
+			betalt = tilbetaling;
+		}
+		return betalt;
+	}
+
+
 	public void togFelt(int aktivspiller) {
-		//GUI BESKED "Du er landet på toget, og får derfor en ekstra tur. Tryk Ok.
+
 		spiller[aktivspiller].sætEkstraTur(true);
 	}
 
@@ -97,3 +94,4 @@ public class Regler {
 		spiller[aktivspiller].modtagGevinst(felter[1].hentPasserStart());
 	}
 }
+

@@ -23,6 +23,7 @@ public class Spil {
 
 		Spil monopolyspil = new Spil();
 		monopolyspil.initialiserSpil();
+		monopolyspil.skiftSpiller();
 
 	}
 	public void initialiserSpil() {
