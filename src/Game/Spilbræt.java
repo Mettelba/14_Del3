@@ -12,6 +12,7 @@ public class Spilbræt {
 	private GUI_Field[] guifelter; 
 	private Felt[] felter = new Felt[24];	
 	private GUI spilgui;
+	private GUI_Player[] guispiller;
 
 	public Spilbræt(Spiller[] spiller) {
 
@@ -19,16 +20,21 @@ public class Spilbræt {
 	}
 
 	public GUI hentSpilGui() {
-
 		return spilgui;
 	}
 
 	public Felt[] hentSpilFelter() {
 		return felter;
 	}
+	
+	public GUI_Player[] hentGUISpiller() {
+		return guispiller;
+	}
 
 	private void initialiserSpilBræt(Spiller[] spiller) {	
 		guifelter = new GUI_Field[24];
+		int antalspillere = spiller.length;
+		guispiller = new GUI_Player[antalspillere];
 
 		//Opretter datastruktur og GUI struktur for spillebrættet.
 		felter[0] = new StartFelt(0, 0, 7, 0, "Du har passeret start og får ", "START!", 2);
@@ -178,12 +184,17 @@ public class Spilbræt {
 		spilgui = new GUI(guifelter);
 
 		//Opretter spillerne på brættet.
-		int antalspillere = spiller.length;
 
 		for (int tæller = 1;tæller< antalspillere;tæller++) {
-			spilgui.addPlayer(new GUI_Player(spiller[tæller].hentNavn(), 31));
+			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),21);
+			spilgui.addPlayer(guispiller[tæller]);
 		}
-
+		
+		//Sæt spiller op på start
+		for (int tæller = 1; tæller < antalspillere;tæller++) {
+		spilgui.getFields()[spiller[tæller].hentPosition()].setCar(guispiller[tæller], true);
+		}
+		
 		spilgui.showMessage("velkommen til BørneMonopoly.");
 		
 	}

@@ -11,21 +11,13 @@ public class NormalFelt extends Felt {
 	}
 	
 	
-	@Override
 	public int hentPar() {
 		return this.par;
 	}
 	
-	@Override
-	public boolean hentBod() {
-		return this.bod;
-	}
+
 	
-	@Override
-	public void sætBod(boolean bod) {
-		this.bod = bod;
-	}
-	
+
 	public String toString() {
 		String returstreng;
 		returstreng = "Super_feltnr = " + this.feltnr;
@@ -38,59 +30,51 @@ public class NormalFelt extends Felt {
 		return returstreng;
 	}
 
-	@Override
-	public int hentEjer() {
-		return 0;
-	}
 	
-	@Override
-	public void sætEjer(int ejer) {
-	}
-	
-	@Override
-	public boolean hentEkstraTur() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int hentPasserStart() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	@Override
-	public int hentFeltNr() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentOnkelsPenge() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	@Override
-	public int hentGåTilFeltNr() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-
-	@Override
-	public void sætOnkelsPenge(int onkelspenge) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public int hentPrisForEntre() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public boolean hentEkstraTur() {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//	@Override
+//	public int hentPasserStart() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//
+//	@Override
+//	public int hentFeltNr() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int hentOnkelsPenge() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//	
+//	@Override
+//	public int hentGåTilFeltNr() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//
+//
+//	@Override
+//	public void sætOnkelsPenge(int onkelspenge) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//
+//	@Override
+//	public int hentPrisForEntre() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 }
 

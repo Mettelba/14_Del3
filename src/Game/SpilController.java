@@ -1,7 +1,7 @@
 package Game;
 import Felter.*;
 import gui_main.*;
-
+import gui_fields.*;
 
 
 
@@ -15,6 +15,7 @@ public class SpilController {
 	private Raflebæger raflebæger = new Raflebæger(3);
 	private Spilbræt spillebræt;
 	private GUI spilgui;
+	private GUI_Player[] guispiller;
 
 	private Felt[] felter; 
 
@@ -26,8 +27,8 @@ public class SpilController {
 		spillebræt = new Spilbræt(spiller);
 		spilgui = spillebræt.hentSpilGui();
 		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
 		regler = new RegelController(spiller, felter);
-
 	}
 
 	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller) {
@@ -38,11 +39,18 @@ public class SpilController {
 		int feltrykkettil;
 
 		do {
+			//Hvis spiller er på sin ekstratur, så skal ekstratur for spilleren sættes til false
+			if (spiller[aktivspiller].hentEkstraTur()==true){
+				spiller[aktivspiller].sætEkstraTur(false);
+			}
+			
+
 			spilgui.showMessage(spiller[aktivspiller].hentNavn() + ". Tryk på OK for at rulle terningerner");
 			raflebæger.ryst();
 
-			//Set terninger i GUI
-			spilgui.setDice(raflebæger.hentTerning1værdi(), 1,1, raflebæger.hentTerning2værdi(), 1, 2);//Opdater GUI for terninger
+			//OPDATER GUI. Sæt terninger og fjern bilen.
+			spilgui.getFields()[spiller[aktivspiller].hentPosition()].removeAllCars();
+			spilgui.setDice(raflebæger.hentTerning1værdi(), 1,2, raflebæger.hentTerning2værdi(), 1, 3);//Opdater GUI for terninger
 
 			//Check for om man kommer over start
 			if (spiller[aktivspiller].hentPosition()+raflebæger.hentSum()>23) {
@@ -55,16 +63,21 @@ public class SpilController {
 			//sæt position for den aktive spiller i spiller array
 			this.spiller[this.aktivspiller].sætPosition(feltrykkettil);
 			position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
-			//Kald regler for felttype med felter og spiller
-			kaldRegel(spiller, felter, aktivspiller);
+		
+			//Udfør regel på spiller.
+			kaldRegel(spiller, felter, aktivspiller, guispiller);
 
+			
+			System.out.println(spiller[aktivspiller].hentEkstraTur());
+			
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
+		
 	}
 
 
 
-	private void kaldRegel(Spiller[] spiller, Felt[] felter, int aktivspiller) {
+	private void kaldRegel(Spiller[] spiller, Felt[] felter, int aktivspiller, GUI_Player[] guispiller) {
 		int position = spiller[aktivspiller].hentPosition();
 		int felttype = felter[position].hentFeltType();
 		int feltejer = felter[position].hentEjer();
@@ -74,10 +87,12 @@ public class SpilController {
 		String beskedstreng;
 
 		//Opdater GUI for position
+		spilgui.getFields()[position].setCar(guispiller[aktivspiller], true);
 
-
+		
 		//Særregler for felter
 		switch (felttype) {
+		
 		case 1://Normal felt
 			//Her kan du så få lov at købe grunden hvis du vil.
 			//GUI besked vil du købe grunden ja/nej.
@@ -93,14 +108,15 @@ public class SpilController {
 			if (feltejer != aktivspiller && feltejer != 0) {
 				betalt = regler.normalFeltEjetAfAnden(aktivspiller, position);
 
-				beskedstreng = felter[position].hentBeskedTekst() + ", og den er ejet af " + spiller[felter[felter[position].hentPar()].hentEjer()] + "Du skal betale " + betalt;
+				beskedstreng = felter[position].hentBeskedTekst() + ", og den er ejet af " + spiller[felter[position].hentEjer()] + "Du skal betale " + betalt;
 
 				if (spiller[aktivspiller].erDuBankerot() == true) {
 					beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
 				}
 				spilgui.showMessage(beskedstreng);
 			}
-
+			break;
+			
 		case 2://Et tog
 			spilgui.showMessage(felter[position].hentBeskedTekst()+ ". Tryk på ok.");
 			regler.togFelt(aktivspiller);
@@ -126,7 +142,8 @@ public class SpilController {
 		case 5://Gå på Cafe felt
 
 			regler.gåPåCafeFelt(aktivspiller, position);	
-			kaldRegel(spiller, felter, aktivspiller);
+			kaldRegel(spiller, felter, aktivspiller, guispiller);
+			
 			break;
 
 		case 6://START   SKAL DET IKKE HÅNDTERES SOM PROGRAM LOGIK ?

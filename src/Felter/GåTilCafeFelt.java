@@ -8,7 +8,6 @@ public class GåTilCafeFelt extends Felt{
 		this.gåtilfeltnr = gåtilfeltnr;
 	}
 
-	@Override
 	public int hentGåTilFeltNr() {
 		return this.gåtilfeltnr;
 	}
@@ -25,60 +24,60 @@ public class GåTilCafeFelt extends Felt{
 		return returstreng;
 	}
 
-	@Override
-	public int hentEjer() {
-		return 0;
-	}
-	
-	@Override
-	public void sætEjer(int ejer) {
-	}
-	
-	@Override
-	public boolean hentEkstraTur() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int hentPasserStart() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentPar() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int hentOnkelsPenge() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean hentBod() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void sætOnkelsPenge(int onkelspenge) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void sætBod(boolean bod) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int hentPrisForEntre() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int hentEjer() {
+//		return 0;
+//	}
+//	
+//	@Override
+//	public void sætEjer(int ejer) {
+//	}
+//	
+//	@Override
+//	public boolean hentEkstraTur() {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//	@Override
+//	public int hentPasserStart() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int hentPar() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int hentOnkelsPenge() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public boolean hentBod() {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
+//
+//	@Override
+//	public void sætOnkelsPenge(int onkelspenge) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public void sætBod(boolean bod) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public int hentPrisForEntre() {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 }
