@@ -11,6 +11,7 @@ public class NormalFelt extends Felt {
 	}
 	
 	
+	
 	public int hentPar() {
 		return this.par;
 	}

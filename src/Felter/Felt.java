@@ -45,15 +45,5 @@ public abstract class Felt {
 	public String hentFeltTekst() {
 		return this.felttekst;
 	}
-	
-//	public boolean hentEkstraTur() {return false;};
-//	public abstract void sætOnkelsPenge(int onkelspenge);
-//	public abstract int hentPrisForEntre();
-//	public abstract int hentPasserStart();
-//	public abstract int hentPar();
-//	public abstract int hentGåTilFeltNr();
-//	public abstract int hentOnkelsPenge();
-//	public abstract boolean hentBod();
-//	public abstract void sætBod(boolean bod);
 }
 

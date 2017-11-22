@@ -8,6 +8,7 @@ public class GåTilCafeFelt extends Felt{
 		this.gåtilfeltnr = gåtilfeltnr;
 	}
 
+	
 	public int hentGåTilFeltNr() {
 		return this.gåtilfeltnr;
 	}

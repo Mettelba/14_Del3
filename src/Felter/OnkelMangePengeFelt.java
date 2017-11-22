@@ -8,6 +8,7 @@ public class OnkelMangePengeFelt extends Felt {
 		this.onkelspenge = onkelspenge;
 	}
 	
+	
 	public int hentOnkelsPenge() {
 		return this.onkelspenge;
 	}

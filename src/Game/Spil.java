@@ -29,6 +29,7 @@ public class Spil {
 	public void initialiserSpil() {
 		String indtastetnavn;
 
+		
 		//Indtast antal spillere og deres navne
 		System.out.print("Indtast antal spillere fra 1 til 4: ");
 		antalspillere = Integer.parseInt(sc.nextLine());

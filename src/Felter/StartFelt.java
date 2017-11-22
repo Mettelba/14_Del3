@@ -9,6 +9,7 @@ public class StartFelt extends Felt{
 		this.passerstart = passerstart;
 	}
 	
+	
 
 	public int hentPasserStart() {
 		return this.passerstart;

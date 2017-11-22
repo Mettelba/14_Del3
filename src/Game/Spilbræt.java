@@ -19,6 +19,7 @@ public class Spilbræt {
 		initialiserSpilBræt(spiller);
 	}
 
+	
 	public GUI hentSpilGui() {
 		return spilgui;
 	}

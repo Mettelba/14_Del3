@@ -104,6 +104,7 @@ public class SpilController {
 				}
 			}
 
+			
 			//Felt er ejet af en anden spiller og det ikke er spiller 0
 			if (feltejer != aktivspiller && feltejer != 0) {
 				betalt = regler.normalFeltEjetAfAnden(aktivspiller, position);

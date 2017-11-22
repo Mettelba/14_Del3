@@ -20,6 +20,7 @@ public class RegelController {
 		felter[position].sætEjer(aktivspiller);
 		spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
 	}
+	
 
 	public int normalFeltEjetAfAnden(int aktivspiller, int position) {
 

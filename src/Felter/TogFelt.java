@@ -9,6 +9,7 @@ public class TogFelt extends Felt {
 
 	}
 	
+	
 	public boolean hentEkstraTur() {
 		return this.ekstratur;
 	}
