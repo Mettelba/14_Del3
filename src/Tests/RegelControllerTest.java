@@ -1,4 +1,4 @@
-package Game;
+package Tests;
 import Felter.*;
 
 import static org.junit.Assert.*;
@@ -10,6 +10,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Felter.Felt;
+import Game.RegelController;
+import Game.Spilbræt;
+import Game.Spiller;
 
 public class RegelControllerTest {
 	
