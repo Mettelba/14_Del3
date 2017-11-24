@@ -60,12 +60,14 @@ public class Spilbræt {
 		GUI_Field d= new GUI_Street();
 		d.setTitle(felter[3].hentFeltTekst());
 		d.setBackGroundColor(Color.pink);
+		d.setSubText("");
 		guifelter[3] = d;
 
 		felter[4] = new NormalFelt(4, 2, 1, 0, "Du landet på dukketeatret", "Dukkeforestillingen", 5,false);
 		GUI_Field e= new GUI_Street();
 		e.setTitle(felter[4].hentFeltTekst());
 		e.setBackGroundColor(Color.gray);
+		e.setSubText(String.valueOf(felter[4].hentPris())+"kr");
 		guifelter[4] = e;
 
 		felter[5] = new NormalFelt(5, 2, 1, 0, "Du er landet på trylleshowet", "Trylleshowet", 6,false);
@@ -187,7 +189,7 @@ public class Spilbræt {
 		//Opretter spillerne på brættet.
 
 		for (int tæller = 1;tæller< antalspillere;tæller++) {
-			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),21);
+			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),31);
 			spilgui.addPlayer(guispiller[tæller]);
 		}
 		

@@ -68,8 +68,6 @@ public class SpilController {
 			kaldRegel(spiller, felter, aktivspiller, guispiller);
 
 			
-			System.out.println(spiller[aktivspiller].hentEkstraTur());
-			
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
 		
@@ -101,6 +99,9 @@ public class SpilController {
 				valg = spilgui.getUserLeftButtonPressed(felter[position].hentBeskedTekst() + " og den er til salg. vil du købe grunden ?", "Ja", "Nej");
 				if (valg == true) {
 					regler.normalFeltKøbGrund(aktivspiller, position);
+					
+					//UPDATE GUI MED KONTO
+					
 				}
 			}
 
@@ -109,7 +110,7 @@ public class SpilController {
 			if (feltejer != aktivspiller && feltejer != 0) {
 				betalt = regler.normalFeltEjetAfAnden(aktivspiller, position);
 
-				beskedstreng = felter[position].hentBeskedTekst() + ", og den er ejet af " + spiller[felter[position].hentEjer()] + "Du skal betale " + betalt;
+				beskedstreng = felter[position].hentBeskedTekst() + ", og du skal betale " + spiller[felter[position].hentEjer()].hentNavn() + " "+ betalt +"kr i afgift.";
 
 				if (spiller[aktivspiller].erDuBankerot() == true) {
 					beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
@@ -125,7 +126,7 @@ public class SpilController {
 
 		case 3://Fyrværkeri eller delfiner eller Café
 			betalt = regler.fyrværkeriDelfinCafeFelt(aktivspiller, position);
-			beskedstreng = felter[position].hentBeskedTekst() + " og skal betale " + betalt;
+			beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
 
 			if (spiller[aktivspiller].erDuBankerot() == true) {
 				beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
@@ -141,7 +142,7 @@ public class SpilController {
 			break;
 
 		case 5://Gå på Cafe felt
-
+			spilgui.showMessage(felter[position].hentBeskedTekst());
 			regler.gåPåCafeFelt(aktivspiller, position);	
 			kaldRegel(spiller, felter, aktivspiller, guispiller);
 			

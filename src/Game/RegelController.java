@@ -6,7 +6,7 @@ public class RegelController {
 	private Spiller[] spiller;
 	private Felt[] felter;
 
-	private int feltejer;
+	
 	private int prisfordobler;
 
 
@@ -27,7 +27,8 @@ public class RegelController {
 		int feltnrpåpar = ((NormalFelt)felter[position]).hentPar();
 		int betalt;
 		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();
-
+		int feltejer = ((NormalFelt)felter[position]).hentEjer();
+		
 		//Bestem pris
 		if (feltejer == felter[feltnrpåpar].hentEjer()) {//Hvis ejeren af feltet også ejer den tilhørende feltpartner.
 			prisfordobler = 2;
@@ -42,7 +43,7 @@ public class RegelController {
 			betalt = indestående;
 			
 		}else {
-			spiller[felter[position].hentEjer()].modtagGevinst(tilbetaling);
+			spiller[feltejer].modtagGevinst(tilbetaling);
 			spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 			betalt = tilbetaling;
 			
