@@ -67,6 +67,7 @@ public class SpilController {
 			//Udfør regel på spiller.
 			kaldRegel(spiller, felter, aktivspiller, guispiller);
 
+			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 			
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
