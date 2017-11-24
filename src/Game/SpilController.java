@@ -16,6 +16,7 @@ public class SpilController {
 	private Spilbræt spillebræt;
 	private GUI spilgui;
 	private GUI_Player[] guispiller;
+	private GUI_Field[] guifelter;
 
 	private Felt[] felter; 
 
@@ -28,7 +29,8 @@ public class SpilController {
 		spilgui = spillebræt.hentSpilGui();
 		felter = spillebræt.hentSpilFelter();
 		guispiller = spillebræt.hentGUISpiller();
-		regler = new RegelController(spiller, felter, guispiller, spilgui);
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 	}
 
 	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller) {

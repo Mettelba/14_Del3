@@ -27,9 +27,13 @@ public class Spilbræt {
 	public Felt[] hentSpilFelter() {
 		return felter;
 	}
-	
+	 
 	public GUI_Player[] hentGUISpiller() {
 		return guispiller;
+	}
+	
+	public GUI_Field[] hentGUIfelter() {
+		return guifelter;
 	}
 
 	private void initialiserSpilBræt(Spiller[] spiller) {	

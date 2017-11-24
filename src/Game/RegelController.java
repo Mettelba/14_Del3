@@ -1,5 +1,6 @@
 package Game;
 import Felter.*;
+import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
@@ -9,17 +10,19 @@ public class RegelController {
 	private Felt[] felter;
 	private GUI_Player[] guispiller;
 	private GUI spilgui;
+	private GUI_Field[] guifelter;
 
 
 	
 	private int prisfordobler;
 
 
-	public RegelController(Spiller[] spiller, Felt[] felter, GUI_Player[] guispiller, GUI spilgui) {
+	public RegelController(Spiller[] spiller, Felt[] felter, GUI_Player[] guispiller, GUI spilgui, GUI_Field[] guifelter) {
 		this.spiller = spiller;
 		this.felter = felter;
 		this.guispiller = guispiller;
 		this.spilgui = spilgui;
+		this.guifelter = guifelter;
 		prisfordobler = 1;
 	}
 
@@ -27,6 +30,7 @@ public class RegelController {
 		felter[position].sætEjer(aktivspiller);
 		spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+		
 	}
 	
 
