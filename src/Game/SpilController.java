@@ -71,6 +71,7 @@ public class SpilController {
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
 		
+		
 	}
 
 
