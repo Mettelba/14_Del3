@@ -114,7 +114,7 @@ public class RegelControllerTest {
 		felter = spilbræt.hentSpilFelter();
 		RegelController regelcontroller = new RegelController(spiller, felter);
 		
-		regelcontroller.fyrværkeriDelfinCafeFelt(1, 3);
+		regelcontroller.entreFelt(1, 3);
 		((EntreFelt)felter[3]).hentPrisForEntre();
 		int expected = 2;
 		int actual = ((EntreFelt)felter[3]).hentPrisForEntre();

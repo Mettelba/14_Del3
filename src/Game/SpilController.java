@@ -28,7 +28,7 @@ public class SpilController {
 		spilgui = spillebræt.hentSpilGui();
 		felter = spillebræt.hentSpilFelter();
 		guispiller = spillebræt.hentGUISpiller();
-		regler = new RegelController(spiller, felter);
+		regler = new RegelController(spiller, felter, guispiller, spilgui);
 	}
 
 	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller) {
@@ -65,11 +65,9 @@ public class SpilController {
 			position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
 		
 			//Udfør regel på spiller.
-			kaldRegel(spiller, felter, aktivspiller, guispiller);
+			kaldRegel(spiller, felter, aktivspiller);
 
-			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
-			
-			
+
 			
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
@@ -79,7 +77,7 @@ public class SpilController {
 
 
 
-	private void kaldRegel(Spiller[] spiller, Felt[] felter, int aktivspiller, GUI_Player[] guispiller) {
+	private void kaldRegel(Spiller[] spiller, Felt[] felter, int aktivspiller) {
 		int position = spiller[aktivspiller].hentPosition();
 		int felttype = felter[position].hentFeltType();
 		int feltejer = felter[position].hentEjer();
@@ -129,7 +127,7 @@ public class SpilController {
 			break;
 
 		case 3://Fyrværkeri eller delfiner eller Café
-			betalt = regler.fyrværkeriDelfinCafeFelt(aktivspiller, position);
+			betalt = regler.entreFelt(aktivspiller, position);
 			beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
 
 			if (spiller[aktivspiller].erDuBankerot() == true) {
@@ -148,7 +146,7 @@ public class SpilController {
 		case 5://Gå på Cafe felt
 			spilgui.showMessage(felter[position].hentBeskedTekst());
 			regler.gåPåCafeFelt(aktivspiller, position);	
-			kaldRegel(spiller, felter, aktivspiller, guispiller);
+			kaldRegel(spiller, felter, aktivspiller);
 			
 			break;
 

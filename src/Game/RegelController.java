@@ -1,24 +1,32 @@
 package Game;
 import Felter.*;
+import gui_fields.GUI_Player;
+import gui_main.GUI;
 
 
 public class RegelController {
 	private Spiller[] spiller;
 	private Felt[] felter;
+	private GUI_Player[] guispiller;
+	private GUI spilgui;
+
 
 	
 	private int prisfordobler;
 
 
-	public RegelController(Spiller[] spiller, Felt[] felter) {
+	public RegelController(Spiller[] spiller, Felt[] felter, GUI_Player[] guispiller, GUI spilgui) {
 		this.spiller = spiller;
 		this.felter = felter;
+		this.guispiller = guispiller;
+		this.spilgui = spilgui;
 		prisfordobler = 1;
 	}
 
 	public void normalFeltKøbGrund(int aktivspiller, int position) {
 		felter[position].sætEjer(aktivspiller);
 		spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
+		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 	}
 	
 
@@ -39,27 +47,25 @@ public class RegelController {
 
 		//hvis aktivspiller ikke har penge nok til at betale så betaler man det man har og går bankerot.
 		if (indestående < tilbetaling) {
-			spiller[felter[position].hentEjer()].modtagGevinst(indestående);
+			spiller[felter[position].hentEjer()].modtagGevinst(indestående); //Ejer af felt modtager det som den aktive spiller har på sin konto.
 			betalt = indestående;
-			
 		}else {
 			spiller[feltejer].modtagGevinst(tilbetaling);
 			spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 			betalt = tilbetaling;
 			
 		}
+		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+		guispiller[feltejer].setBalance(spiller[feltejer].indeståendeSpillerKonto());
 		return betalt;
 	}
 
 
 	public void togFelt(int aktivspiller) {
-		
-		
-
 		spiller[aktivspiller].sætEkstraTur(true);
 	}
 
-	public int fyrværkeriDelfinCafeFelt(int aktivspiller, int position) {
+	public int entreFelt(int aktivspiller, int position) {
 		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();
 		int betalt;
 		
@@ -72,6 +78,8 @@ public class RegelController {
 			((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + ((EntreFelt)felter[position]).hentPrisForEntre());
 			betalt = ((EntreFelt)felter[position]).hentPrisForEntre();
 		}
+		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet 
 		return betalt;
 	}
 
