@@ -155,7 +155,7 @@ public class RegelControllerTest {
 		felter = spilbræt.hentSpilFelter();
 		RegelController regelcontroller = new RegelController(spiller, felter);
 		
-		regelcontroller.gåPåCafeFelt(1, 9);
+		regelcontroller.gåTilCafeFelt(1, 9);
 		((GåTilCafeFelt)felter[9]).hentPris();
 		int expected = 2;
 		int actual = ((GåTilCafeFelt)felter[9]).hentPris();
