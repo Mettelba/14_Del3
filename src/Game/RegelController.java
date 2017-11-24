@@ -63,13 +63,15 @@ public class RegelController {
 	}
 
 
-	public void togFelt(int aktivspiller) {
+	public void togFelt(int aktivspiller, int position) {
+		spilgui.showMessage(felter[position].hentBeskedTekst()+ ". Tryk på ok.");
 		spiller[aktivspiller].sætEkstraTur(true);
 	}
 
 	public int entreFelt(int aktivspiller, int position) {
 		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();
 		int betalt;
+		String beskedstreng;
 		
 		//Hvis spilleren ikke har penge nok, overføres det der står på kontoen til onkelmangepenge og spilleren går bankerot
 		if (indestående <  ((EntreFelt) felter[position]).hentPrisForEntre()) {
@@ -80,6 +82,14 @@ public class RegelController {
 			((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + ((EntreFelt)felter[position]).hentPrisForEntre());
 			betalt = ((EntreFelt)felter[position]).hentPrisForEntre();
 		}
+		
+		beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
+
+		if (spiller[aktivspiller].erDuBankerot() == true) {
+			beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
+		}	
+		spilgui.showMessage(beskedstreng);	
+		
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet 
 		return betalt;
@@ -97,10 +107,9 @@ public class RegelController {
 		return pengepåfelt;
 	}
 
-	public void gåTilCafeFelt(int aktivspiller, int position) {
+	public void gåTilCafeFelt(int aktivspiller) {
 
-		//GUI BESKED "Din ven har ringet og vil have dig med på Café. Du syns det er en skide go idé. Tryk på OK"
-		//GUI ok knap
+		int position = spiller[aktivspiller].hentPosition();
 		spilgui.showMessage(felter[position].hentBeskedTekst());
 		spilgui.getFields()[position].setCar(guispiller[aktivspiller], false);
 		spiller[aktivspiller].sætPosition(((GåTilCafeFelt)felter[position]).hentGåTilFeltNr());
@@ -111,7 +120,7 @@ public class RegelController {
 
 
 	public void startFelt(int aktivspiller) {
-		spiller[aktivspiller].modtagGevinst(((StartFelt)felter[1]).hentPasserStart());
+		spiller[aktivspiller].modtagGevinst(((StartFelt)felter[0]).hentPasserStart());
 	}
 }
 

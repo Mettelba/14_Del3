@@ -122,29 +122,20 @@ public class SpilController {
 			break;
 
 		case 2://Et tog
-			spilgui.showMessage(felter[position].hentBeskedTekst()+ ". Tryk på ok.");
-			regler.togFelt(aktivspiller);
+			regler.togFelt(aktivspiller, position);
 			break;
 
 		case 3://Fyrværkeri eller delfiner eller Café
-			betalt = regler.entreFelt(aktivspiller, position);
-			beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
-
-			if (spiller[aktivspiller].erDuBankerot() == true) {
-				beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
-			}	
-			spilgui.showMessage(beskedstreng);			
+			betalt = regler.entreFelt(aktivspiller, position);	
 			break;
 
 
 		case 4://Onkel Mangepenges byttepenge
-
-			modtaget = regler.onkelMangePengeFelt(aktivspiller);
-			beskedstreng = felter[position].hentBeskedTekst() + modtaget;
+			regler.onkelMangePengeFelt(aktivspiller);
 			break;
 
 		case 5://Gå på Cafe felt
-			regler.gåTilCafeFelt(aktivspiller, position);	
+			regler.gåTilCafeFelt(aktivspiller);	
 			kaldRegel(spiller, felter, aktivspiller);
 
 			break;

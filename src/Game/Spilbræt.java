@@ -73,7 +73,7 @@ public class Spilbræt {
 		e.setSubText(String.valueOf(felter[4].hentPris())+ " Kr");
 		guifelter[4] = e;
 
-		felter[5] = new NormalFelt(5, 2, 1, 0, "Du er landet på trylleshowet", "Trylleshowet", 6,false);
+		felter[5] = new NormalFelt(5, 2, 1, 0, "Du er landet på trylleshowet", "Trylleshowet", 4,false);
 		GUI_Field g= new GUI_Street();
 		g.setTitle(felter[5].hentFeltTekst());
 		g.setBackGroundColor(Color.gray);
@@ -185,7 +185,7 @@ public class Spilbræt {
 		v.setSubText(String.valueOf(felter[20].hentPris())+ " Kr");
 		guifelter[20] = v;
 
-		felter[21] = new GåTilCafeFelt(21, 0, 6, 0, "Din ven har ringet for at få dig med på Cafe. Du tager derhen", "Gå til Caféen", 9);
+		felter[21] = new GåTilCafeFelt(21, 0, 5, 0, "Din ven har ringet for at få dig med på Cafe. Du tager derhen", "Gå til Caféen", 9);
 		GUI_Field w= new GUI_Street();
 		w.setTitle(felter[21].hentFeltTekst());
 		w.setBackGroundColor(Color.pink);
