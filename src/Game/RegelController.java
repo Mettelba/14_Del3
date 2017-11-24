@@ -86,31 +86,32 @@ public class RegelController {
 	}
 
 	public int onkelMangePengeFelt(int aktivspiller) {
-		int returværdi = ((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge();
+		int pengepåfelt = ((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge();
 		//GUI BESKED "Du er er på besøg hos Onkel Mangepenge, og flink som han er har han givet dig hvad han havde i lommerne. Du har fået " + felter[12].hentOnkelsPenge();
-		spiller[aktivspiller].modtagGevinst(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge());
+		spiller[aktivspiller].modtagGevinst(pengepåfelt);
 		
-		((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(2); //Onkel finder en daler på gulvet da du er gået.
+		((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(2);//Onkel finder en daler på gulvet da du er gået.
+		spilgui.showMessage(felter[Konstanter.ONKELSFELT].hentBeskedTekst() + pengepåfelt);
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet
-		return returværdi;
+		return pengepåfelt;
 	}
 
-	public void gåPåCafeFelt(int aktivspiller, int position) {
+	public void gåTilCafeFelt(int aktivspiller, int position) {
 
 		//GUI BESKED "Din ven har ringet og vil have dig med på Café. Du syns det er en skide go idé. Tryk på OK"
 		//GUI ok knap
 		spilgui.showMessage(felter[position].hentBeskedTekst());
 		spilgui.getFields()[position].setCar(guispiller[aktivspiller], false);
 		spiller[aktivspiller].sætPosition(((GåTilCafeFelt)felter[position]).hentGåTilFeltNr());
-//		spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], true);
+		spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], true);
 		
 	}
 
 
 
 	public void startFelt(int aktivspiller) {
-//		spiller[aktivspiller].modtagGevinst(felter[1].hentPasserStart());
+		spiller[aktivspiller].modtagGevinst(((StartFelt)felter[1]).hentPasserStart());
 	}
 }
 

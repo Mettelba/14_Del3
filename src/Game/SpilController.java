@@ -144,12 +144,12 @@ public class SpilController {
 			break;
 
 		case 5://Gå på Cafe felt
-			regler.gåPåCafeFelt(aktivspiller, position);	
+			regler.gåTilCafeFelt(aktivspiller, position);	
 			kaldRegel(spiller, felter, aktivspiller);
 
 			break;
 
-		case 6://START   SKAL DET IKKE HÅNDTERES SOM PROGRAM LOGIK ?
+		case 6://START
 			regler.startFelt(aktivspiller);
 			break;
 		}
