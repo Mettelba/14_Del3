@@ -43,13 +43,13 @@ public class SpilController {
 			if (spiller[aktivspiller].hentEkstraTur()==true){
 				spiller[aktivspiller].sætEkstraTur(false);
 			}
-			
+
 
 			spilgui.showMessage(spiller[aktivspiller].hentNavn() + ". Tryk på OK for at rulle terningerner");
 			raflebæger.ryst();
 
 			//OPDATER GUI. Sæt terninger og fjern bilen.
-			spilgui.getFields()[spiller[aktivspiller].hentPosition()].removeAllCars();
+			spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], false);
 			spilgui.setDie(raflebæger.hentTerning1værdi());//Opdater GUI for terninger
 
 			//Check for om man kommer over start
@@ -59,20 +59,20 @@ public class SpilController {
 			} else {
 				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
 			}
-			
+
 			//sæt position for den aktive spiller i spiller array
 			this.spiller[this.aktivspiller].sætPosition(feltrykkettil);
 			position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
-		
+			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 			//Udfør regel på spiller.
 			kaldRegel(spiller, felter, aktivspiller);
 
 
-			
+
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
-		
-		
+
+
 	}
 
 
@@ -89,10 +89,10 @@ public class SpilController {
 		//Opdater GUI for position
 		spilgui.getFields()[position].setCar(guispiller[aktivspiller], true);
 
-		
+
 		//Særregler for felter
 		switch (felttype) {
-		
+
 		case 1://Normal felt
 			//Her kan du så få lov at købe grunden hvis du vil.
 			//GUI besked vil du købe grunden ja/nej.
@@ -101,13 +101,13 @@ public class SpilController {
 				valg = spilgui.getUserLeftButtonPressed(felter[position].hentBeskedTekst() + " og den er til salg. vil du købe grunden ?", "Ja", "Nej");
 				if (valg == true) {
 					regler.normalFeltKøbGrund(aktivspiller, position);
-					
+
 					//UPDATE GUI MED KONTO
-					
+
 				}
 			}
 
-			
+
 			//Felt er ejet af en anden spiller og det ikke er spiller 0
 			if (feltejer != aktivspiller && feltejer != 0) {
 				betalt = regler.normalFeltEjetAfAnden(aktivspiller, position);
@@ -120,7 +120,7 @@ public class SpilController {
 				spilgui.showMessage(beskedstreng);
 			}
 			break;
-			
+
 		case 2://Et tog
 			spilgui.showMessage(felter[position].hentBeskedTekst()+ ". Tryk på ok.");
 			regler.togFelt(aktivspiller);
@@ -144,10 +144,9 @@ public class SpilController {
 			break;
 
 		case 5://Gå på Cafe felt
-			spilgui.showMessage(felter[position].hentBeskedTekst());
 			regler.gåPåCafeFelt(aktivspiller, position);	
 			kaldRegel(spiller, felter, aktivspiller);
-			
+
 			break;
 
 		case 6://START   SKAL DET IKKE HÅNDTERES SOM PROGRAM LOGIK ?

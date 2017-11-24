@@ -44,7 +44,7 @@ public class RegelController {
 
 		//Overfør penge 
 		int tilbetaling = felter[position].hentPris()*prisfordobler;
-
+		prisfordobler = 1;
 		//hvis aktivspiller ikke har penge nok til at betale så betaler man det man har og går bankerot.
 		if (indestående < tilbetaling) {
 			spiller[felter[position].hentEjer()].modtagGevinst(indestående); //Ejer af felt modtager det som den aktive spiller har på sin konto.
@@ -55,6 +55,8 @@ public class RegelController {
 			betalt = tilbetaling;
 			
 		}
+		spilgui.showMessage("Tryk ok for at betale");
+		
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		guispiller[feltejer].setBalance(spiller[feltejer].indeståendeSpillerKonto());
 		return betalt;
@@ -74,7 +76,7 @@ public class RegelController {
 			((OnkelMangePengeFelt) felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt) felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + indestående);
 			betalt = indestående;
 		} else {
-			spiller[aktivspiller].modtagGevinst(((EntreFelt)felter[position]).hentPrisForEntre());
+			spiller[aktivspiller].hævKontoVærdi(((EntreFelt)felter[position]).hentPrisForEntre());
 			((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + ((EntreFelt)felter[position]).hentPrisForEntre());
 			betalt = ((EntreFelt)felter[position]).hentPrisForEntre();
 		}
@@ -89,6 +91,8 @@ public class RegelController {
 		spiller[aktivspiller].modtagGevinst(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge());
 		
 		((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(2); //Onkel finder en daler på gulvet da du er gået.
+		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet
 		return returværdi;
 	}
 
@@ -96,7 +100,11 @@ public class RegelController {
 
 		//GUI BESKED "Din ven har ringet og vil have dig med på Café. Du syns det er en skide go idé. Tryk på OK"
 		//GUI ok knap
+		spilgui.showMessage(felter[position].hentBeskedTekst());
+		spilgui.getFields()[position].setCar(guispiller[aktivspiller], false);
 		spiller[aktivspiller].sætPosition(((GåTilCafeFelt)felter[position]).hentGåTilFeltNr());
+//		spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], true);
+		
 	}
 
 

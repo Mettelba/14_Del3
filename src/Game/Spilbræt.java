@@ -126,7 +126,7 @@ public class Spilbræt {
 		GUI_Field n= new GUI_Street();
 		n.setTitle(felter[12].hentFeltTekst());
 		n.setBackGroundColor(Color.pink);
-		n.setSubText("");
+		n.setSubText(String.valueOf(((OnkelMangePengeFelt)felter[12]).hentOnkelsPenge()));
 		guifelter[12] = n;
 
 		felter[13] = new NormalFelt(13, 3, 1, 0, "Du er landet i bowlinghallen", "Bowlinghallen", 14,false);
