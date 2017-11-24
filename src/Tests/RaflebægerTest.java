@@ -104,7 +104,7 @@ public class RaflebægerTest {
 //		int actual = raflebæger.hentSum();
 //		assertEquals("sætSum virker ikke", expected, actual);
 //		
-//	}
+//	} 
 	
 	@Test
 	public void testRyst() {
