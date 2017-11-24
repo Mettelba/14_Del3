@@ -12,7 +12,7 @@ public class SpilController {
 	private int aktivspiller;
 
 	private Spiller[] spiller;
-	private Raflebæger raflebæger = new Raflebæger(3);
+	private Raflebæger raflebæger = new Raflebæger(6);
 	private Spilbræt spillebræt;
 	private GUI spilgui;
 	private GUI_Player[] guispiller;
