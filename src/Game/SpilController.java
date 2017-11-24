@@ -50,14 +50,14 @@ public class SpilController {
 
 			//OPDATER GUI. Sæt terninger og fjern bilen.
 			spilgui.getFields()[spiller[aktivspiller].hentPosition()].removeAllCars();
-			spilgui.setDice(raflebæger.hentTerning1værdi(), 1,2, raflebæger.hentTerning2værdi(), 1, 3);//Opdater GUI for terninger
+			spilgui.setDie(raflebæger.hentTerning1værdi());//Opdater GUI for terninger
 
 			//Check for om man kommer over start
-			if (spiller[aktivspiller].hentPosition()+raflebæger.hentSum()>23) {
-				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentSum() - 24;
+			if (spiller[aktivspiller].hentPosition()+raflebæger.hentTerning1værdi()>23) {
+				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi() - 24;
 				spiller[aktivspiller].modtagGevinst(2); //Modtag 2 kr.
 			} else {
-				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentSum();
+				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
 			}
 			
 			//sæt position for den aktive spiller i spiller array
