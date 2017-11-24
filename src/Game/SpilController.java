@@ -69,7 +69,6 @@ public class SpilController {
 
 			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 			
-		
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
 		return this.spiller;
 		
