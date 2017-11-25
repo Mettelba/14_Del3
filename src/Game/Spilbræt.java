@@ -70,7 +70,7 @@ public class Spilbræt {
 		d.setSubText("");
 		guifelter[3] = d;
 
-		felter[4] = new NormalFelt(4, 2, 1, 0, "Du landet på dukketeatret", "Dukketeatret", 5,false);
+		felter[4] = new NormalFelt(4, 2, 1, 0, "Du er landet på dukketeatret", "Dukketeatret", 5,false);
 		GUI_Field e= new GUI_Street();
 		e.setTitle(felter[4].hentFeltTekst());
 		e.setBackGroundColor(Color.gray);
