@@ -2,16 +2,12 @@ package Felter;
 
 public class NormalFelt extends Felt {
 	private int par;
-	private boolean bod;//Der er ingen boder på nogen felter fra starten.
 	
 	public NormalFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int par, boolean bod) {
 		super (feltnr, pris, type, ejer, beskedtekst, felttekst);
 		this.par = par;
-		this.bod = bod;
 	}
-	
-	
-	
+
 	public int hentPar() {
 		return this.par;
 	}
@@ -30,52 +26,5 @@ public class NormalFelt extends Felt {
 		returstreng = returstreng + "\n par = " + this.par;
 		return returstreng;
 	}
-
-	
-//	@Override
-//	public boolean hentEkstraTur() {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//	@Override
-//	public int hentPasserStart() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//
-//	@Override
-//	public int hentFeltNr() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//	@Override
-//	public int hentOnkelsPenge() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//	
-//	@Override
-//	public int hentGåTilFeltNr() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-//
-//
-//
-//	@Override
-//	public void sætOnkelsPenge(int onkelspenge) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//
-//	@Override
-//	public int hentPrisForEntre() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
 }
 
