@@ -3,13 +3,14 @@ package Felter;
 public class NormalFelt extends Felt {
 	private int par;
 	
-	public NormalFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int par, boolean bod) {
+	public NormalFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int par) {
 		super (feltnr, pris, type, ejer, beskedtekst, felttekst);
 		this.par = par;
 	}
 
 	public int hentPar() {
 		return this.par;
+		
 	}
 	
 

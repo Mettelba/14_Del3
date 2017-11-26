@@ -3,9 +3,10 @@ package Felter;
 public class EntreFelt extends Felt {
 	private int prisforentre;
 
-	public EntreFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int prisforkaffe) {
+	public EntreFelt (int feltnr, int pris, int type, int ejer, String beskedtekst, String felttekst, int prisforentre) {
 		super (feltnr, pris, type, ejer, beskedtekst, felttekst);
-		this.prisforentre = prisforkaffe;
+		this.prisforentre = prisforentre;
+		
 	} 
 	
 	
