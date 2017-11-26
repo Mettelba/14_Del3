@@ -6,10 +6,7 @@ import gui_fields.*;
 
 
 public class SpilController {
-
-	private int feltnr;
-	private int antalspillere;
-	private int aktivspiller;
+	private int aktivspiller = 1;//Vi starter med spiller 1
 
 	private Spiller[] spiller;
 	private Raflebæger raflebæger = new Raflebæger(6);
@@ -17,9 +14,7 @@ public class SpilController {
 	private GUI spilgui;
 	private GUI_Player[] guispiller;
 	private GUI_Field[] guifelter;
-
 	private Felt[] felter; 
-
 	private RegelController regler; 
 
 
@@ -31,13 +26,30 @@ public class SpilController {
 		guispiller = spillebræt.hentGUISpiller();
 		guifelter = spillebræt.hentGUIfelter();
 		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
+		this.spiller = spiller;
+	}
+	
+	public void skiftSpiller(int antalspillere) {
+		// Kør spilsekvens hvis aktivspiller ikke er bankerot.
+		while(true) {
+			spilSekvens(spiller, aktivspiller); //send spiller ind i spilsekvens
+			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot
+				endGame();
+				break;//Håndter slutspil optælling af penge for de andre spillere etc.
+			}
+			aktivspiller++;
+			
+			//Hvis vi er nået til sidste spiller
+			if (aktivspiller==antalspillere+1) {
+				aktivspiller=1; //Sæt den aktive spiller til spiller1
+
+			}
+		}
 	}
 
-	public Spiller[] spilsekvens(Spiller[] spiller, int aktivspiller) {
+	public void spilSekvens(Spiller[] spiller, int aktivspiller) {
 		this.aktivspiller = aktivspiller;
 		this.spiller = spiller;	
-		int position;
-		int felttype;
 		int feltrykkettil;
 
 		do {
@@ -45,9 +57,9 @@ public class SpilController {
 			if (spiller[aktivspiller].hentEkstraTur()==true){
 				spiller[aktivspiller].sætEkstraTur(false);
 			}
-
-
-			spilgui.showMessage(spiller[aktivspiller].hentNavn() + ". Tryk på OK for at rulle terningerner");
+			
+			//slå med terningerne.
+			spilgui.showMessage(spiller[aktivspiller].hentNavn() + ". Tryk på OK for at slå med terningerner");
 			raflebæger.ryst();
 
 			//OPDATER GUI. Sæt terninger og fjern bilen.
@@ -57,34 +69,26 @@ public class SpilController {
 			//Check for om man kommer over start
 			if (spiller[aktivspiller].hentPosition()+raflebæger.hentTerning1værdi()>23) {
 				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi() - 24;
-				spiller[aktivspiller].modtagGevinst(2); //Modtag 2 kr.
+				spiller[aktivspiller].modtagGevinst(((StartFelt)felter[Konstanter.STARTFELT]).hentPasserStart()); //Modtag det som der står i passer start feltet.
 			} else {
 				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
 			}
 
-			//sæt position for den aktive spiller i spiller array
+			//sæt position for den aktive spiller i spiller array og i GUI
 			this.spiller[this.aktivspiller].sætPosition(feltrykkettil);
-			position = this.spiller[this.aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
 			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+			
 			//Udfør regel på spiller.
 			kaldRegel(spiller, felter, aktivspiller);
 
-
-
 		}while (spiller[aktivspiller].hentEkstraTur() == true);
-		return this.spiller;
-
-
 	}
-
-
 
 	private void kaldRegel(Spiller[] spiller, Felt[] felter, int aktivspiller) {
 		int position = spiller[aktivspiller].hentPosition();
 		int felttype = felter[position].hentFeltType();
 		int feltejer = felter[position].hentEjer();
 		int betalt;
-		int modtaget;
 		boolean valg;
 		String beskedstreng;
 
@@ -103,12 +107,8 @@ public class SpilController {
 				valg = spilgui.getUserLeftButtonPressed(felter[position].hentBeskedTekst() + " og den er til salg. vil du købe grunden ?", "Ja", "Nej");
 				if (valg == true) {
 					regler.normalFeltKøbGrund(aktivspiller, position);
-
-					//UPDATE GUI MED KONTO
-
 				}
 			}
-
 
 			//Felt er ejet af en anden spiller og det ikke er spiller 0
 			if (feltejer != aktivspiller && feltejer != 0) {
@@ -146,6 +146,9 @@ public class SpilController {
 			regler.startFelt(aktivspiller);
 			break;
 		}
+	}
+	
+	public void endGame() {
 	}
 }
 

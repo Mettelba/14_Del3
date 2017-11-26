@@ -13,9 +13,10 @@ public class Spilbræt {
 	private Felt[] felter = new Felt[24];	
 	private GUI spilgui;
 	private GUI_Player[] guispiller;
-
+	private GUI_Car[] guibil= new GUI_Car[5];
+	private Color[] bilfarve = new Color[5];
+	
 	public Spilbræt(Spiller[] spiller) {
-
 		initialiserSpilBræt(spiller);
 	}
 
@@ -212,13 +213,24 @@ public class Spilbræt {
 
 		spilgui = new GUI(guifelter);
 
+		//Opretter 4 farver på bilerne
+		
+			bilfarve[1] = new Color(70,200,0);
+			bilfarve[2] = new Color(10,160,200);
+			bilfarve[3] = new Color(200,200,200);
+			bilfarve[4] = new Color(0,0,0);
+		
+		
 		//Opretter spillerne på brættet.
 
 		for (int tæller = 1;tæller< antalspillere;tæller++) {
-			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),31);
+			guibil[tæller] = new GUI_Car();
+			guibil[tæller].setPrimaryColor(bilfarve[tæller]);
+			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),31,guibil[tæller]);
+
 			spilgui.addPlayer(guispiller[tæller]);
 		}
-		
+
 		//Sæt spiller op på start
 		for (int tæller = 1; tæller < antalspillere;tæller++) {
 		spilgui.getFields()[spiller[tæller].hentPosition()].setCar(guispiller[tæller], true);

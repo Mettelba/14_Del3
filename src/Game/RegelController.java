@@ -12,8 +12,6 @@ public class RegelController {
 	private GUI spilgui;
 	private GUI_Field[] guifelter;
 
-
-	
 	private int prisfordobler;
 
 
@@ -30,6 +28,7 @@ public class RegelController {
 		felter[position].sætEjer(aktivspiller);
 		spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+		guifelter[position].setForeGroundColor(guispiller[aktivspiller].getPrimaryColor());
 		
 	}
 	
