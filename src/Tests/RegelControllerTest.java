@@ -13,6 +13,9 @@ import Felter.Felt;
 import Game.RegelController;
 import Game.Spilbræt;
 import Game.Spiller;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
+import gui_main.GUI;
 
 public class RegelControllerTest {
 	
@@ -39,24 +42,40 @@ public class RegelControllerTest {
 	@Test
 	public void testRegelController() {
 		Spiller[] spiller = new Spiller[2];
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
+		
 	}
 
 	@Test
 	public void testNormalFeltKøbGrund() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
+		
 		
 		//Her køber jeg min grund med kontrolleren.
-		regelcontroller.normalFeltKøbGrund(1, 1);
+
 		felter[1].hentEjer();
 		
 		
@@ -72,14 +91,20 @@ public class RegelControllerTest {
 	@Test
 	public void testNormalFeltEjetAfAnden() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		
-		regelcontroller.normalFeltEjetAfAnden(1, 1);
+		regler.normalFeltKøbGrund(1, 1);
 		int expected = 1;
 		int actual = felter[1].hentEjer();
 		assertEquals(expected, actual);
@@ -89,14 +114,20 @@ public class RegelControllerTest {
 	@Test
 	public void testTogFelt() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		
-		regelcontroller.togFelt(1);
+	
 		((TogFelt)felter[3]).hentEkstraTur();
 		boolean expected = true;
 		boolean actual = ((TogFelt)felter[3]).hentEkstraTur();
@@ -107,12 +138,18 @@ public class RegelControllerTest {
 	@Test
 	public void testFyrværkeriDelfinCafeFelt() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		
 		regelcontroller.entreFelt(1, 3);
 		((EntreFelt)felter[3]).hentPrisForEntre();
@@ -127,12 +164,18 @@ public class RegelControllerTest {
 	@Test
 	public void testOnkelMangePengeFelt() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		
 		regelcontroller.onkelMangePengeFelt(1);
 		((OnkelMangePengeFelt)felter[12]).hentBeskedTekst();
@@ -148,12 +191,18 @@ public class RegelControllerTest {
 	@Test
 	public void testGåPåCafeFelt() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		
 		regelcontroller.gåTilCafeFelt(1, 9);
 		((GåTilCafeFelt)felter[9]).hentPris();
@@ -166,12 +215,18 @@ public class RegelControllerTest {
 	@Test
 	public void testStartFelt() {
 		Spiller[] spiller = new Spiller[2];
-		spiller[0] = new Spiller();
-		spiller[1] = new Spiller();
-		Spilbræt spilbræt = new Spilbræt(spiller);
+		Spilbræt spillebræt = new Spilbræt(spiller);
 		Felt[] felter;
-		felter = spilbræt.hentSpilFelter();
-		RegelController regelcontroller = new RegelController(spiller, felter);
+		GUI_Player[] guispiller;
+		GUI spilgui;
+		GUI_Field[] guifelter;
+		RegelController regler;
+		felter = spillebræt.hentSpilFelter();
+		spilgui = spillebræt.hentSpilGui();
+		felter = spillebræt.hentSpilFelter();
+		guispiller = spillebræt.hentGUISpiller();
+		guifelter = spillebræt.hentGUIfelter();
+		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		
 		regelcontroller.startFelt(1);
 		((StartFelt)felter[0]).hentBeskedTekst();
