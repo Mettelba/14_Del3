@@ -100,7 +100,6 @@ public class RegelController {
 
 	public int onkelMangePengeFelt(int aktivspiller) {
 		int pengepåfelt = ((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge();
-		//GUI BESKED "Du er er på besøg hos Onkel Mangepenge, og flink som han er har han givet dig hvad han havde i lommerne. Du har fået " + felter[12].hentOnkelsPenge();
 		spiller[aktivspiller].modtagGevinst(pengepåfelt);
 		
 		((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(2);//Onkel finder en daler på gulvet da du er gået.
@@ -111,7 +110,6 @@ public class RegelController {
 	}
 
 	public void gåTilCafeFelt(int aktivspiller) {
-
 		int position = spiller[aktivspiller].hentPosition();
 		spilgui.showMessage(felter[position].hentBeskedTekst());
 		spilgui.getFields()[position].setCar(guispiller[aktivspiller], false);
@@ -119,8 +117,6 @@ public class RegelController {
 		spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], true);
 		
 	}
-
-
 
 	public void startFelt(int aktivspiller) {
 		spiller[aktivspiller].modtagGevinst(((StartFelt)felter[0]).hentPasserStart());
