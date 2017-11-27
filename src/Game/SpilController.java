@@ -28,17 +28,17 @@ public class SpilController {
 		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 		this.spiller = spiller;
 	}
-	
+
 	public void skiftSpiller(int antalspillere) {
 		// Kør spilsekvens hvis aktivspiller ikke er bankerot.
 		while(true) {
 			spilSekvens(spiller, aktivspiller); //send spiller ind i spilsekvens
 			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot
-				endGame();
+				endGame(antalspillere);
 				break;//Håndter slutspil optælling af penge for de andre spillere etc.
 			}
 			aktivspiller++;
-			
+
 			//Hvis vi er nået til sidste spiller
 			if (aktivspiller==antalspillere+1) {
 				aktivspiller=1; //Sæt den aktive spiller til spiller1
@@ -57,7 +57,7 @@ public class SpilController {
 			if (spiller[aktivspiller].hentEkstraTur()==true){
 				spiller[aktivspiller].sætEkstraTur(false);
 			}
-			
+
 			//slå med terningerne.
 			spilgui.showMessage(spiller[aktivspiller].hentNavn() + ". Tryk på OK for at slå med terningerner");
 			raflebæger.ryst();
@@ -77,7 +77,7 @@ public class SpilController {
 			//sæt position for den aktive spiller i spiller array og i GUI
 			this.spiller[this.aktivspiller].sætPosition(feltrykkettil);
 			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
-			
+
 			//Udfør regel på spiller.
 			kaldRegel(spiller, felter, aktivspiller);
 
@@ -147,10 +147,56 @@ public class SpilController {
 			break;
 		}
 	}
-	
-	public void endGame() {
+
+	public void endGame(int antalspillere) {
+		int fastejendom = 0;
+		String beskedtekst = "";
+		int[][] vinderpodie = new int[2][antalspillere+1];
+		boolean sorteret = true;
+
+		//Optælling af samlet formue for hver spiller.
+		for (int tæller = 1;tæller <= antalspillere;tæller++) {
+			//sammentæl værdi af ejet fast ejendom.
+			for (int tæller2 = 0;tæller <=23;tæller2++) {
+				if (felter[tæller2].hentEjer() == tæller) {
+					fastejendom = fastejendom + felter[tæller2].hentPris();
+				}
+			}
+			vinderpodie[tæller][0]=tæller;
+			vinderpodie[tæller][1]=fastejendom + spiller[tæller].indeståendeSpillerKonto();
+		}
+		spiller[0].sætKontoVærdi(0);
+		//Sortering af vinder podie.
+
+		while (sorteret != false) {
+			sorteret = false;
+
+			for (int tæller = 0;tæller <= antalspillere-1;tæller++) {
+
+				if (vinderpodie[tæller][1]< vinderpodie[tæller+1][1]) {
+					vinderpodie[0][0] = vinderpodie[tæller][0];
+					vinderpodie[0][1] = vinderpodie[tæller][1];
+
+					vinderpodie[tæller][0] = vinderpodie[tæller+1][0];
+					vinderpodie[tæller][1] = vinderpodie[tæller+1][1];
+
+					vinderpodie[tæller+1][0] = vinderpodie[0][0];
+					vinderpodie[tæller+1][1] = vinderpodie[0][1];
+
+					vinderpodie[0][0]= 0;
+					vinderpodie[0][1]= 1;
+
+					sorteret = true;
+				}			
+			}
+
+			for (int tæller = 1; tæller <= antalspillere; tæller++) {
+				beskedtekst = tæller + ".plads: " + spiller[vinderpodie[tæller][0]].hentNavn() + " med en samlet formue på" + vinderpodie[tæller][1] + "\n";
+				
+			}
+			spilgui.showMessage(beskedtekst);
+		}
 	}
 }
-
 
 
