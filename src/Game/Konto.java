@@ -28,18 +28,17 @@ public class Konto {
 
 		}
 		return false;
-
 	}
+	
 	public void indsæt(int værdi) {
 		if(this.værdi + værdi < 0) {
 			this.værdi = 0;
 
 		}else {
 			this.værdi = this.værdi + værdi;
-
 		}
-
 	}
+	
 	public boolean hæv(int hævetbeløb) {
 		if (this.værdi - hævetbeløb < 0) {
 			return false;

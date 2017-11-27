@@ -21,7 +21,7 @@ public class Spiller {
 
 
 	public void modtagGevinst(int værdi) {
-		if (konto.checkMinus(værdi)==true) {
+		if (konto.checkMinus(værdi)) {
 			bankerot = true;
 		} else {
 			konto.indsæt(værdi);
@@ -44,22 +44,6 @@ public class Spiller {
 		return konto.hæv(værdi);
 	}
 	
-	
-	public String toString() {
-		String returstreng;
-		String navn = " ";
-		Konto konto;
-		boolean bankerot = false;
-		
-		navn = this.navn;
-		konto = this.konto;
-		bankerot = this.bankerot;
-		
-		returstreng = "navn = " + navn + "\n   konto = " + konto + "\n   bankerot = "+ bankerot;
-		
-		return returstreng;
-	}
-
 	public int hentPosition() {
 		return position;
 	}
@@ -74,6 +58,20 @@ public class Spiller {
 
 	public void sætEkstraTur(boolean ekstraTur) {
 		this.ekstraTur = ekstraTur;
+	}
+	public String toString() {
+		String returstreng;
+		String navn = " ";
+		Konto konto;
+		boolean bankerot = false;
+		
+		navn = this.navn;
+		konto = this.konto;
+		bankerot = this.bankerot;
+		
+		returstreng = "navn = " + navn + "\n   konto = " + konto + "\n   bankerot = "+ bankerot;
+		
+		return returstreng;
 	}
 	
 }

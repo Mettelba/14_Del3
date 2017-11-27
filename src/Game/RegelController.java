@@ -54,11 +54,11 @@ public class RegelController {
 			betalt = indestående;
 		}else {
 			spiller[feltejer].modtagGevinst(tilbetaling);
-			spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 			betalt = tilbetaling;
-			
 		}
 		spilgui.showMessage("Tryk ok for at betale");
+		spiller[aktivspiller].hævKontoVærdi(tilbetaling);
+
 		
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		guispiller[feltejer].setBalance(spiller[feltejer].indeståendeSpillerKonto());
@@ -74,18 +74,21 @@ public class RegelController {
 	public int entreFelt(int aktivspiller, int position) {
 		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();
 		int betalt;
+		int tilbetaling = ((EntreFelt)felter[position]).hentPrisForEntre();
 		String beskedstreng;
 		
+		
+		
 		//Hvis spilleren ikke har penge nok, overføres det der står på kontoen til onkelmangepenge og spilleren går bankerot
-		if (indestående <  ((EntreFelt) felter[position]).hentPrisForEntre()) {
+		if (indestående < tilbetaling) {
 			((OnkelMangePengeFelt) felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt) felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + indestående);
 			betalt = indestående;
 		} else {
-			spiller[aktivspiller].hævKontoVærdi(((EntreFelt)felter[position]).hentPrisForEntre());
-			((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + ((EntreFelt)felter[position]).hentPrisForEntre());
+			((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + tilbetaling);
 			betalt = ((EntreFelt)felter[position]).hentPrisForEntre();
 		}
 		
+		spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 		beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
 
 		if (spiller[aktivspiller].erDuBankerot() == true) {

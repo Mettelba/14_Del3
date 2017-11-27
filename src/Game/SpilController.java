@@ -157,7 +157,7 @@ public class SpilController {
 		//Optælling af samlet formue for hver spiller.
 		for (int tæller = 1;tæller <= antalspillere;tæller++) {
 			//sammentæl værdi af ejet fast ejendom.
-			for (int tæller2 = 0;tæller <=23;tæller2++) {
+			for (int tæller2 = 0;tæller2 <=23;tæller2++) {
 				if (felter[tæller2].hentEjer() == tæller) {
 					fastejendom = fastejendom + felter[tæller2].hentPris();
 				}
