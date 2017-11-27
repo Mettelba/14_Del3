@@ -13,7 +13,7 @@ public class StartSpilController {
 		
 		int antalspillere = 0;
 		do {
-		System.out.print("Indtast antal spillere fra 1 til 4: ");
+		System.out.print("Indtast antal spillere fra 2 til 4: ");
 		antalspillere = Integer.parseInt(sc.nextLine());
 		System.out.println();
 
