@@ -56,10 +56,10 @@ public class RegelController {
 			spiller[feltejer].modtagGevinst(tilbetaling);
 			betalt = tilbetaling;
 		}
+		
 		spilgui.showMessage("Tryk ok for at betale");
 		spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 
-		
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		guispiller[feltejer].setBalance(spiller[feltejer].indeståendeSpillerKonto());
 		return betalt;
@@ -91,7 +91,7 @@ public class RegelController {
 		spiller[aktivspiller].hævKontoVærdi(tilbetaling);
 		beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
 
-		if (spiller[aktivspiller].erDuBankerot() == true) {
+		if (spiller[aktivspiller].erDuBankerot()) {
 			beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
 		}	
 		spilgui.showMessage(beskedstreng);	

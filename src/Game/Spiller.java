@@ -6,7 +6,7 @@ public class Spiller {
 	private boolean bankerot = false;
 	private int position = 0; //Starter på start.
 	private boolean ekstraTur = false;
-	
+
 
 	public Spiller() {
 	}
@@ -40,10 +40,14 @@ public class Spiller {
 		konto.sætVærdi(værdi);
 	}
 
-	public boolean hævKontoVærdi(int værdi) {
-		return konto.hæv(værdi);
+	public void hævKontoVærdi(int værdi) {
+		if (konto.hæv(værdi)) {
+			bankerot = true;
+		}
+		konto.indsæt(værdi);
+
 	}
-	
+
 	public int hentPosition() {
 		return position;
 	}
@@ -64,14 +68,14 @@ public class Spiller {
 		String navn = " ";
 		Konto konto;
 		boolean bankerot = false;
-		
+
 		navn = this.navn;
 		konto = this.konto;
 		bankerot = this.bankerot;
-		
+
 		returstreng = "navn = " + navn + "\n   konto = " + konto + "\n   bankerot = "+ bankerot;
-		
+
 		return returstreng;
 	}
-	
+
 }
