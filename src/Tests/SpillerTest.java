@@ -114,6 +114,7 @@ public class SpillerTest {
 		int actual = spiller.hentPosition();
 		assertEquals(expected, actual);
 		
+		
 	}
 
 	@Test
