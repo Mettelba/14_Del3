@@ -25,44 +25,53 @@ public class RegelController {
 	}
 
 	public void normalFeltKøbGrund(int aktivspiller, int position) {
-		felter[position].sætEjer(aktivspiller);
-		spiller[aktivspiller].hævKontoVærdi(felter[position].hentPris());
-		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
-		guifelter[position].setForeGroundColor(guispiller[aktivspiller].getPrimaryColor());
-		
+		int feltejer = felter[spiller[aktivspiller].hentPosition()].hentEjer();
+		boolean valg;
+
+		if (feltejer == 0 && spiller[aktivspiller].indeståendeSpillerKonto() > felter[position].hentPris()) {  //har aktivspiller råd til at købe det, og er feltet ejet af spillet
+			valg = spilgui.getUserLeftButtonPressed(felter[position].hentBeskedTekst() + " og den er til salg. vil du købe grunden ?", "Ja", "Nej");
+			if (valg) {
+				felter[position].sætEjer(aktivspiller);
+				spiller[aktivspiller].hævPåKonto(felter[position].hentPris());
+				guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+				guifelter[position].setForeGroundColor(guispiller[aktivspiller].getPrimaryColor());
+			}
+		}
+
 	}
-	
 
-	public int normalFeltEjetAfAnden(int aktivspiller, int position) {
+	public void normalFeltEjetAfAnden(int aktivspiller, int position) {
 
-		int feltnrpåpar = ((NormalFelt)felter[position]).hentPar();
+		int feltnrpåpar = ((NormalFelt)felter[position]).hentPar();//Feltets par
 		int betalt;
-		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();
-		int feltejer = ((NormalFelt)felter[position]).hentEjer();
-		
-		//Bestem pris
+		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();//Den aktive spillers indestående
+		int feltejer = ((NormalFelt)felter[position]).hentEjer();//ejeren af feltet den aktive spiller står på
+		String beskedstreng;
+
+		//Bestem prisfordobler
 		if (feltejer == felter[feltnrpåpar].hentEjer()) {//Hvis ejeren af feltet også ejer den tilhørende feltpartner.
 			prisfordobler = 2;
 		}
-
-		//Overfør penge 
 		int tilbetaling = felter[position].hentPris()*prisfordobler;
-		prisfordobler = 1;
+		prisfordobler = 1;//Nu er prisen til betaling regnet ud, og prisfordobler bliver sat til 1 igen.
+		
+		spiller[aktivspiller].hævPåKonto(tilbetaling);
 		//hvis aktivspiller ikke har penge nok til at betale så betaler man det man har og går bankerot.
 		if (indestående < tilbetaling) {
-			spiller[felter[position].hentEjer()].modtagGevinst(indestående); //Ejer af felt modtager det som den aktive spiller har på sin konto.
+			spiller[feltejer].indsætPåKonto(indestående); //Ejer af felt modtager det som den aktive spiller har på sin konto.
 			betalt = indestående;
 		}else {
-			spiller[feltejer].modtagGevinst(tilbetaling);
+			spiller[feltejer].indsætPåKonto(tilbetaling);
 			betalt = tilbetaling;
 		}
+		beskedstreng = felter[position].hentBeskedTekst() + ", og du skal betale " + spiller[feltejer].hentNavn() + " " + betalt + " kr i afgift.";
+		if (spiller[aktivspiller].erDuBankerot() == true) {
+			beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
+		}
 		
-		spilgui.showMessage("Tryk ok for at betale");
-		spiller[aktivspiller].hævKontoVærdi(tilbetaling);
-
+		spilgui.showMessage(beskedstreng + "/n Tryk ok");
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		guispiller[feltejer].setBalance(spiller[feltejer].indeståendeSpillerKonto());
-		return betalt;
 	}
 
 
@@ -76,9 +85,8 @@ public class RegelController {
 		int betalt;
 		int tilbetaling = ((EntreFelt)felter[position]).hentPrisForEntre();
 		String beskedstreng;
-		
-		
-		
+
+
 		//Hvis spilleren ikke har penge nok, overføres det der står på kontoen til onkelmangepenge og spilleren går bankerot
 		if (indestående < tilbetaling) {
 			((OnkelMangePengeFelt) felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt) felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + indestående);
@@ -87,29 +95,27 @@ public class RegelController {
 			((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge() + tilbetaling);
 			betalt = ((EntreFelt)felter[position]).hentPrisForEntre();
 		}
+		beskedstreng = felter[position].hentBeskedTekst() + betalt+" kr.";
 		
-		spiller[aktivspiller].hævKontoVærdi(tilbetaling);
-		beskedstreng = felter[position].hentBeskedTekst() + betalt+"kr.";
-
+		spiller[aktivspiller].hævPåKonto(tilbetaling);
 		if (spiller[aktivspiller].erDuBankerot()) {
 			beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
 		}	
-		spilgui.showMessage(beskedstreng);	
-		
+		spilgui.showMessage(beskedstreng + "/n Tryk ok.");	
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet 
 		return betalt;
 	}
 
-	public int onkelMangePengeFelt(int aktivspiller) {
+	public void onkelMangePengeFelt(int aktivspiller) {
 		int pengepåfelt = ((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge();
-		spiller[aktivspiller].modtagGevinst(pengepåfelt);
 		
+		spiller[aktivspiller].indsætPåKonto(pengepåfelt);
+
 		((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).sætOnkelsPenge(2);//Onkel finder en daler på gulvet da du er gået.
 		spilgui.showMessage(felter[Konstanter.ONKELSFELT].hentBeskedTekst() + pengepåfelt);
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet
-		return pengepåfelt;
 	}
 
 	public void gåTilCafeFelt(int aktivspiller) {
@@ -118,11 +124,10 @@ public class RegelController {
 		spilgui.getFields()[position].setCar(guispiller[aktivspiller], false);
 		spiller[aktivspiller].sætPosition(((GåTilCafeFelt)felter[position]).hentGåTilFeltNr());
 		spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], true);
-		
 	}
 
 	public void startFelt(int aktivspiller) {
-		spiller[aktivspiller].modtagGevinst(((StartFelt)felter[0]).hentPasserStart());
+		spiller[aktivspiller].indsætPåKonto(((StartFelt)felter[0]).hentPasserStart());
 	}
 }
 

@@ -58,9 +58,9 @@ public class SpillerTest {
 	}
 
 	@Test
-	public void testModtagGevinst() {
-		spiller.sætKontoVærdi(1000);
-		spiller.modtagGevinst(-1001);
+	public void testhævPåKonto() {
+		spiller.indsætPåKonto(1000);
+		spiller.hævPåKonto(1001);
 		boolean expected = true;
 		boolean actual = spiller.erDuBankerot();
 		assertEquals(expected, actual);	
@@ -79,7 +79,7 @@ public class SpillerTest {
 
 	@Test
 	public void testIndeståendeSpillerKonto() {
-	spiller.sætKontoVærdi(10);
+	spiller.indsætPåKonto(10);
 	int expected = 10;
 	int actual = spiller.indeståendeSpillerKonto();
 	assertEquals(expected, actual);
@@ -87,7 +87,7 @@ public class SpillerTest {
 
 	@Test
 	public void testSætKontoVærdi() {
-		spiller.sætKontoVærdi(40);
+		spiller.indsætPåKonto(40);
 		int expected = 40;
 		int actual = spiller.indeståendeSpillerKonto();
 		assertEquals(expected, actual);
@@ -95,8 +95,8 @@ public class SpillerTest {
 	
 	@Test
 	public void testHævKontoVærdi() {
-		spiller.sætKontoVærdi(50);
-		spiller.hævKontoVærdi(50);
+		spiller.indsætPåKonto(50);
+		spiller.hævPåKonto(50);
 		int expected = 0;
 		int actual = spiller.indeståendeSpillerKonto();
 		assertEquals(expected, actual);

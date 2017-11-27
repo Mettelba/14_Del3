@@ -20,13 +20,13 @@ public class Spiller {
 	}
 
 
-	public void modtagGevinst(int værdi) {
-		if (konto.checkMinus(værdi)) {
-			bankerot = true;
-		} else {
-			konto.indsæt(værdi);
-		}
-	}
+//	public void modtagGevinst(int værdi) {
+//		if (konto.checkMinus(værdi)) {
+//			bankerot = true;
+//		} else {
+//			konto.indsæt(værdi);
+//		}
+//	}
 
 	public boolean erDuBankerot() {
 		return this.bankerot;
@@ -36,16 +36,15 @@ public class Spiller {
 		return konto.hentVærdi();
 	}
 
-	public void sætKontoVærdi(int værdi) {
-		konto.sætVærdi(værdi);
+	public void indsætPåKonto(int værdi) {
+		konto.indsæt(værdi);
 	}
 
-	public void hævKontoVærdi(int værdi) {
-		if (konto.hæv(værdi)) {
+	public void hævPåKonto(int værdi) {
+		if (konto.checkMinus(værdi)==true) {
 			bankerot = true;
 		}
-		konto.indsæt(værdi);
-
+		konto.hæv(værdi);
 	}
 
 	public int hentPosition() {
