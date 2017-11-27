@@ -39,7 +39,8 @@ public class SpillerTest {
 
 	@Test
 	public void testHentNavn() {
-		String expected = "Player0";
+		spiller.sætNavn("Rasmus");
+		String expected = "Rasmus";
 		String actual = spiller.hentNavn();
 		assertEquals(expected, actual);
 		
@@ -60,11 +61,9 @@ public class SpillerTest {
 	public void testModtagGevinst() {
 		spiller.sætKontoVærdi(1000);
 		spiller.modtagGevinst(-1001);
-		spiller.erDuBankerot();
 		boolean expected = true;
 		boolean actual = spiller.erDuBankerot();
-		assertEquals(expected, actual);
-		
+		assertEquals(expected, actual);	
 		
 	}
 
@@ -84,8 +83,6 @@ public class SpillerTest {
 	int expected = 10;
 	int actual = spiller.indeståendeSpillerKonto();
 	assertEquals(expected, actual);
-	
-		
 	}
 
 	@Test
@@ -94,9 +91,8 @@ public class SpillerTest {
 		int expected = 40;
 		int actual = spiller.indeståendeSpillerKonto();
 		assertEquals(expected, actual);
-		
 	}
-
+	
 	@Test
 	public void testHævKontoVærdi() {
 		spiller.sætKontoVærdi(50);
@@ -104,7 +100,6 @@ public class SpillerTest {
 		int expected = 0;
 		int actual = spiller.indeståendeSpillerKonto();
 		assertEquals(expected, actual);
-		
 	}
 
 	@Test
@@ -115,7 +110,7 @@ public class SpillerTest {
 	@Test
 	public void testHentPosition() {
 		spiller.hentPosition();
-		int expected = 1;
+		int expected = 0;
 		int actual = spiller.hentPosition();
 		assertEquals(expected, actual);
 		
