@@ -7,8 +7,6 @@ import gui_fields.*;
 
 public class SpilController {
 
-
-//	private Spiller[] spiller;
 	private Raflebæger raflebæger = new Raflebæger(6);
 	private Spilbræt spillebræt;
 	private GUI spilgui;
@@ -19,9 +17,6 @@ public class SpilController {
 	private HentSpillere lavspillere = new HentSpillere();
 	private Spiller[] spiller = lavspillere.hentSpillere();
 
-//	private int antalspillere =0;
-
-
 	public SpilController() {
 
 		spillebræt = new Spilbræt(spiller);
@@ -30,7 +25,6 @@ public class SpilController {
 		guispiller = spillebræt.hentGUISpiller();
 		guifelter = spillebræt.hentGUIfelter();
 		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
-
 	}
 
 	public void skiftSpiller() {
