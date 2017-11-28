@@ -34,10 +34,10 @@ public class SpilController {
 	}
 
 	public void skiftSpiller() {
-		// Kør spilsekvens hvis aktivspiller ikke er bankerot.
+		// Kør spilsekvens
 		while(true) {
 			spilSekvens(spiller, aktivspiller); //send spiller ind i spilsekvens
-			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot
+			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot pga. spilsekvensen
 				endGame();//Håndter slutspil optælling af penge for spillere etc.
 				break;
 			}
@@ -51,8 +51,6 @@ public class SpilController {
 	}	
 
 	public void spilSekvens(Spiller[] spiller, int aktivspiller) {
-		this.aktivspiller = aktivspiller;
-		this.spiller = spiller;	
 		int feltrykkettil;
 
 		do {
@@ -70,16 +68,16 @@ public class SpilController {
 			spilgui.setDie(raflebæger.hentTerning1værdi());//Opdater GUI for terninger
 
 			//Check for om man kommer over start
-			if (spiller[aktivspiller].hentPosition()+raflebæger.hentTerning1værdi()>23) {
+			if (spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi()>23) {
 				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi() - 24;
 				spiller[aktivspiller].indsætPåKonto(((StartFelt)felter[Konstanter.STARTFELT]).hentPasserStart()); //Modtag det som der står i passer start feltet.
 			} else {
 				feltrykkettil = spiller[aktivspiller].hentPosition() + raflebæger.hentTerning1værdi();
 			}
 
-			//sæt position for den aktive spiller i spiller array og i GUI
-			this.spiller[this.aktivspiller].sætPosition(feltrykkettil);
-			guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
+			//sæt ny position for den aktive spiller i spiller array,
+			spiller[aktivspiller].sætPosition(feltrykkettil);
+
 
 			//Udfør regel på spiller.
 			kaldRegel(spiller, felter, aktivspiller);
@@ -92,45 +90,47 @@ public class SpilController {
 		int felttype = felter[position].hentFeltType();
 		int feltejer = felter[position].hentEjer();
 
-		//Opdater GUI for position
-		spilgui.getFields()[position].setCar(guispiller[aktivspiller], true);
-
-
-		//Særregler for felter
+		//REGLER!
 		switch (felttype) {
 
 		case 1://Normal felt
 			//Her kan du så få lov at købe grunden hvis du vil, og den ikke er ejet af en anden spiller.
 			//Hvis den er det skal der betales penge til ejeren.
+			regler.flytSpiller(aktivspiller, position);
+
 			if (feltejer != aktivspiller && feltejer != 0) {
 				regler.normalFeltEjetAfAnden(aktivspiller, position);
 			}else 
 			{
 				regler.normalFeltKøbGrund(aktivspiller, position);
 			}
-
 			break;
 
 		case 2://Et tog
+			regler.flytSpiller(aktivspiller, position);
 			regler.togFelt(aktivspiller, position);
 			break;
 
 		case 3://Fyrværkeri eller delfiner eller Café
+			regler.flytSpiller(aktivspiller, position);
 			regler.entreFelt(aktivspiller, position);	
 			break;
 
 
 		case 4://Onkel Mangepenges byttepenge
+			regler.flytSpiller(aktivspiller, position);
 			regler.onkelMangePengeFelt(aktivspiller);
 			break;
 
 		case 5://Gå på Cafe felt
+			regler.flytSpiller(aktivspiller, position);
 			regler.gåTilCafeFelt(aktivspiller);	
 			kaldRegel(spiller, felter, aktivspiller);
 
 			break;
 
 		case 6://START
+			regler.flytSpiller(aktivspiller, position);
 			regler.startFelt(aktivspiller);
 			break;
 		}

@@ -2,7 +2,7 @@ package Game;
 public class Spiller {
 
 	private String navn;
-	private Konto konto = new Konto(0);
+	private Konto konto = new Konto(31);
 	private boolean bankerot = false;
 	private int position = 0; //Starter på start.
 	private boolean ekstraTur = false;
@@ -19,15 +19,6 @@ public class Spiller {
 		this.navn = navn;
 	}
 
-
-//	public void modtagGevinst(int værdi) {
-//		if (konto.checkMinus(værdi)) {
-//			bankerot = true;
-//		} else {
-//			konto.indsæt(værdi);
-//		}
-//	}
-
 	public boolean erDuBankerot() {
 		return this.bankerot;
 	}
@@ -41,10 +32,10 @@ public class Spiller {
 	}
 
 	public void hævPåKonto(int værdi) {
-		if (konto.checkMinus(værdi)==true) {
-			bankerot = true;
+		if (konto.checkMinus(værdi)==true) { //check om det vil give minus at hæve på kontoen, for så 
+			bankerot = true; //bankerot = true
 		}
-		konto.hæv(værdi);
+		konto.hæv(værdi); //hæv penge på kontoen
 	}
 
 	public int hentPosition() {
@@ -62,6 +53,7 @@ public class Spiller {
 	public void sætEkstraTur(boolean ekstraTur) {
 		this.ekstraTur = ekstraTur;
 	}
+	
 	public String toString() {
 		String returstreng;
 		String navn = " ";

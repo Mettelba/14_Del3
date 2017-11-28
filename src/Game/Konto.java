@@ -4,10 +4,8 @@ public class Konto {
 
 	private int værdi;
 
-	public Konto(int værdi) {					// Det man skriver i konstrukt�ren sker engang.
-
-		this.værdi = værdi;				//Her s�tter jeg spillerens konto til 1000. *krav*
-		//S�tter checkforminus til false, da der er 1000 p� konten.
+	public Konto(int værdi) {			
+		this.værdi = værdi;			
 	}
 
 	public int hentVærdi() {
@@ -15,34 +13,34 @@ public class Konto {
 	}
 
 	public void sætVærdi(int værdi) {	
-
-		this.værdi = værdi;  	// hvis ikke, lægger den værdien plus den nye v�rdi over i v�rdi.
+		this.værdi = værdi;
 
 	}
 
 	public boolean checkMinus(int værdi) {
-		if(this.værdi - værdi < 0 ) {		// Sp�rger om konto + v�rdi er mindre end 0, hvis ja 	
-			return true; 					// s�tter checkForMinus til at v�re true = tabt
+		if(this.værdi - værdi < 0 ) {		// Spørger om konto - værdi er mindre end 0, hvis ja 	
+			return true; 					// returner true
 		}else {
-			return false;
+			return false;					// eller false
 		}
 	}
 	
 	public boolean indsæt(int værdi) {
-		if(værdi < 0) {
+		if(værdi < 0) {					// Er værdi der blive indsat en minus værdi så returner false.
 			return false;
 		}else {
-			this.værdi = this.værdi + værdi;
-			return true;
+			this.værdi = this.værdi + værdi; // ellers indsæt værdi på kontoen
+			return true; // returner true
 		}
 	}
 	
 	public boolean hæv(int hævetbeløb) {
-		if (hævetbeløb < 0 || this.værdi - hævetbeløb < 0) {
-			return false;
+		if (hævetbeløb < 0 || this.værdi - hævetbeløb < 0) { //Hvis hævet beløb er minus, eller der ikke er nok penge på kontoen
+			this.værdi = 0;//Sæt konto til 0 kr.
+			return false; //returner false
 		}else {
-			this.værdi = this.værdi - hævetbeløb;
-			return true;
+			this.værdi = this.værdi - hævetbeløb; //ellers hæv penge på kontoen 
+			return true;//returner true.
 		}
 	}
 

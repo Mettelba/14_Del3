@@ -19,14 +19,13 @@ public class HentSpillere {
 
 				antalspillere = Integer.parseInt(input);
 				System.out.println();
-
-				//opret antalspillere + 1. Spiller0 er spillet.
-				spiller = new Spiller[antalspillere+1];
 			}
 		} while (antalspillere < 2 || antalspillere > 4) ; // bliv i dette loop sålænge der ikke er indtastet 2-4 
 
+		//opret spiller til at kunne indeholde antalspillere+1 objektreferencer. Spiller 0 er spillet.
+		spiller = new Spiller[antalspillere+1];
 
-		//overfør spillernavne til spillerobjekter
+		//opret spillerobjekterne
 		for (int i = 0; i<=antalspillere; i++) {
 			spiller[i] = new Spiller();
 		}

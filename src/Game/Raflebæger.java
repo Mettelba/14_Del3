@@ -1,7 +1,9 @@
 package Game;
 
 public class Raflebæger {
-
+	
+	//FORBEREDT TIL 2 TERNINGER..
+	
 	private int antalsider;
 //	private int sum;
 	private Terning terning1;

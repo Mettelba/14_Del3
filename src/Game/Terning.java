@@ -12,27 +12,22 @@ public class Terning {
 		this.sider = sider;
 	}
 
-
 	public void kast() { 
 		Random tal = new Random();
-		this.øjne = tal.nextInt(this.sider)+1;	
+		this.øjne = tal.nextInt(this.sider)+1;	//lave et randomtal mellem 1 og sider.
 	}
-	
 	
 	public int hentØjne() { 
 		return øjne;
 	}
 
-
 	public int hentSider() {
 		return sider;
 	}
 	
-	
 	public void sætSider(int sider) {
 		this.sider = sider;
 	}
-	
 	
 	public void sætØjne(int øjne) {
 		this.øjne = øjne;
