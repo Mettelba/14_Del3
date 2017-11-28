@@ -227,7 +227,7 @@ public class Spilbræt {
 		for (int tæller = 1;tæller< antalspillere;tæller++) {
 			guibil[tæller] = new GUI_Car();
 			guibil[tæller].setPrimaryColor(bilfarve[tæller]);
-			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),31,guibil[tæller]);
+			guispiller[tæller] = new GUI_Player(spiller[tæller].hentNavn(),spiller[tæller].indeståendeSpillerKonto(),guibil[tæller]);
 
 			spilgui.addPlayer(guispiller[tæller]);
 		}

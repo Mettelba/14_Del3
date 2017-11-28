@@ -66,17 +66,17 @@ public class RegelController {
 		}
 		beskedstreng = felter[position].hentBeskedTekst() + ", og du skal betale " + spiller[feltejer].hentNavn() + " " + betalt + " kr i afgift.";
 		if (spiller[aktivspiller].erDuBankerot() == true) {
-			beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
+			beskedstreng = beskedstreng + ", og du gik desværre også bankerot GAMEOVER";
 		}
 		
-		spilgui.showMessage(beskedstreng + "/n Tryk ok");
+		spilgui.showMessage(beskedstreng + ". Tryk ok");
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		guispiller[feltejer].setBalance(spiller[feltejer].indeståendeSpillerKonto());
 	}
 
 
 	public void togFelt(int aktivspiller, int position) {
-		spilgui.showMessage(felter[position].hentBeskedTekst()+ ". Tryk på ok.");
+		spilgui.showMessage(felter[position].hentBeskedTekst()+ ". Tryk ok.");
 		spiller[aktivspiller].sætEkstraTur(true);
 	}
 
@@ -99,9 +99,9 @@ public class RegelController {
 		
 		spiller[aktivspiller].hævPåKonto(tilbetaling);
 		if (spiller[aktivspiller].erDuBankerot()) {
-			beskedstreng = beskedstreng + ", og du gik desværre også bankerot. Spillet er færdigt";
+			beskedstreng = beskedstreng + ", og du gik desværre også bankerot GAMEOVER";
 		}	
-		spilgui.showMessage(beskedstreng + "/n Tryk ok.");	
+		spilgui.showMessage(beskedstreng + ". Tryk ok.");	
 		guispiller[aktivspiller].setBalance(spiller[aktivspiller].indeståendeSpillerKonto());
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet 
 		return betalt;

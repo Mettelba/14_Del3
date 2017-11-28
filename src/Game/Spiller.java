@@ -2,7 +2,7 @@ package Game;
 public class Spiller {
 
 	private String navn;
-	private Konto konto = new Konto(31);
+	private Konto konto = new Konto(0);
 	private boolean bankerot = false;
 	private int position = 0; //Starter på start.
 	private boolean ekstraTur = false;

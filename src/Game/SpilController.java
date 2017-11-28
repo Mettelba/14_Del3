@@ -7,7 +7,7 @@ import gui_fields.*;
 
 public class SpilController {
 	private int aktivspiller = 1;//Vi starter med spiller 1
-	
+
 	private Spiller[] spiller;
 	private Raflebæger raflebæger = new Raflebæger(6);
 	private Spilbræt spillebræt;
@@ -16,7 +16,7 @@ public class SpilController {
 	private GUI_Field[] guifelter;
 	private Felt[] felter; 
 	private RegelController regler; 
-	private StartSpilController lavspillere = new StartSpilController();
+	private HentSpillere lavspillere = new HentSpillere();
 	private int antalspillere =0;
 
 
@@ -30,16 +30,16 @@ public class SpilController {
 		guispiller = spillebræt.hentGUISpiller();
 		guifelter = spillebræt.hentGUIfelter();
 		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
- 
+
 	}
-	
+
 	public void skiftSpiller() {
 		// Kør spilsekvens hvis aktivspiller ikke er bankerot.
 		while(true) {
 			spilSekvens(spiller, aktivspiller); //send spiller ind i spilsekvens
 			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot
-				endGame();
-				break;//Håndter slutspil optælling af penge for de andre spillere etc.
+				endGame();//Håndter slutspil optælling af penge for spillere etc.
+				break;
 			}
 			aktivspiller++;
 
@@ -49,7 +49,7 @@ public class SpilController {
 			}
 		}
 	}	
-	
+
 	public void spilSekvens(Spiller[] spiller, int aktivspiller) {
 		this.aktivspiller = aktivspiller;
 		this.spiller = spiller;	
@@ -108,83 +108,79 @@ public class SpilController {
 			{
 				regler.normalFeltKøbGrund(aktivspiller, position);
 			}
-		
-		break;
 
-	case 2://Et tog
-		regler.togFelt(aktivspiller, position);
-		break;
+			break;
 
-	case 3://Fyrværkeri eller delfiner eller Café
-		regler.entreFelt(aktivspiller, position);	
-		break;
+		case 2://Et tog
+			regler.togFelt(aktivspiller, position);
+			break;
+
+		case 3://Fyrværkeri eller delfiner eller Café
+			regler.entreFelt(aktivspiller, position);	
+			break;
 
 
-	case 4://Onkel Mangepenges byttepenge
-		regler.onkelMangePengeFelt(aktivspiller);
-		break;
+		case 4://Onkel Mangepenges byttepenge
+			regler.onkelMangePengeFelt(aktivspiller);
+			break;
 
-	case 5://Gå på Cafe felt
-		regler.gåTilCafeFelt(aktivspiller);	
-		kaldRegel(spiller, felter, aktivspiller);
+		case 5://Gå på Cafe felt
+			regler.gåTilCafeFelt(aktivspiller);	
+			kaldRegel(spiller, felter, aktivspiller);
 
-		break;
+			break;
 
-	case 6://START
-		regler.startFelt(aktivspiller);
-		break;
+		case 6://START
+			regler.startFelt(aktivspiller);
+			break;
+		}
 	}
-}
 
-public void endGame() {
-	int fastejendom = 0;
-	String beskedtekst = "";
-	int[][] vinderpodie = new int[2][antalspillere+1];
-	boolean sorteret = true;
+	public void endGame() {
+		int fastejendom = 0;
+		String beskedtekst = "";
+		int[][] vinderpodie = new int[2][antalspillere+1];
+		boolean sorteret = true;
 
-	//Optælling af samlet formue for hver spiller.
-	for (int tæller = 1;tæller <= antalspillere;tæller++) {
-		//sammentæl værdi af ejet fast ejendom.
-		for (int tæller2 = 0;tæller2 <=23;tæller2++) {
-			if (felter[tæller2].hentEjer() == tæller) {
-				fastejendom = fastejendom + felter[tæller2].hentPris();
+		//Optælling af samlet formue for hver spiller.
+		for (int tæller = 1;tæller <= antalspillere;tæller++) {
+			//sammentæl værdi af ejet fast ejendom.
+			for (int tæller2 = 0;tæller2 <=23;tæller2++) {
+				if (felter[tæller2].hentEjer() == tæller) {
+					fastejendom = fastejendom + felter[tæller2].hentPris();
+				}
+			}
+			vinderpodie[0][tæller]=tæller;
+			vinderpodie[1][tæller]=fastejendom + spiller[tæller].indeståendeSpillerKonto();
+		}
+		spiller[0].indsætPåKonto(0);
+		//Sortering af vinder podie.
+
+		while (sorteret != false) {
+			sorteret = false;
+
+			for (int tæller = 1;tæller <= antalspillere-1;tæller++) {
+				if (vinderpodie[1][tæller]< vinderpodie[1][tæller+1]) {
+					vinderpodie[0][0] = vinderpodie[0][tæller];
+					vinderpodie[1][0] = vinderpodie[1][tæller];
+
+					vinderpodie[0][tæller] = vinderpodie[0][tæller+1];
+					vinderpodie[1][tæller] = vinderpodie[1][tæller+1];
+
+					vinderpodie[0][tæller+1] = vinderpodie[0][0];
+					vinderpodie[1][tæller+1] = vinderpodie[1][0];
+
+					vinderpodie[0][0]= 0;
+					vinderpodie[1][0]= 0;
+
+					sorteret = true;
+				}			
 			}
 		}
-		vinderpodie[0][tæller]=tæller;
-		vinderpodie[1][tæller]=fastejendom + spiller[tæller].indeståendeSpillerKonto();
-	}
-	spiller[0].indsætPåKonto(0);
-	//Sortering af vinder podie.
-
-	while (sorteret != false) {
-		sorteret = false;
-
-		for (int tæller = 0;tæller <= antalspillere-1;tæller++) {
-
-			if (vinderpodie[0][tæller]< vinderpodie[1][tæller+1]) {
-				vinderpodie[0][0] = vinderpodie[0][tæller];
-				vinderpodie[1][0] = vinderpodie[1][tæller];
-
-				vinderpodie[0][tæller] = vinderpodie[0][tæller+1];
-				vinderpodie[1][tæller] = vinderpodie[1][tæller+1];
-
-				vinderpodie[0][tæller+1] = vinderpodie[0][0];
-				vinderpodie[1][tæller+1] = vinderpodie[1][0];
-
-				vinderpodie[0][0]= 0;
-				vinderpodie[1][0]= 0;
-
-				sorteret = true;
-			}			
-		}
-
 		for (int tæller = 1; tæller <= antalspillere; tæller++) {
-			beskedtekst = tæller + ".plads: " + spiller[vinderpodie[0][tæller]].hentNavn() + " med en samlet formue på" + vinderpodie[1][tæller] + "\n";
-
+			beskedtekst =  beskedtekst + tæller + ".plads- " + spiller[vinderpodie[0][tæller]].hentNavn() + " med en samlet formue på " + vinderpodie[1][tæller] + " kr. \n";
 		}
 		System.out.println(beskedtekst);
 	}
 }
-}
-
 
