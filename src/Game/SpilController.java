@@ -6,9 +6,9 @@ import gui_fields.*;
 
 
 public class SpilController {
-	private int aktivspiller = 1;//Vi starter med spiller 1
 
-	private Spiller[] spiller;
+
+//	private Spiller[] spiller;
 	private Raflebæger raflebæger = new Raflebæger(6);
 	private Spilbræt spillebræt;
 	private GUI spilgui;
@@ -17,13 +17,13 @@ public class SpilController {
 	private Felt[] felter; 
 	private RegelController regler; 
 	private HentSpillere lavspillere = new HentSpillere();
-	private int antalspillere =0;
+	private Spiller[] spiller = lavspillere.hentSpillere();
+
+//	private int antalspillere =0;
 
 
 	public SpilController() {
 
-		spiller = lavspillere.hentSpillere();
-		antalspillere= lavspillere.hentAntalSpillere();
 		spillebræt = new Spilbræt(spiller);
 		spilgui = spillebræt.hentSpilGui();
 		felter = spillebræt.hentSpilFelter();
@@ -34,11 +34,15 @@ public class SpilController {
 	}
 
 	public void skiftSpiller() {
+		int aktivspiller = 1;//Vi starter med spiller 1
+		int antalspillere = lavspillere.hentAntalSpillere();
+		
+		
 		// Kør spilsekvens
 		while(true) {
 			spilSekvens(spiller, aktivspiller); //send spiller ind i spilsekvens
 			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot pga. spilsekvensen
-				endGame();//Håndter slutspil optælling af penge for spillere etc.
+				endGame(spiller, antalspillere);//Håndter slutspil optælling af penge for spillere etc.
 				break;
 			}
 			aktivspiller++;
@@ -136,7 +140,7 @@ public class SpilController {
 		}
 	}
 
-	public void endGame() {
+	public void endGame(Spiller[] spiller, int antalspillere) {
 		int fastejendom = 0;
 		String beskedtekst = "";
 		int[][] vinderpodie = new int[2][antalspillere+1];
