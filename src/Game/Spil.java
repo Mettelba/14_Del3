@@ -1,28 +1,15 @@
 package Game;
-import java.util.Scanner;
 
 public class Spil {
 
-	private int antalspillere;
-
-	private Spiller[] spiller;
-	private SpilController spilkontrol;
-	private Scanner sc = new Scanner(System.in);
-
-
+	private SpilController monopolyspil;
 
 	public static void main(String[] args) {
 
-		Spil monopolyspil = new Spil();
-		monopolyspil.initialiserSpil();
+		Spil spil = new Spil();
+		spil.monopolyspil = new SpilController();
+		spil.monopolyspil.skiftSpiller();
 	}
-	
-	public void initialiserSpil() {
-	    StartSpilController startSpilController = new StartSpilController();
-	    spiller = startSpilController.initialiserSpil();
-	    
 
-		spilkontrol = new SpilController(spiller);
-		spilkontrol.skiftSpiller(antalspillere);
-	}
+
 }

@@ -7,7 +7,7 @@ import gui_fields.*;
 
 public class SpilController {
 	private int aktivspiller = 1;//Vi starter med spiller 1
-
+	
 	private Spiller[] spiller;
 	private Raflebæger raflebæger = new Raflebæger(6);
 	private Spilbræt spillebræt;
@@ -16,25 +16,29 @@ public class SpilController {
 	private GUI_Field[] guifelter;
 	private Felt[] felter; 
 	private RegelController regler; 
+	private StartSpilController lavspillere = new StartSpilController();
+	private int antalspillere =0;
 
 
-	public SpilController(Spiller[] spiller) {
+	public SpilController() {
 
+		spiller = lavspillere.hentSpillere();
+		antalspillere= lavspillere.hentAntalSpillere();
 		spillebræt = new Spilbræt(spiller);
 		spilgui = spillebræt.hentSpilGui();
 		felter = spillebræt.hentSpilFelter();
 		guispiller = spillebræt.hentGUISpiller();
 		guifelter = spillebræt.hentGUIfelter();
 		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
-		this.spiller = spiller;
+ 
 	}
-
-	public void skiftSpiller(int antalspillere) {
+	
+	public void skiftSpiller() {
 		// Kør spilsekvens hvis aktivspiller ikke er bankerot.
 		while(true) {
 			spilSekvens(spiller, aktivspiller); //send spiller ind i spilsekvens
 			if (spiller[aktivspiller].erDuBankerot()==true) { //Hvis spilleren er bankerot
-				endGame(antalspillere);
+				endGame();
 				break;//Håndter slutspil optælling af penge for de andre spillere etc.
 			}
 			aktivspiller++;
@@ -42,11 +46,10 @@ public class SpilController {
 			//Hvis vi er nået til sidste spiller
 			if (aktivspiller==antalspillere+1) {
 				aktivspiller=1; //Sæt den aktive spiller til spiller1
-
 			}
 		}
-	}
-
+	}	
+	
 	public void spilSekvens(Spiller[] spiller, int aktivspiller) {
 		this.aktivspiller = aktivspiller;
 		this.spiller = spiller;	
@@ -133,7 +136,7 @@ public class SpilController {
 	}
 }
 
-public void endGame(int antalspillere) {
+public void endGame() {
 	int fastejendom = 0;
 	String beskedtekst = "";
 	int[][] vinderpodie = new int[2][antalspillere+1];
@@ -176,10 +179,10 @@ public void endGame(int antalspillere) {
 		}
 
 		for (int tæller = 1; tæller <= antalspillere; tæller++) {
-			beskedtekst = tæller + ".plads: " + spiller[vinderpodie[0][tæller]].hentNavn() + " med en samlet formue på" + vinderpodie[1][tæller] + "/n";
+			beskedtekst = tæller + ".plads: " + spiller[vinderpodie[0][tæller]].hentNavn() + " med en samlet formue på" + vinderpodie[1][tæller] + "\n";
 
 		}
-		spilgui.showMessage(beskedtekst);
+		System.out.println(beskedtekst);
 	}
 }
 }
