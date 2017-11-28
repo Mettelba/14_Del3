@@ -3,11 +3,12 @@ package Game;
 import java.util.Scanner;
 
 public class HentSpillere {
-	int antalspillere = 0;
-	String indtastetnavn;
-	Spiller[] spiller;
-	String input;
-	public Spiller[] hentSpillere() {
+	private int antalspillere = 0;
+	private String indtastetnavn;
+	private Spiller[] spiller;
+	private String input;
+		
+	protected Spiller[] hentSpillere() {
 
 		//Indtast antal spillere og deres navne
 		Scanner sc = new Scanner(System.in);
@@ -41,7 +42,7 @@ public class HentSpillere {
 		return spiller; //giver referencen tilbage 
 	}
 
-	public int hentAntalSpillere() {
+	protected int hentAntalSpillere() {
 		return this.antalspillere;
 	}
 
