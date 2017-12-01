@@ -10,6 +10,8 @@ public class HentSpillere {
 		
 	public Spiller[] hentSpillere() {
 
+		
+		
 		//Indtast antal spillere og deres navne
 		Scanner sc = new Scanner(System.in);
 
