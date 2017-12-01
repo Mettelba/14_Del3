@@ -13,19 +13,19 @@ public class Raflebæger {
 
 	
 
-	protected Raflebæger (int antalsider) {	
+	public Raflebæger (int antalsider) {	
 		this.antalsider = antalsider;
 		terning1 = new Terning(this.antalsider);
 //		terning2 = new Terning(this.antalsider);
 	}
 
  
-	protected int hentAntalsider() {
+	public int hentAntalsider() {
 		return antalsider;
 	}
 
  
-	protected void ryst() { 
+	public void ryst() { 
 		this.terning1værdi = 0;
 		terning1.kast();
 //		terning2.kast();
@@ -36,38 +36,38 @@ public class Raflebæger {
 	}  
 	
 	
-//	protected int hentSum() {
+//	public int hentSum() {
 //		return this.sum;
 //	}
 	
 	
-	protected int hentTerning1værdi(){ 
+	public int hentTerning1værdi(){ 
 		return terning1værdi;
  	}
 	
 	
-//	protected int hentTerning2værdi() {
+//	public int hentTerning2værdi() {
 //		return terning2værdi;
 //	}
 	
 	
-	protected void sætAntalsider(int antalsider) {
+	public void sætAntalsider(int antalsider) {
 		this.antalsider = antalsider;
 
 	}
 	
 	
-//	protected void sætSum(int sum) {
+//	public void sætSum(int sum) {
 //		this.sum = sum;
 //	}
 	
 	
- 	protected void sætTerning1værdi(int terning1værdi) {
+ 	public void sætTerning1værdi(int terning1værdi) {
  		this.terning1værdi = terning1værdi;
  	}
 	
  	
-// 	protected void sætTerning2værdi(int terning2værdi) {
+// 	public void sætTerning2værdi(int terning2værdi) {
 // 		this.terning2værdi = terning2værdi;
 // 	}
 	

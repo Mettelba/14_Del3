@@ -17,7 +17,7 @@ public class RegelController {
 	private int prisfordobler;
 
 
-	protected RegelController(Spiller[] spiller, Felt[] felter, GUI_Player[] guispiller, GUI spilgui, GUI_Field[] guifelter) {
+	public RegelController(Spiller[] spiller, Felt[] felter, GUI_Player[] guispiller, GUI spilgui, GUI_Field[] guifelter) {
 		this.spiller = spiller;
 		this.felter = felter;
 		this.guispiller = guispiller;
@@ -26,11 +26,11 @@ public class RegelController {
 		prisfordobler = 1; //prisfordobler bestemmer hvilket tal der ganges med i forhold til hvor meget den grundlæggende pris skal forøges når man lander på et felt
 	}
 
-	protected void flytSpiller(int aktivspiller, int position) {
+	public void flytSpiller(int aktivspiller, int position) {
 		spilgui.getFields()[position].setCar(guispiller[aktivspiller], true);
 	}
 	
-	protected void normalFeltKøbGrund(int aktivspiller, int position) {
+	public void normalFeltKøbGrund(int aktivspiller, int position) {
 		int feltejer = felter[spiller[aktivspiller].hentPosition()].hentEjer();
 		boolean valg;
 
@@ -49,7 +49,7 @@ public class RegelController {
 
 	}
 
-	protected void normalFeltEjetAfAnden(int aktivspiller, int position) {
+	public void normalFeltEjetAfAnden(int aktivspiller, int position) {
 		int feltnrpåpar = ((NormalFelt)felter[position]).hentPar();//Det felt som feltet danner par med
 		int betalt;
 		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();//Den aktive spillers indestående
@@ -86,7 +86,7 @@ public class RegelController {
 	}
 
 
-	protected void togFelt(int aktivspiller, int position) {
+	public void togFelt(int aktivspiller, int position) {
 		spiller[aktivspiller].sætEkstraTur(true); // sæt ekstratur i aktivspiller
 		
 		//GUI
@@ -94,7 +94,7 @@ public class RegelController {
 
 	}
 
-	protected void entreFelt(int aktivspiller, int position) {
+	public void entreFelt(int aktivspiller, int position) {
 		int indestående = spiller[aktivspiller].indeståendeSpillerKonto();//Hvad har spiller på konto
 		int betalt;
 		int tilbetaling = ((EntreFelt)felter[position]).hentPrisForEntre();//Hvad koster det konkrete entrefelt at lande på
@@ -122,7 +122,7 @@ public class RegelController {
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet 
 	}
 
-	protected void onkelMangePengeFelt(int aktivspiller) {
+	public void onkelMangePengeFelt(int aktivspiller) {
 		int pengepåfelt = ((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge();
 		
 		spiller[aktivspiller].indsætPåKonto(pengepåfelt);
@@ -135,7 +135,7 @@ public class RegelController {
 		spilgui.getFields()[Konstanter.ONKELSFELT].setSubText(String.valueOf((((OnkelMangePengeFelt)felter[Konstanter.ONKELSFELT]).hentOnkelsPenge()))); //overfør hvor mange penge der er på feltet til GUI feltet
 	}
 
-	protected void gåTilCafeFelt(int aktivspiller) {
+	public void gåTilCafeFelt(int aktivspiller) {
 		int position = spiller[aktivspiller].hentPosition();
 		
 		//GUI
@@ -147,7 +147,7 @@ public class RegelController {
 		spilgui.getFields()[spiller[aktivspiller].hentPosition()].setCar(guispiller[aktivspiller], true);
 	}
 
-	protected void startFelt(int aktivspiller) {
+	public void startFelt(int aktivspiller) {
 		spiller[aktivspiller].indsætPåKonto(((StartFelt)felter[Konstanter.STARTFELT]).hentPasserStart());
 		
 		//GUI

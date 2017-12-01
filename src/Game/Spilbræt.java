@@ -16,23 +16,23 @@ public class Spilbræt {
 	private GUI_Car[] guibil= new GUI_Car[5];
 	private Color[] bilfarve = new Color[5];
 	
-	protected Spilbræt(Spiller[] spiller) {
+	public Spilbræt(Spiller[] spiller) {
 		initialiserSpilBræt(spiller);
 	}
 
-	protected GUI hentSpilGui() {
+	public GUI hentSpilGui() {
 		return spilgui;
 	}
 
-	protected Felt[] hentSpilFelter() {
+	public Felt[] hentSpilFelter() {
 		return felter;
 	}
 	 
-	protected GUI_Player[] hentGUISpiller() {
+	public GUI_Player[] hentGUISpiller() {
 		return guispiller;
 	}
 	
-	protected GUI_Field[] hentGUIfelter() {
+	public GUI_Field[] hentGUIfelter() {
 		return guifelter;
 	}
 
@@ -241,7 +241,7 @@ public class Spilbræt {
 	}
 
 
-	protected int hentType (int position) {
+	public int hentType (int position) {
 		int felttype;
 		felttype = felter[position].hentFeltType();
 		return felttype;

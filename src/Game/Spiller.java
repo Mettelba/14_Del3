@@ -8,49 +8,49 @@ public class Spiller {
 	private boolean ekstraTur = false;
 
 
-	protected Spiller() {
+	public Spiller() {
 	}
 
-	protected String hentNavn() {
+	public String hentNavn() {
 		return this.navn;
 	}
 
-	protected void sætNavn(String navn) {
+	public void sætNavn(String navn) {
 		this.navn = navn;
 	}
 
-	protected boolean erDuBankerot() {
+	public boolean erDuBankerot() {
 		return this.bankerot;
 	}
 
-	protected int indeståendeSpillerKonto() {
+	public int indeståendeSpillerKonto() {
 		return konto.hentVærdi();
 	}
 
-	protected void indsætPåKonto(int værdi) {
+	public void indsætPåKonto(int værdi) {
 		konto.indsæt(værdi);
 	}
 
-	protected void hævPåKonto(int værdi) {
+	public void hævPåKonto(int værdi) {
 		if (konto.checkMinus(værdi)==true) { //check om det vil give minus at hæve på kontoen, for så 
 			bankerot = true; //bankerot = true
 		}
 		konto.hæv(værdi); //hæv penge på kontoen
 	}
 
-	protected int hentPosition() {
+	public int hentPosition() {
 		return position;
 	}
 
-	protected void sætPosition(int position) {
+	public void sætPosition(int position) {
 		this.position = position;
 	}
 
-	protected boolean hentEkstraTur() {
+	public boolean hentEkstraTur() {
 		return ekstraTur;
 	}
 
-	protected void sætEkstraTur(boolean ekstraTur) {
+	public void sætEkstraTur(boolean ekstraTur) {
 		this.ekstraTur = ekstraTur;
 	}
 	

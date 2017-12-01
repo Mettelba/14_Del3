@@ -17,7 +17,7 @@ public class SpilController {
 	private HentSpillere lavspillere = new HentSpillere();
 	private Spiller[] spiller = lavspillere.hentSpillere();
 
-	protected SpilController() {
+	public SpilController() {
 
 		spillebræt = new Spilbræt(spiller);
 		spilgui = spillebræt.hentSpilGui();
@@ -27,7 +27,7 @@ public class SpilController {
 		regler = new RegelController(spiller, felter, guispiller, spilgui, guifelter);
 	}
 
-	protected void skiftSpiller() {
+	public void skiftSpiller() {
 		int aktivspiller = 1;//Vi starter med spiller 1
 		int antalspillere = lavspillere.hentAntalSpillere();
 		
@@ -48,7 +48,7 @@ public class SpilController {
 		}
 	}	
 
-	protected void spilSekvens(Spiller[] spiller, int aktivspiller) {
+	public void spilSekvens(Spiller[] spiller, int aktivspiller) {
 		int feltrykkettil;
 
 		do {
@@ -134,7 +134,7 @@ public class SpilController {
 		}
 	}
 
-	protected void endGame(Spiller[] spiller, int antalspillere) {
+	public void endGame(Spiller[] spiller, int antalspillere) {
 		int fastejendom = 0;
 		String beskedtekst = "";
 		int[][] vinderpodie = new int[2][antalspillere+1];

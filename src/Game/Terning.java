@@ -8,28 +8,28 @@ public class Terning {
 	private int sider = 3;
 
 
-	protected Terning(int sider) {
+	public Terning(int sider) {
 		this.sider = sider;
 	}
 
-	protected void kast() { 
+	public void kast() { 
 		Random tal = new Random();
 		this.øjne = tal.nextInt(this.sider)+1;	//lave et randomtal mellem 1 og sider.
 	}
 	
-	protected int hentØjne() { 
+	public int hentØjne() { 
 		return øjne;
 	}
 
-	protected int hentSider() {
+	public int hentSider() {
 		return sider;
 	}
 	
-	protected void sætSider(int sider) {
+	public void sætSider(int sider) {
 		this.sider = sider;
 	}
 	
-	protected void sætØjne(int øjne) {
+	public void sætØjne(int øjne) {
 		this.øjne = øjne;
 	}
 	 

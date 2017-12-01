@@ -8,7 +8,7 @@ public class HentSpillere {
 	private Spiller[] spiller;
 	private String input;
 		
-	protected Spiller[] hentSpillere() {
+	public Spiller[] hentSpillere() {
 
 		//Indtast antal spillere og deres navne
 		Scanner sc = new Scanner(System.in);
@@ -42,7 +42,7 @@ public class HentSpillere {
 		return spiller; //giver referencen tilbage 
 	}
 
-	protected int hentAntalSpillere() {
+	public int hentAntalSpillere() {
 		return this.antalspillere;
 	}
 
