@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.2.2" icons="true" automaticImage="JPEG" generate-combined-fragments="true">  
+  <object id="1" language="java" name="Game.RegelController" project="14_del3" 
+    file="/14_del3/src/Game/RegelController.java" binary="false" label="regelController" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="2">      
+      <position height="767" width="0" x="0" y="78"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="704" width="0" x="0" y="120"/>    
+    </execution>    
+    <execution id="33">      
+      <position height="514" width="0" x="0" y="865"/>    
+    </execution>    
+    <execution id="35">      
+      <position height="451" width="0" x="0" y="907"/>    
+    </execution>    
+    <execution id="56">      
+      <position height="84" width="0" x="0" y="1390"/>    
+    </execution>    
+    <execution id="58">      
+      <position height="21" width="0" x="0" y="1432"/>    
+    </execution>    
+    <execution id="59">      
+      <position height="84" width="0" x="0" y="1483"/>    
+    </execution>    
+    <execution id="61">      
+      <position height="21" width="0" x="0" y="1525"/>    
+    </execution>    
+    <execution id="62">      
+      <position height="84" width="0" x="0" y="1572"/>    
+    </execution>    
+    <execution id="64">      
+      <position height="21" width="0" x="0" y="1614"/>    
+    </execution>    
+    <execution id="65">      
+      <position height="84" width="0" x="0" y="1663"/>    
+    </execution>    
+    <execution id="67">      
+      <position height="21" width="0" x="0" y="1705"/>    
+    </execution>    
+    <execution id="68">      
+      <position height="84" width="0" x="0" y="1755"/>    
+    </execution>    
+    <execution id="70">      
+      <position height="21" width="0" x="0" y="1797"/>    
+    </execution>    
+    <execution id="71">      
+      <position height="84" width="0" x="0" y="1845"/>    
+    </execution>    
+    <execution id="73">      
+      <position height="21" width="0" x="0" y="1887"/>    
+    </execution>  
+  </object>  
+  <object id="74" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="37">      
+      <position height="21" width="0" x="0" y="938"/>    
+    </execution>  
+  </object>  
+  <object id="75" language="java" name="Felter.Felt" project="14_del3" file="/14_del3/src/Felter/Felt.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="41">      
+      <position height="21" width="0" x="0" y="1022"/>    
+    </execution>  
+  </object>  
+  <object id="76" language="java" name="gui_fields.GUI_Field" project="14_del3" 
+    file="C:/Users/kimsa/.m2/repository/diplomitdtu/matadorgui/3.1.2/matadorgui-3.1.2.jar" binary="true" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="45">      
+      <position height="21" width="0" x="0" y="1106"/>    
+    </execution>  
+  </object>  
+  <object id="77" language="java" name="Felter.GåTilCafeFelt" project="14_del3" 
+    file="/14_del3/src/Felter/GåTilCafeFelt.java" binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="47">      
+      <position height="21" width="0" x="0" y="1148"/>    
+    </execution>  
+  </object>  
+  <object id="78" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="49">      
+      <position height="21" width="0" x="0" y="1190"/>    
+    </execution>  
+  </object>  
+  <object id="79" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="53">      
+      <position height="21" width="0" x="0" y="1274"/>    
+    </execution>  
+  </object>  
+  <object id="80" language="java" name="gui_fields.GUI_Field" project="14_del3" 
+    file="C:/Users/kimsa/.m2/repository/diplomitdtu/matadorgui/3.1.2/matadorgui-3.1.2.jar" binary="true" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="55">      
+      <position height="21" width="0" x="0" y="1316"/>    
+    </execution>  
+  </object>  
+  <object id="81" language="java" name="Felter.NormalFelt" project="14_del3" file="/14_del3/src/Felter/NormalFelt.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="6">      
+      <position height="21" width="0" x="0" y="151"/>    
+    </execution>  
+  </object>  
+  <object id="82" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="193"/>    
+    </execution>  
+  </object>  
+  <object id="83" language="java" name="Felter.NormalFelt" project="14_del3" file="/14_del3/src/Felter/NormalFelt.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="10">      
+      <position height="21" width="0" x="0" y="235"/>    
+    </execution>  
+  </object>  
+  <object id="84" language="java" name="Felter.Felt" project="14_del3" file="/14_del3/src/Felter/Felt.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="12">      
+      <position height="21" width="0" x="0" y="277"/>    
+    </execution>  
+  </object>  
+  <object id="85" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="319"/>    
+    </execution>  
+  </object>  
+  <object id="86" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="16">      
+      <position height="21" width="0" x="0" y="399"/>    
+    </execution>  
+  </object>  
+  <object id="87" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="18">      
+      <position height="21" width="0" x="0" y="478"/>    
+    </execution>  
+  </object>  
+  <object id="88" language="java" name="Felter.Felt" project="14_del3" file="/14_del3/src/Felter/Felt.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="20">      
+      <position height="21" width="0" x="0" y="530"/>    
+    </execution>  
+  </object>  
+  <object id="89" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="572"/>    
+    </execution>  
+  </object>  
+  <object id="90" language="java" name="gui_main.GUI" project="14_del3" 
+    file="C:/Users/kimsa/.m2/repository/diplomitdtu/matadorgui/3.1.2/matadorgui-3.1.2.jar" binary="true" label="spilgui" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="24">      
+      <position height="21" width="0" x="0" y="614"/>    
+    </execution>    
+    <execution id="39">      
+      <position height="21" width="0" x="0" y="980"/>    
+    </execution>    
+    <execution id="43">      
+      <position height="21" width="0" x="0" y="1064"/>    
+    </execution>    
+    <execution id="51">      
+      <position height="21" width="0" x="0" y="1232"/>    
+    </execution>  
+  </object>  
+  <object id="91" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="26">      
+      <position height="21" width="0" x="0" y="656"/>    
+    </execution>  
+  </object>  
+  <object id="92" language="java" name="gui_fields.GUI_Player" project="14_del3" 
+    file="C:/Users/kimsa/.m2/repository/diplomitdtu/matadorgui/3.1.2/matadorgui-3.1.2.jar" binary="true" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="28">      
+      <position height="21" width="0" x="0" y="698"/>    
+    </execution>  
+  </object>  
+  <object id="93" language="java" name="Game.Spiller" project="14_del3" file="/14_del3/src/Game/Spiller.java" 
+    binary="false" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="30">      
+      <position height="21" width="0" x="0" y="740"/>    
+    </execution>  
+  </object>  
+  <object id="94" language="java" name="gui_fields.GUI_Player" project="14_del3" 
+    file="C:/Users/kimsa/.m2/repository/diplomitdtu/matadorgui/3.1.2/matadorgui-3.1.2.jar" binary="true" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="32">      
+      <position height="21" width="0" x="0" y="782"/>    
+    </execution>  
+  </object>  
+  <combined-fragment id="95" interaction-operator="ALT">    
+    <interaction-operand id="96" constraint="indestående &lt; tilbetaling">      
+      <fragment refId="15"/>    
+    </interaction-operand>    
+    <interaction-operand id="97" constraint="else">      
+      <fragment refId="17"/>    
+    </interaction-operand>  
+  </combined-fragment>  
+  <message id="3" operation="normalFeltEjetAfAnden(int,int):void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="5" operation="hentPar():int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="6"/>  
+  </message>  
+  <message id="7" operation="indeståendeSpillerKonto():int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="9" operation="hentEjer():int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </message>  
+  <message id="11" operation="hentPris():int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="12"/>  
+  </message>  
+  <message id="13" operation="hævPåKonto(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="15" operation="indsætPåKonto(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </message>  
+  <message id="17" operation="indsætPåKonto(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </message>  
+  <message id="19" operation="hentBeskedTekst():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </message>  
+  <message id="21" operation="hentNavn():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="23" operation="showMessage(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="24"/>  
+  </message>  
+  <message id="25" operation="indeståendeSpillerKonto():int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>  
+  <message id="27" operation="setBalance(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="28"/>  
+  </message>  
+  <message id="29" operation="indeståendeSpillerKonto():int" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="30"/>  
+  </message>  
+  <message id="31" operation="setBalance(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="32"/>  
+  </message>  
+  <message id="34" operation="gåTilCafeFelt(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="35"/>  
+  </message>  
+  <message id="36" operation="hentPosition():int" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="37"/>  
+  </message>  
+  <message id="38" operation="showMessage(java.lang.String):void" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="39"/>  
+  </message>  
+  <message id="40" operation="hentBeskedTekst():java.lang.String" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="41"/>  
+  </message>  
+  <message id="42" operation="getFields():gui_fields.GUI_Field[]" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="43"/>  
+  </message>  
+  <message id="44" operation="setCar(gui_fields.GUI_Player,boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="45"/>  
+  </message>  
+  <message id="46" operation="hentGåTilFeltNr():int" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="47"/>  
+  </message>  
+  <message id="48" operation="sætPosition(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="49"/>  
+  </message>  
+  <message id="50" operation="getFields():gui_fields.GUI_Field[]" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="51"/>  
+  </message>  
+  <message id="52" operation="hentPosition():int" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="53"/>  
+  </message>  
+  <message id="54" operation="setCar(gui_fields.GUI_Player,boolean):void" asynchronous="false">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="55"/>  
+  </message>  
+  <message id="57" operation="flytSpiller(int,int):void" asynchronous="false">    
+    <end type="SOURCE" refId="56"/>    
+    <end type="TARGET" refId="58"/>  
+  </message>  
+  <message id="60" operation="normalFeltKøbGrund(int,int):void" asynchronous="false">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="61"/>  
+  </message>  
+  <message id="63" operation="togFelt(int,int):void" asynchronous="false">    
+    <end type="SOURCE" refId="62"/>    
+    <end type="TARGET" refId="64"/>  
+  </message>  
+  <message id="66" operation="entreFelt(int,int):void" asynchronous="false">    
+    <end type="SOURCE" refId="65"/>    
+    <end type="TARGET" refId="67"/>  
+  </message>  
+  <message id="69" operation="onkelMangePengeFelt(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="68"/>    
+    <end type="TARGET" refId="70"/>  
+  </message>  
+  <message id="72" operation="startFelt(int):void" asynchronous="false">    
+    <end type="SOURCE" refId="71"/>    
+    <end type="TARGET" refId="73"/>  
+  </message>
+</sequence-diagram>
