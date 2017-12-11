@@ -45,5 +45,8 @@ public abstract class Felt {
 	public String hentFeltTekst() {
 		return this.felttekst;
 	}
+	public int landOnFelt(){
+		return 1;
+	}
 }
 

@@ -9,7 +9,9 @@ public class EntreFelt extends Felt {
 		
 	} 
 	
-	
+	public int landOnFelt() {
+		return this.prisforentre;
+	}
 	
 	public int hentPrisForEntre() {
 		return this.prisforentre;

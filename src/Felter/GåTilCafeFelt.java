@@ -8,6 +8,10 @@ public class GåTilCafeFelt extends Felt{
 		this.gåtilfeltnr = gåtilfeltnr;
 	}
 
+	public int landOnFelt() {
+		return this.gåtilfeltnr;
+	}
+	
 	
 	public int hentGåTilFeltNr() {
 		return this.gåtilfeltnr;
