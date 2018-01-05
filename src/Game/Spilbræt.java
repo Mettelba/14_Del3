@@ -245,5 +245,6 @@ public class Spilbræt {
 		int felttype;
 		felttype = felter[position].hentFeltType();
 		return felttype;
+
 	}
 }
